@@ -3,94 +3,110 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NoorTime – Prayer, Calendar, Qibla</title>
+    <title>NoorTime – Prayer | Qibla | Hijri</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
       body {
         font-family: 'Inter', sans-serif;
-        background: linear-gradient(to bottom right, #fefcf7, #f4f0e9);
-        color: #2b2b2b;
-      }
-      .divider {
-        height: 1px;
-        background-color: #e5e7eb;
-        margin: 2rem 0;
+        background: linear-gradient(to bottom right, #fdfdfb, #f7f2ea);
       }
     </style>
   </head>
   <body>
-    <main class="min-h-screen px-4 py-10 sm:px-8">
-      <div class="max-w-5xl mx-auto">
-        <!-- Header -->
-        <header class="text-center mb-12">
-          <img src="logo-noortime.png" alt="NoorTime logo" class="h-16 w-auto mx-auto mb-4" onerror="this.style.display='none'" />
-          <h1 class="text-5xl font-extrabold text-[#473c32]">NoorTime</h1>
-          <p class="text-lg text-[#6b5c4c] mt-2">The Daily Islamic Utility — Prayer Times • Hijri Converter • Qibla Finder</p>
-        </header>
+    <!-- Header -->
+    <header class="flex items-center justify-between px-6 py-4 shadow-md bg-white">
+      <div class="flex items-center gap-2">
+        <img src="logo-noortime.png" alt="NoorTime Logo" class="h-8 w-auto" onerror="this.style.display='none'">
+        <h1 class="text-2xl font-semibold text-gray-800">NoorTime</h1>
+      </div>
+      <nav class="space-x-4 text-sm text-gray-600">
+        <a href="#" class="hover:underline">Dashboard</a>
+        <a href="#" class="hover:underline">Calendar</a>
+        <a href="#" class="hover:underline">About</a>
+        <a href="#" class="hover:underline">Contact</a>
+        <a href="#" class="hover:underline">Privacy Policy</a>
+      </nav>
+    </header>
 
-        <!-- Date Converter -->
-        <section class="bg-white border border-gray-200 rounded-2xl shadow-md p-6 mb-12">
-          <h2 class="text-2xl font-semibold text-[#3d352a] mb-4">🕰 Gregorian → Hijri Date Converter</h2>
-          <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
-            <input type="date" id="gregorian-input" class="border border-gray-300 rounded-xl px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-yellow-400" />
-            <button onclick="convertDate()" class="bg-yellow-500 hover:bg-yellow-600 text-white font-medium px-6 py-3 rounded-xl">Convert</button>
+    <main class="px-4 sm:px-8 py-10 max-w-6xl mx-auto">
+      <!-- Location & Date -->
+      <section class="text-center mb-10">
+        <p class="text-gray-600">📍 Detecting your location...</p>
+        <p id="today-date" class="text-lg text-gray-800 font-medium mt-1">Loading date...</p>
+      </section>
+
+      <!-- Grid Layout -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Suhoor & Iftar -->
+        <section class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+          <h2 class="text-xl font-semibold text-gray-700 mb-4">Suhoor & Iftar Times</h2>
+          <div class="flex justify-between items-center">
+            <div>
+              <p class="text-sm text-gray-500">Suhoor Ends</p>
+              <p id="suhoor-time" class="text-xl font-bold">--:--</p>
+            </div>
+            <div>
+              <p class="text-sm text-gray-500">Iftar Begins</p>
+              <p id="iftar-time" class="text-xl font-bold">--:--</p>
+            </div>
           </div>
-          <p id="hijri-result" class="mt-4 text-gray-700 text-sm font-medium"></p>
-        </section>
-
-        <!-- Prayer Times -->
-        <section class="bg-white border border-gray-200 rounded-2xl shadow-md p-6 mb-12">
-          <h2 class="text-2xl font-semibold text-[#3d352a] mb-4">🕌 Today's Prayer Times</h2>
-          <button onclick="getPrayerTimes()" class="bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-3 rounded-xl mb-4">Detect My Location</button>
-          <div id="prayer-times" class="text-sm text-gray-700 space-y-1"></div>
         </section>
 
         <!-- Qibla Finder -->
-        <section class="bg-white border border-gray-200 rounded-2xl shadow-md p-6">
-          <h2 class="text-2xl font-semibold text-[#3d352a] mb-4">🧭 Qibla Direction</h2>
-          <p class="text-sm text-gray-500 mb-2">Feature coming soon. You'll be able to find Qibla based on your compass and location.</p>
+        <section class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+          <h2 class="text-xl font-semibold text-gray-700 mb-4">Qibla Finder</h2>
+          <p class="text-sm text-gray-500">Coming soon – compass will point toward the Kaaba.</p>
         </section>
 
+        <!-- Hijri Converter -->
+        <section class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+          <h2 class="text-xl font-semibold text-gray-700 mb-4">Hijri ↔ Gregorian Converter</h2>
+          <div class="flex gap-4">
+            <input type="date" id="gregorian-input" class="flex-1 border border-gray-300 rounded px-4 py-2">
+            <button onclick="convertDate()" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded">Convert</button>
+          </div>
+          <p id="hijri-result" class="text-sm text-gray-700 mt-3"></p>
+        </section>
+
+        <!-- Daily Prayer Times -->
+        <section class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+          <h2 class="text-xl font-semibold text-gray-700 mb-4">Daily Prayer Times</h2>
+          <button onclick="getPrayerTimes()" class="mb-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">Detect My Location</button>
+          <div id="prayer-times" class="text-sm text-gray-800 space-y-1"></div>
+        </section>
       </div>
     </main>
 
     <script>
+      function updateTodayDate() {
+        const today = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById("today-date").innerText = today.toLocaleDateString('en-US', options);
+      }
+
       async function convertDate() {
-        const dateInput = document.getElementById("gregorian-input");
-        if (!dateInput || !dateInput.value) return;
-        try {
-          const res = await fetch(`https://api.aladhan.com/v1/gToH?date=${dateInput.value}`);
-          const data = await res.json();
-          const resultEl = document.getElementById("hijri-result");
-          if (resultEl && data.data?.hijri) {
-            resultEl.innerText = `Hijri Date: ${data.data.hijri.date} (${data.data.hijri.weekday.en})`;
-          } else {
-            resultEl.innerText = "Failed to fetch date.";
-          }
-        } catch (err) {
-          document.getElementById("hijri-result").innerText = "Error fetching date.";
-        }
+        const date = document.getElementById("gregorian-input").value;
+        if (!date) return;
+        const res = await fetch(`https://api.aladhan.com/v1/gToH?date=${date}`);
+        const data = await res.json();
+        document.getElementById("hijri-result").innerText = `Hijri Date: ${data.data.hijri.date} (${data.data.hijri.weekday.en})`;
       }
 
       async function getPrayerTimes() {
-        if (!navigator.geolocation) return alert("Geolocation not supported");
         navigator.geolocation.getCurrentPosition(async (position) => {
           const lat = position.coords.latitude;
           const lon = position.coords.longitude;
-          try {
-            const res = await fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=2`);
-            const data = await res.json();
-            const timings = data.data.timings;
-            const output = Object.entries(timings)
-              .map(([name, time]) => `<div><strong>${name}</strong>: ${time}</div>`)
-              .join('');
-            const prayerEl = document.getElementById("prayer-times");
-            if (prayerEl) prayerEl.innerHTML = output;
-          } catch (err) {
-            alert("Error retrieving prayer times.");
-          }
+          const res = await fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=2`);
+          const data = await res.json();
+          const timings = data.data.timings;
+          const pt = document.getElementById("prayer-times");
+          pt.innerHTML = Object.entries(timings).map(([key, value]) => `<div><strong>${key}</strong>: ${value}</div>`).join('');
+          document.querySelector("#suhoor-time").textContent = timings.Imsak || timings.Fajr || "--:--";
+          document.querySelector("#iftar-time").textContent = timings.Maghrib || "--:--";
         });
       }
+
+      updateTodayDate();
     </script>
   </body>
 </html>
