@@ -79,15 +79,24 @@
     }
 
     async function convertDate() {
-      const date = document.getElementById("gregorian-input").value;
-      if (!date) return;
-      try {
-        const res = await fetch(`https://api.aladhan.com/v1/gToH?date=${date}`);
-        const data = await res.json();
-        document.getElementById("hijri-result").innerText = `Hijri Date: ${data.data.hijri.date} (${data.data.hijri.weekday.en})`;
-      } catch (e) {
-        document.getElementById("hijri-result").innerText = "Error fetching date.";
-      }
+  const input = document.getElementById("gregorian-input");
+  const date = input?.value?.trim();
+  if (!date || !/\\d{4}-\\d{2}-\\d{2}/.test(date)) {
+    document.getElementById("hijri-result").innerText = "Please enter a valid date (YYYY-MM-DD).";
+    return;
+  }
+
+  try {
+    const response = await fetch(`https://api.aladhan.com/v1/gToH?date=${encodeURIComponent(date)}`);
+    const data = await response.json();
+    if (data?.data?.hijri?.date) {
+      document.getElementById("hijri-result").innerText = `Hijri Date: ${data.data.hijri.date} (${data.data.hijri.weekday.en})`;
+    } else {
+      document.getElementById("hijri-result").innerText = "Conversion failed. Try again.";
+    }
+  } catch (error) {
+    document.getElementById("hijri-result").innerText = "API request failed.";
+  }
     }
 
     function calculatePrayerTimes() {
