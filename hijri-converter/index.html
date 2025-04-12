@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -8,6 +7,11 @@
   <meta name="description" content="Convert Gregorian to Hijri and Hijri to Gregorian dates using the accurate Umm al-Qura calendar. No API required. Works offline.">
   <meta name="keywords" content="Hijri converter, Gregorian to Hijri, Islamic date converter, Umm al-Qura, Hijri calendar, Islamic calendar 1446, Ramadan date">
   <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Hijri to Gregorian Date Converter | NoorTime" />
+  <meta property="og:description" content="Convert Islamic dates accurately and quickly between Hijri and Gregorian calendars using NoorTime." />
+  <meta property="og:url" content="https://noortime.org/hijri-converter" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="../assets/noortime.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
   <style>
@@ -28,19 +32,23 @@
 
 <body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
   <img src="../assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" alt="Islamic background with crescent and stars" />
+  <div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-40 hidden"></div>
 
-  <header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-10">
-    <div class="text-xl font-bold gold">🕌 NoorTime</div>
-    <nav class="flex gap-6 text-sm font-medium text-white/80">
-      <a href="../index.html" class="hover:text-yellow-400">Home</a>
-      <a href="../prayer-times/index.html" class="hover:text-yellow-400">Prayer Times</a>
-      <a href="index.html" class="text-yellow-300 underline font-semibold">Hijri Converter</a>
+  <!-- HEADER -->
+  <header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-50">
+    <a href="../index.html" class="text-xl font-bold gold">🕌 NoorTime</a>
+    <button class="md:hidden text-white text-2xl" id="menuBtn">☰</button>
+    <nav id="mainNav" class="hidden md:flex flex-col md:flex-row gap-4 md:gap-6 absolute md:static top-full left-0 w-full md:w-auto bg-[#0d1b2a] md:bg-transparent p-6 md:p-0 z-50 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none">
+      <a href="../index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🏠 Home</a>
+      <a href="../prayer-times/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📿 Prayer Times</a>
+      <a href="index.html" class="block py-2 px-4 rounded hover:bg-white/10 text-yellow-300 underline font-semibold text-lg md:text-sm">📆 Hijri Converter</a>
+      <a href="../calendar/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🗓 Islamic Calendar</a>
+      <a href="../ramadan-countdown/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🌙 Ramadan Countdown</a>
     </nav>
   </header>
 
   <main class="z-10 relative px-4 sm:px-6 py-10 max-w-xl mx-auto space-y-10 text-center">
     <h1 class="text-3xl sm:text-4xl font-bold gold">📅 Hijri ↔ Gregorian Converter</h1>
-
     <h2 class="text-xl font-semibold text-yellow-300">Convert Islamic Hijri Dates with Ease</h2>
     <p class="text-sm text-white/80 max-w-md mx-auto">
       This tool uses the official Umm al-Qura calendar to provide accurate conversions between Hijri and Gregorian dates.
@@ -108,6 +116,20 @@
         out.textContent = "Date not found in range.";
       }
     }
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mainNav = document.getElementById("mainNav");
+    const backdrop = document.getElementById("mobileBackdrop");
+
+    menuBtn.addEventListener("click", () => {
+      mainNav.classList.toggle("hidden");
+      backdrop.classList.toggle("hidden");
+    });
+
+    backdrop.addEventListener("click", () => {
+      mainNav.classList.add("hidden");
+      backdrop.classList.add("hidden");
+    });
   </script>
 
   <script type="application/ld+json">
@@ -124,7 +146,7 @@
       "priceCurrency": "USD"
     },
     "description": "An accurate Hijri to Gregorian converter using the Umm al-Qura calendar. Works offline.",
-    "keywords": ["Hijri converter", "Hijri Miladi converter", Miladi Hijri converter", "Islamic date converter", "Gregorian to Hijri", "Hijri calendar"]
+    "keywords": ["Hijri converter", "Hijri Miladi converter", "Miladi Hijri converter", "Islamic date converter", "Gregorian to Hijri", "Hijri calendar"]
   }
   </script>
 </body>
