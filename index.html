@@ -49,23 +49,25 @@
 <body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
   <img src="./assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" alt="background" />
 
-  <!-- Header -->
-  <header class="w-full px-6 py-4 flex justify-between items-center max-w-6xl mx-auto relative z-10 fade-section">
+  <!-- HEADER -->
+  <header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-10 fade-section">
     <div class="text-xl font-bold gold">🕌 NoorTime</div>
-    <button class="md:hidden text-white" id="menuBtn">☰</button>
-    <nav id="mainNav" class="hidden md:flex gap-6 text-sm font-medium text-white/80 flex-col md:flex-row absolute md:static top-16 right-6 bg-[#0d1b2a]/90 md:bg-transparent rounded-xl md:rounded-none p-4 md:p-0 shadow-lg md:shadow-none z-50">
-      <a href="prayer-times/index.html" class="hover:text-yellow-400">Prayer Times</a>
-      <a href="hijri-converter/index.html" class="hover:text-yellow-400">Hijri Converter</a>
-      <a href="calendar/index.html" class="hover:text-yellow-400">Islamic Calendar</a>
-      <a href="ramadan-countdown/index.html" class="hover:text-yellow-400">Ramadan Countdown</a>
+    <button class="md:hidden text-white text-2xl" id="menuBtn">☰</button>
+    
+    <!-- Navigation -->
+    <nav id="mainNav" class="hidden md:flex gap-6 text-sm font-medium text-white/80 md:static absolute top-16 left-4 right-4 bg-[#0d1b2a]/95 md:bg-transparent p-6 md:p-0 rounded-2xl shadow-xl md:shadow-none flex-col md:flex-row z-50">
+      <a href="prayer-times/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📿 Prayer Times</a>
+      <a href="hijri-converter/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📆 Hijri Converter</a>
+      <a href="calendar/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🗓 Islamic Calendar</a>
+      <a href="ramadan-countdown/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🌙 Ramadan Countdown</a>
     </nav>
   </header>
 
+  <!-- MAIN -->
   <main class="z-10 relative px-4 sm:px-6 py-16 max-w-5xl mx-auto space-y-12 text-center">
     <h1 class="text-4xl sm:text-5xl font-bold gold fade-section">🕌 NoorTime – Your Ultimate Islamic Toolkit</h1>
     <p class="text-white/70 text-lg max-w-2xl mx-auto fade-section">Start your day with a powerful verse from the Quran and explore tools like prayer times, Hijri converter, and more.</p>
 
-    <!-- Tool Links -->
     <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-left text-white/90 fade-section">
       <a href="prayer-times/index.html" class="card p-6 hover:shadow-lg transition">
         <h2 class="text-lg font-bold text-yellow-300">📿 Prayer Times</h2>
@@ -85,13 +87,11 @@
       </a>
     </section>
 
-    <!-- Verse of the Day -->
     <div class="card p-6 mt-10 fade-section">
       <h2 class="text-lg font-semibold text-yellow-400 mb-2">📖 Today’s Quran Verse</h2>
       <blockquote id="quranVerse" class="text-white/80 text-sm italic leading-relaxed">Loading verse...</blockquote>
     </div>
 
-    <!-- Benefits Section -->
     <div class="card p-6 mt-10 text-left text-sm text-white/80 fade-section">
       <h2 class="text-lg text-yellow-400 font-semibold mb-2">Why Use NoorTime?</h2>
       <ul class="list-disc pl-5 space-y-1">
@@ -108,6 +108,7 @@
     NoorTime.org · Quran-Powered · For the Ummah
   </footer>
 
+  <!-- SCRIPT -->
   <script>
     const verses = [
       "Indeed, prayer prohibits immorality and wrongdoing. – Qur'an 29:45",
@@ -119,7 +120,6 @@
     const index = new Date().getDate() % verses.length;
     document.getElementById('quranVerse').textContent = verses[index];
 
-    // Fade effect on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -127,7 +127,7 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
 
-    // Hamburger toggle
+    // Mobile nav toggle
     document.getElementById("menuBtn").addEventListener("click", () => {
       const nav = document.getElementById("mainNav");
       nav.classList.toggle("hidden");
