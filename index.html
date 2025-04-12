@@ -3,75 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NoorTime – Your Islamic Companion</title>
+  <title>NoorTime – Islamic Tools</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Cairo', sans-serif;
     }
-
-    .glass {
+    .gold {
+      background: linear-gradient(to right, #d4af37, #fceabb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(12px);
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border-radius: 1.25rem;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-4px);
     }
   </style>
 </head>
 
-<body class="bg-[#101624] text-white">
+<body class="bg-[#0d1b2a] text-white min-h-screen flex flex-col items-center justify-center relative overflow-x-hidden">
 
-  <!-- HERO SECTION -->
-  <section class="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-6">
-    <img src="assets/hero-bg.jpg" alt="Background" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" />
-    <div class="z-10 max-w-3xl">
-      <h1 class="text-4xl sm:text-6xl font-bold mb-4 text-white drop-shadow-md">🕌 NoorTime</h1>
-      <p class="text-lg sm:text-xl text-gray-100 max-w-xl mx-auto drop-shadow">
-        Your all-in-one Islamic utility — from prayer times to calendars, converters, and more.
-      </p>
+  <!-- Background -->
+  <img src="assets/hero-bg.jpg" alt="background" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" />
+
+  <!-- Content Wrapper -->
+  <main class="z-10 w-full max-w-3xl px-6 py-16 text-center">
+    <h1 class="text-5xl font-bold gold mb-2">NoorTime</h1>
+    <p class="text-gray-200 text-lg mb-12">Your all-in-one Islamic Companion</p>
+
+    <!-- Tool Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <a href="prayer-times/" class="card p-6 text-white flex flex-col items-center justify-center">
+        <div class="text-3xl mb-2">🕋</div>
+        <h2 class="text-lg font-semibold">Prayer Times</h2>
+      </a>
+      <a href="hijri-converter/" class="card p-6 text-white flex flex-col items-center justify-center">
+        <div class="text-3xl mb-2">📅</div>
+        <h2 class="text-lg font-semibold">Hijri Converter</h2>
+      </a>
+      <a href="islamic-calendar/" class="card p-6 text-white flex flex-col items-center justify-center">
+        <div class="text-3xl mb-2">🗓️</div>
+        <h2 class="text-lg font-semibold">Islamic Calendar</h2>
+      </a>
+      <a href="countdowns/" class="card p-6 text-white flex flex-col items-center justify-center">
+        <div class="text-3xl mb-2">⏱️</div>
+        <h2 class="text-lg font-semibold">Countdowns</h2>
+      </a>
     </div>
-  </section>
+  </main>
 
-  <!-- TOOL GRID -->
-  <section class="bg-[#f8f8f8] text-gray-800 py-16 px-4">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-2xl font-bold mb-10 text-center">Explore Tools</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- Tool Cards -->
-        <a href="prayer-times/" class="glass rounded-xl p-6 text-white bg-gradient-to-br from-green-600 to-green-700 hover:scale-[1.02] transition">
-          <h3 class="text-xl font-bold mb-1">🕋 Prayer Times</h3>
-          <p class="text-sm opacity-90">Accurate prayer times based on your location.</p>
-        </a>
-
-        <a href="hijri-converter/" class="glass rounded-xl p-6 text-white bg-gradient-to-br from-blue-600 to-blue-700 hover:scale-[1.02] transition">
-          <h3 class="text-xl font-bold mb-1">📅 Hijri Converter</h3>
-          <p class="text-sm opacity-90">Convert between Hijri and Gregorian calendars.</p>
-        </a>
-
-        <a href="ramadan-times/" class="glass rounded-xl p-6 text-white bg-gradient-to-br from-pink-600 to-pink-700 hover:scale-[1.02] transition">
-          <h3 class="text-xl font-bold mb-1">🌙 Ramadan Times</h3>
-          <p class="text-sm opacity-90">Track Suhoor and Iftar times during Ramadan.</p>
-        </a>
-
-        <a href="islamic-calendar/" class="glass rounded-xl p-6 text-white bg-gradient-to-br from-yellow-600 to-yellow-700 hover:scale-[1.02] transition">
-          <h3 class="text-xl font-bold mb-1">🗓 Islamic Calendar</h3>
-          <p class="text-sm opacity-90">View Hijri months and special Islamic dates.</p>
-        </a>
-
-        <a href="countdowns/" class="glass rounded-xl p-6 text-white bg-gradient-to-br from-purple-600 to-purple-700 hover:scale-[1.02] transition">
-          <h3 class="text-xl font-bold mb-1">⏳ Countdowns</h3>
-          <p class="text-sm opacity-90">Countdown to Ramadan, Eid al-Fitr, and more.</p>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="text-center text-xs text-gray-400 py-8 bg-[#101624]">
-    NoorTime.org · Built with ❤️ for the Ummah · Deployed on Vercel
+  <!-- Footer -->
+  <footer class="text-xs text-gray-300 py-6 z-10 text-center">
+    NoorTime.org · Built with ❤️ · Deployed via Vercel
   </footer>
+
 </body>
 </html>
