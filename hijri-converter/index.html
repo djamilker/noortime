@@ -1,9 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NoorTime – Hijri Converter</title>
+  <title>Hijri to Gregorian Date Converter | Accurate Umm al-Qura Calendar – NoorTime</title>
+  <meta name="description" content="Convert Gregorian to Hijri and Hijri to Gregorian dates using the accurate Umm al-Qura calendar. No API required. Works offline.">
+  <meta name="keywords" content="Hijri converter, Gregorian to Hijri, Islamic date converter, Umm al-Qura, Hijri calendar, Islamic calendar 1446, Ramadan date">
+  <meta name="robots" content="index, follow">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
   <style>
@@ -23,9 +27,8 @@
 </head>
 
 <body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
-  <img src="../assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" alt="bg" />
+  <img src="../assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" alt="Islamic background with crescent and stars" />
 
-  <!-- HEADER -->
   <header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-10">
     <div class="text-xl font-bold gold">🕌 NoorTime</div>
     <nav class="flex gap-6 text-sm font-medium text-white/80">
@@ -35,11 +38,15 @@
     </nav>
   </header>
 
-  <!-- MAIN -->
   <main class="z-10 relative px-4 sm:px-6 py-10 max-w-xl mx-auto space-y-10 text-center">
     <h1 class="text-3xl sm:text-4xl font-bold gold">📅 Hijri ↔ Gregorian Converter</h1>
 
-    <!-- Gregorian to Hijri -->
+    <h2 class="text-xl font-semibold text-yellow-300">Convert Islamic Hijri Dates with Ease</h2>
+    <p class="text-sm text-white/80 max-w-md mx-auto">
+      This tool uses the official Umm al-Qura calendar to provide accurate conversions between Hijri and Gregorian dates.
+      It supports Ramadan, Eid al-Fitr, Hajj dates, and more — updated for 2025 and beyond.
+    </p>
+
     <div class="card p-6 space-y-3">
       <h2 class="text-yellow-300 text-lg font-semibold">🗓 Gregorian to Hijri</h2>
       <input type="date" id="gregorianInput" class="w-full mt-2 px-3 py-2 rounded bg-white/10 text-white border border-white/20" />
@@ -47,7 +54,6 @@
       <p id="hijriOutput" class="text-sm text-yellow-200 mt-2"></p>
     </div>
 
-    <!-- Hijri to Gregorian -->
     <div class="card p-6 space-y-3">
       <h2 class="text-yellow-300 text-lg font-semibold">🗓 Hijri to Gregorian</h2>
       <div class="flex gap-2 flex-wrap justify-center">
@@ -71,27 +77,13 @@
       "Jumada al-awwal", "Jumada al-thani", "Rajab", "Sha'ban",
       "Ramadan", "Shawwal", "Dhu al-Qi'dah", "Dhu al-Hijjah"
     ];
-
-    // Fill dropdowns
     const yearSelect = document.getElementById("hijriYear");
     const monthSelect = document.getElementById("hijriMonth");
     const daySelect = document.getElementById("hijriDay");
 
-    for (let y = 1440; y <= 1460; y++) {
-      yearSelect.innerHTML += `<option value="${y}">${y}</option>`;
-    }
-    hijriMonths.forEach((name, idx) => {
-      monthSelect.innerHTML += `<option value="${idx + 1}">${name}</option>`;
-    });
-    for (let d = 1; d <= 30; d++) {
-      daySelect.innerHTML += `<option value="${d}">${d}</option>`;
-    }
-
-    // --- Accurate Converter using precompiled lookup table ---
-    const hijriData = window.UmmAlQura || {};
-   
-
-    // Insert lookup table (I’ll generate and give it in next message due to size limit)
+    for (let y = 1440; y <= 1460; y++) yearSelect.innerHTML += `<option value="${y}">${y}</option>`;
+    hijriMonths.forEach((name, idx) => monthSelect.innerHTML += `<option value="${idx + 1}">${name}</option>`);
+    for (let d = 1; d <= 30; d++) daySelect.innerHTML += `<option value="${d}">${d}</option>`;
 
     function convertToHijri() {
       const g = document.getElementById("gregorianInput").value;
@@ -118,6 +110,22 @@
     }
   </script>
 
-  <!-- ✅ IN NEXT MESSAGE: I will send you the lookup table to paste inside your script tag. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Hijri Date Converter – NoorTime",
+    "url": "https://noortime.org/hijri-converter",
+    "applicationCategory": "Utility",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "An accurate Hijri to Gregorian converter using the Umm al-Qura calendar. Works offline.",
+    "keywords": ["Hijri converter", "Hijri Miladi converter", Miladi Hijri converter", "Islamic date converter", "Gregorian to Hijri", "Hijri calendar"]
+  }
+  </script>
 </body>
 </html>
