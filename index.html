@@ -3,83 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NoorTime – Prayer Times</title>
+    <title>NoorTime – Your Islamic Tools</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
     <style>
-      body {
-        font-family: 'Inter', sans-serif;
-      }
+      body { font-family: 'Inter', sans-serif; }
     </style>
   </head>
-
   <body class="min-h-screen text-gray-800 flex flex-col items-center">
     <!-- HEADER -->
     <header class="w-full max-w-6xl px-6 py-4 flex justify-between items-center bg-white/70 backdrop-blur sticky top-0 z-20 shadow-sm rounded-b-xl">
-      <div class="flex items-center gap-2 font-bold text-green-700 text-xl">🕌 <span>Noor</span></div>
-      <nav class="flex gap-6 text-sm text-gray-700 font-medium">
-        <a href="index.html" class="text-green-700 font-bold underline">Prayer Times</a>
-        <a href="hijri-converter.html" class="hover:text-green-600">Hijri Converter</a>
+      <div class="flex items-center gap-2 font-bold text-green-700 text-xl">🕌 <span>NoorTime</span></div>
+      <nav class="hidden sm:flex gap-6 text-sm text-gray-700 font-medium">
+        <a href="index.html" class="text-green-700 font-bold underline">Home</a>
+        <a href="prayer-times/index.html" class="hover:text-green-600">Prayer Times</a>
+        <a href="hijri-converter/index.html" class="hover:text-green-600">Hijri Converter</a>
+        <a href="ramadan-times/index.html" class="hover:text-green-600">Ramadan Times</a>
+        <a href="islamic-calendar/index.html" class="hover:text-green-600">Calendar</a>
+        <a href="countdowns/index.html" class="hover:text-green-600">Countdowns</a>
       </nav>
       <button class="border border-gray-300 p-2 rounded-lg hover:bg-gray-100">⚙️</button>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main class="w-full max-w-xl px-4 sm:px-6 py-10 space-y-6">
-      <!-- Section: Welcome & Date -->
-      <div class="bg-white border rounded-xl shadow p-6 text-center space-y-2">
-        <h1 class="text-3xl font-bold text-green-700">🕌 NoorTime</h1>
-        <p class="text-gray-600">Your Islamic Companion</p>
-        <p class="text-sm text-gray-500" id="location">📍 Detecting location...</p>
-        <p class="text-sm text-gray-500" id="date">📅 Loading date...</p>
-      </div>
+    <!-- HERO -->
+    <section class="text-center px-6 py-12">
+      <h1 class="text-4xl sm:text-5xl font-bold text-green-700 mb-4">🕌 NoorTime</h1>
+      <p class="text-lg text-gray-600">Your all-in-one Islamic daily companion</p>
+    </section>
 
-      <!-- Section: Prayer Times -->
-      <div class="bg-white border rounded-xl shadow p-6">
-        <h2 class="text-lg font-semibold text-green-600 mb-4">📿 Prayer Times</h2>
-        <div class="grid grid-cols-2 gap-y-3 text-gray-700 text-sm" id="prayerTimes">
-          <span>Fajr</span><span>--:--</span>
-          <span>Dhuhr</span><span>--:--</span>
-          <span>Asr</span><span>--:--</span>
-          <span>Maghrib</span><span>--:--</span>
-          <span>Isha</span><span>--:--</span>
-        </div>
-      </div>
-    </main>
+    <!-- TOOLS GRID -->
+    <section class="w-full max-w-5xl px-6 pb-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <a href="prayer-times/index.html" class="bg-white border rounded-xl shadow p-6 hover:border-green-600 hover:shadow-lg transition">
+        <h2 class="text-xl font-semibold text-green-700">🕋 Prayer Times</h2>
+        <p class="text-sm text-gray-600 mt-2">Accurate daily prayer times based on your location</p>
+      </a>
+      <a href="hijri-converter/index.html" class="bg-white border rounded-xl shadow p-6 hover:border-green-600 hover:shadow-lg transition">
+        <h2 class="text-xl font-semibold text-green-700">📅 Hijri Converter</h2>
+        <p class="text-sm text-gray-600 mt-2">Convert Gregorian to Hijri and vice versa</p>
+      </a>
+      <a href="ramadan-times/index.html" class="bg-white border rounded-xl shadow p-6 hover:border-green-600 hover:shadow-lg transition">
+        <h2 class="text-xl font-semibold text-green-700">🌙 Ramadan Times</h2>
+        <p class="text-sm text-gray-600 mt-2">View Suhoor and Iftar times throughout Ramadan</p>
+      </a>
+      <a href="islamic-calendar/index.html" class="bg-white border rounded-xl shadow p-6 hover:border-green-600 hover:shadow-lg transition">
+        <h2 class="text-xl font-semibold text-green-700">🗓️ Islamic Calendar</h2>
+        <p class="text-sm text-gray-600 mt-2">Full Hijri calendar with Islamic months</p>
+      </a>
+      <a href="countdowns/index.html" class="bg-white border rounded-xl shadow p-6 hover:border-green-600 hover:shadow-lg transition">
+        <h2 class="text-xl font-semibold text-green-700">⏳ Countdowns</h2>
+        <p class="text-sm text-gray-600 mt-2">Track time until Ramadan, Eid al-Fitr, Eid al-Adha and more</p>
+      </a>
+    </section>
 
     <!-- FOOTER -->
     <footer class="text-center text-xs text-gray-400 py-6">
-      NoorTime.org · Powered by AlAdhan API · Deployed via Vercel
+      NoorTime.org · Built with ❤️ for the Ummah
     </footer>
-
-    <!-- SCRIPT -->
-    <script>
-      // Set today’s date
-      const today = new Date();
-      document.getElementById('date').textContent = `📅 ${today.toDateString()}`;
-
-      // Get user location and fetch prayer times
-      fetch('https://ipapi.co/json')
-        .then(res => res.json())
-        .then(loc => {
-          const locationText = `${loc.city}, ${loc.country_name}`;
-          document.getElementById('location').textContent = `📍 ${locationText}`;
-
-          return fetch(`https://api.aladhan.com/v1/timings?latitude=${loc.latitude}&longitude=${loc.longitude}&method=2`);
-        })
-        .then(res => res.json())
-        .then(data => {
-          const times = data.data.timings;
-          const container = document.getElementById('prayerTimes');
-          container.innerHTML = '';
-          ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'].forEach(name => {
-            container.innerHTML += `<span class="font-medium">${name}</span><span class="text-right">${times[name]}</span>`;
-          });
-        })
-        .catch(err => {
-          document.getElementById('location').textContent = '📍 Location unavailable';
-          console.error('Failed to load prayer times:', err);
-        });
-    </script>
   </body>
 </html>
