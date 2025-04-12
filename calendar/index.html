@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Islamic Calendar 1446 | NoorTime</title>
   <meta name="description" content="Explore the full Islamic (Hijri) Calendar for the year 1446 AH. View key Islamic dates, holidays, and Hijri to Gregorian conversion.">
+  <meta name="keywords" content="Islamic calendar, Hijri calendar, 1446 AH, Islamic holidays, Ramadan 1446, Eid al-Fitr 1446, Eid al-Adha 1446">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Islamic Calendar 1446 | NoorTime" />
+  <meta property="og:description" content="Full 1446 Hijri Calendar with Islamic months, holidays, and key dates. Powered by NoorTime." />
+  <meta property="og:url" content="https://noortime.org/calendar" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://noortime.org/calendar" />
+  <link rel="icon" type="image/png" href="../assets/noortime.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
   <style>
@@ -21,87 +29,132 @@
       border-radius: 1.25rem;
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Islamic Calendar 1446 – NoorTime",
+    "url": "https://noortime.org/calendar",
+    "description": "Accurate and beautiful Islamic Calendar for 1446 AH with all Hijri months, important Islamic dates, and holiday highlights.",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "Website",
+      "name": "NoorTime",
+      "url": "https://noortime.org"
+    }
+  }
+  </script>
 </head>
 <body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
-  <img src="../assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" alt="bg" />
-  <header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-10">
-    <div class="text-xl font-bold gold">🕌 NoorTime</div>
-    <nav class="flex gap-6 text-sm font-medium text-white/80">
-      <a href="../index.html" class="hover:text-yellow-400">Home</a>
-      <a href="../prayer-times/index.html" class="hover:text-yellow-400">Prayer Times</a>
-      <a href="../hijri-converter/index.html" class="hover:text-yellow-400">Hijri Converter</a>
-      <a href="index.html" class="text-yellow-300 underline font-semibold">Islamic Calendar</a>
+  <img src="../assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" alt="Islamic night sky with crescent moon background" />
+  <div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-40 hidden"></div>
+
+  <header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-50">
+    <a href="../index.html" class="text-xl font-bold gold">🕌 NoorTime</a>
+    <button class="md:hidden text-white text-2xl" id="menuBtn">☰</button>
+    <nav id="mainNav" class="hidden md:flex flex-col md:flex-row gap-4 md:gap-6 absolute md:static top-full left-0 w-full md:w-auto bg-[#0d1b2a] md:bg-transparent p-6 md:p-0 z-50 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none">
+      <a href="../index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🏠 Home</a>
+      <a href="../prayer-times/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📿 Prayer Times</a>
+      <a href="../hijri-converter/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📆 Hijri Converter</a>
+      <a href="index.html" class="block py-2 px-4 rounded hover:bg-white/10 text-yellow-300 underline font-semibold text-lg md:text-sm">🗓 Islamic Calendar</a>
+      <a href="../ramadan-countdown/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🌙 Ramadan Countdown</a>
     </nav>
   </header>
+
   <main class="z-10 relative px-4 sm:px-6 py-10 max-w-4xl mx-auto text-center">
     <h1 class="text-3xl sm:text-4xl font-bold gold">🗓 Islamic Calendar – 1446 AH</h1>
     <p class="text-sm text-white/70 mb-8">Click on a month to view Hijri ↔ Gregorian mapping with highlighted Islamic dates</p>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-      
-    <a href="1446-01.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
-      <div class="text-yellow-300 font-semibold text-lg">Muharram</div>
-      <div class="text-white/60 text-xs mt-1">1446 AH</div>
-    </a>
-    
-    <a href="1446-02.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
-      <div class="text-yellow-300 font-semibold text-lg">Safar</div>
-      <div class="text-white/60 text-xs mt-1">1446 AH</div>
-    </a>
-    
-    <a href="1446-03.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
-      <div class="text-yellow-300 font-semibold text-lg">Rabi al-Awwal</div>
-      <div class="text-white/60 text-xs mt-1">1446 AH</div>
-    </a>
-    
-    <a href="1446-04.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
-      <div class="text-yellow-300 font-semibold text-lg">Rabi al-Thani</div>
-      <div class="text-white/60 text-xs mt-1">1446 AH</div>
-    </a>
-    
-    <a href="1446-05.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
-      <div class="text-yellow-300 font-semibold text-lg">Jumada al-Awwal</div>
-      <div class="text-white/60 text-xs mt-1">1446 AH</div>
-    </a>
-    
-    <a href="1446-06.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
-      <div class="text-yellow-300 font-semibold text-lg">Jumada al-Thani</div>
-      <div class="text-white/60 text-xs mt-1">1446 AH</div>
-    </a>
-    
-    <a href="1446-07.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
-      <div class="text-yellow-300 font-semibold text-lg">Rajab</div>
-      <div class="text-white/60 text-xs mt-1">1446 AH</div>
-    </a>
-    
-    <a href="1446-08.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
-      <div class="text-yellow-300 font-semibold text-lg">Sha'ban</div>
-      <div class="text-white/60 text-xs mt-1">1446 AH</div>
-    </a>
-    
-    <a href="1446-09.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
-      <div class="text-yellow-300 font-semibold text-lg">Ramadan</div>
-      <div class="text-white/60 text-xs mt-1">1446 AH</div>
-    </a>
-    
-    <a href="1446-10.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
-      <div class="text-yellow-300 font-semibold text-lg">Shawwal</div>
-      <div class="text-white/60 text-xs mt-1">1446 AH</div>
-    </a>
-    
-    <a href="1446-11.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
-      <div class="text-yellow-300 font-semibold text-lg">Dhu al-Qi'dah</div>
-      <div class="text-white/60 text-xs mt-1">1446 AH</div>
-    </a>
-    
-    <a href="1446-12.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
-      <div class="text-yellow-300 font-semibold text-lg">Dhu al-Hijjah</div>
-      <div class="text-white/60 text-xs mt-1">1446 AH</div>
-    </a>
-    
+
+      <a href="1446-01.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
+        <div class="text-yellow-300 font-semibold text-lg">Muharram</div>
+        <div class="text-white/60 text-xs mt-1">1446 AH</div>
+      </a>
+
+      <a href="1446-02.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
+        <div class="text-yellow-300 font-semibold text-lg">Safar</div>
+        <div class="text-white/60 text-xs mt-1">1446 AH</div>
+      </a>
+
+      <a href="1446-03.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
+        <div class="text-yellow-300 font-semibold text-lg">Rabi al-Awwal</div>
+        <div class="text-white/60 text-xs mt-1">1446 AH</div>
+      </a>
+
+      <a href="1446-04.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
+        <div class="text-yellow-300 font-semibold text-lg">Rabi al-Thani</div>
+        <div class="text-white/60 text-xs mt-1">1446 AH</div>
+      </a>
+
+      <a href="1446-05.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
+        <div class="text-yellow-300 font-semibold text-lg">Jumada al-Awwal</div>
+        <div class="text-white/60 text-xs mt-1">1446 AH</div>
+      </a>
+
+      <a href="1446-06.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
+        <div class="text-yellow-300 font-semibold text-lg">Jumada al-Thani</div>
+        <div class="text-white/60 text-xs mt-1">1446 AH</div>
+      </a>
+
+      <a href="1446-07.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
+        <div class="text-yellow-300 font-semibold text-lg">Rajab</div>
+        <div class="text-white/60 text-xs mt-1">1446 AH</div>
+      </a>
+
+      <a href="1446-08.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
+        <div class="text-yellow-300 font-semibold text-lg">Sha'ban</div>
+        <div class="text-white/60 text-xs mt-1">1446 AH</div>
+      </a>
+
+      <a href="1446-09.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
+        <div class="text-yellow-300 font-semibold text-lg">Ramadan</div>
+        <div class="text-white/60 text-xs mt-1">1446 AH</div>
+      </a>
+
+      <a href="1446-10.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
+        <div class="text-yellow-300 font-semibold text-lg">Shawwal</div>
+        <div class="text-white/60 text-xs mt-1">1446 AH</div>
+      </a>
+
+      <a href="1446-11.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
+        <div class="text-yellow-300 font-semibold text-lg">Dhu al-Qi'dah</div>
+        <div class="text-white/60 text-xs mt-1">1446 AH</div>
+      </a>
+
+      <a href="1446-12.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
+        <div class="text-yellow-300 font-semibold text-lg">Dhu al-Hijjah</div>
+        <div class="text-white/60 text-xs mt-1">1446 AH</div>
+      </a>
+
+    </div>
+
+    <div class="mt-10 text-sm text-white/70">
+      Explore more tools:
+      <a href="../prayer-times/index.html" class="underline hover:text-yellow-400 ml-1">Prayer Times</a> ·
+      <a href="../hijri-converter/index.html" class="underline hover:text-yellow-400 ml-1">Hijri Converter</a> ·
+      <a href="../ramadan-countdown/index.html" class="underline hover:text-yellow-400 ml-1">Ramadan Countdown</a>
     </div>
   </main>
+
   <footer class="z-10 text-center text-xs text-white/40 py-6">
     NoorTime.org · Based on Umm al-Qura · Beautiful & Accurate Hijri Calendar
   </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mainNav = document.getElementById("mainNav");
+    const backdrop = document.getElementById("mobileBackdrop");
+
+    menuBtn.addEventListener("click", () => {
+      mainNav.classList.toggle("hidden");
+      backdrop.classList.toggle("hidden");
+    });
+
+    backdrop.addEventListener("click", () => {
+      mainNav.classList.add("hidden");
+      backdrop.classList.add("hidden");
+    });
+  </script>
 </body>
 </html>
