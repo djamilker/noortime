@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gradient-to-br from-green-50 to-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NoorTime – Hijri Converter</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen text-gray-800 flex flex-col items-center">
+    <!-- NAVBAR -->
+    <header class="w-full max-w-6xl px-6 py-4 flex justify-between items-center bg-white/70 backdrop-blur sticky top-0 z-20 shadow-sm rounded-b-xl">
+      <div class="flex items-center gap-2 font-bold text-green-700 text-xl">🕌 <span>Noor</span></div>
+      <nav class="hidden md:flex gap-6 text-sm text-gray-700 font-medium">
+        <a href="index.html" class="hover:text-green-600">Prayer Times</a>
+        <a href="hijri-converter.html" class="hover:text-green-600 font-bold underline">Hijri Converter</a>
+      </nav>
+      <button class="border border-gray-300 p-2 rounded-lg hover:bg-gray-100">⚙️</button>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-xl w-full px-6 py-10 mx-auto">
+      <h2 class="text-2xl font-bold text-green-700 mb-4 text-center">📅 Hijri ↔ Gregorian Converter</h2>
+
+      <div class="bg-white border rounded-xl shadow p-6 space-y-6">
+        <div>
+          <label class="block text-sm font-medium mb-1 text-gray-600">Gregorian to Hijri</label>
+          <input type="date" id="gregorianInput" class="w-full border rounded px-3 py-2 text-sm" />
+          <button onclick="convertToHijri()" class="mt-2 text-sm bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">Convert</button>
+          <p id="hijriOutput" class="text-sm text-green-700 mt-2"></p>
+        </div>
+
+        <div class="border-t pt-4">
+          <label class="block text-sm font-medium mb-1 text-gray-600">Hijri to Gregorian</label>
+          <input type="text" id="hijriInput" placeholder="e.g. 1445-09-01" class="w-full border rounded px-3 py-2 text-sm" />
+          <button onclick="convertToGregorian()" class="mt-2 text-sm bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">Convert</button>
+          <p id="gregorianOutput" class="text-sm text-green-700 mt-2"></p>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="text-center text-xs text-gray-400 py-6">
+      NoorTime.org · Powered by AlAdhan API · Deployed via Vercel
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+      function convertToHijri() {
+        const date = document.getElementById('gregorianInput').value;
+        if (!date) return;
+        fetch(`https://api.aladhan.com/v1/gToH?date=${date}`)
+          .then(res => res.json())
+          .then(data => {
+            const h = data.data.hijri;
+            document.getElementById('hijriOutput').textContent = `Hijri: ${h.day} ${h.month.en} ${h.year}`;
+          });
+      }
+
+      function convertToGregorian() {
+        const hijri = document.getElementById('hijriInput').value;
+        if (!hijri.match(/^\d{4}-\d{2}-\d{2}$/)) {
+          document.getElementById('gregorianOutput').textContent = 'Format must be YYYY-MM-DD';
+          return;
+        }
+        fetch(`https://api.aladhan.com/v1/hToG?date=${hijri}`)
+          .then(res => res.json())
+          .then(data => {
+            const g = data.data.gregorian;
+            document.getElementById('gregorianOutput').textContent = `Gregorian: ${g.day} ${g.month.en} ${g.year}`;
+          });
+      }
+    </script>
+  </body>
+</html>
