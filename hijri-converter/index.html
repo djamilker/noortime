@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NoorTime – Hijri Converter</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tabby_ai/hijri-converter@1.0.5/dist/hijri-converter.umd.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body { font-family: 'Cairo', sans-serif; }
@@ -52,32 +51,9 @@
     <div class="card p-6 space-y-3">
       <h2 class="text-yellow-300 text-lg font-semibold">🗓 Hijri to Gregorian</h2>
       <div class="flex gap-2 flex-wrap justify-center">
-        <select id="hijriYear" class="bg-white/10 text-white px-2 py-1 rounded border border-white/20">
-          <script>
-            for (let y = 1440; y <= 1460; y++) {
-              document.write(`<option value="${y}">${y}</option>`);
-            }
-          </script>
-        </select>
-        <select id="hijriMonth" class="bg-white/10 text-white px-2 py-1 rounded border border-white/20">
-          <script>
-            const hijriMonths = [
-              'Muharram', 'Safar', "Rabi' al-awwal", "Rabi' al-thani",
-              'Jumada al-awwal', 'Jumada al-thani', 'Rajab', "Sha'ban",
-              'Ramadan', 'Shawwal', "Dhu al-Qi'dah", 'Dhu al-Hijjah'
-            ];
-            hijriMonths.forEach((m, i) => {
-              document.write(`<option value="${i+1}">${m}</option>`);
-            });
-          </script>
-        </select>
-        <select id="hijriDay" class="bg-white/10 text-white px-2 py-1 rounded border border-white/20">
-          <script>
-            for (let d = 1; d <= 30; d++) {
-              document.write(`<option value="${d}">${d}</option>`);
-            }
-          </script>
-        </select>
+        <select id="hijriYear" class="bg-white/10 text-white px-2 py-1 rounded border border-white/20"></select>
+        <select id="hijriMonth" class="bg-white/10 text-white px-2 py-1 rounded border border-white/20"></select>
+        <select id="hijriDay" class="bg-white/10 text-white px-2 py-1 rounded border border-white/20"></select>
       </div>
       <button onclick="convertToGregorian()" class="mt-3 px-4 py-2 text-sm rounded bg-yellow-500 text-black hover:bg-yellow-400 transition">Convert</button>
       <p id="gregorianOutput" class="text-sm text-yellow-200 mt-2"></p>
@@ -85,43 +61,63 @@
   </main>
 
   <footer class="z-10 text-center text-xs text-white/40 py-6">
-    NoorTime.org · Accurate to Umm al-Qura Calendar · No external APIs used
+    NoorTime.org · Accurate to Umm al-Qura Calendar · Offline Powered
   </footer>
 
   <!-- SCRIPT -->
   <script>
-    const hijriMonthNames = [
-      'Muharram', 'Safar', "Rabi' al-awwal", "Rabi' al-thani",
-      'Jumada al-awwal', 'Jumada al-thani', 'Rajab', "Sha'ban",
-      'Ramadan', 'Shawwal', "Dhu al-Qi'dah", 'Dhu al-Hijjah'
+    const hijriMonths = [
+      "Muharram", "Safar", "Rabi' al-awwal", "Rabi' al-thani",
+      "Jumada al-awwal", "Jumada al-thani", "Rajab", "Sha'ban",
+      "Ramadan", "Shawwal", "Dhu al-Qi'dah", "Dhu al-Hijjah"
     ];
 
-    function convertToHijri() {
-      const input = document.getElementById('gregorianInput').value;
-      const output = document.getElementById('hijriOutput');
-      if (!input) {
-        output.textContent = 'Please select a date.';
-        return;
-      }
+    // Fill dropdowns
+    const yearSelect = document.getElementById("hijriYear");
+    const monthSelect = document.getElementById("hijriMonth");
+    const daySelect = document.getElementById("hijriDay");
 
-      const [year, month, day] = input.split('-').map(Number);
-      const { gregorianToHijri } = window.hijriConverter;
-      const result = gregorianToHijri({ year, month, day });
-      const monthName = hijriMonthNames[result.month - 1];
-      output.textContent = `Hijri: ${result.day} ${monthName} ${result.year}`;
+    for (let y = 1440; y <= 1460; y++) {
+      yearSelect.innerHTML += `<option value="${y}">${y}</option>`;
+    }
+    hijriMonths.forEach((name, idx) => {
+      monthSelect.innerHTML += `<option value="${idx + 1}">${name}</option>`;
+    });
+    for (let d = 1; d <= 30; d++) {
+      daySelect.innerHTML += `<option value="${d}">${d}</option>`;
+    }
+
+    // --- Accurate Converter using precompiled lookup table ---
+    const hijriData = window.UmmAlQura || {};
+    const lookup = {}; // { '2025-04-12': '1446-10-14' }
+
+    // Insert lookup table (I’ll generate and give it in next message due to size limit)
+
+    function convertToHijri() {
+      const g = document.getElementById("gregorianInput").value;
+      const out = document.getElementById("hijriOutput");
+      if (!g) return (out.textContent = "Please select a date.");
+      if (!lookup[g]) return (out.textContent = "Date not found in Umm al-Qura data.");
+      const [hy, hm, hd] = lookup[g].split("-");
+      out.textContent = `Hijri: ${parseInt(hd)} ${hijriMonths[parseInt(hm) - 1]} ${hy}`;
     }
 
     function convertToGregorian() {
-      const y = parseInt(document.getElementById('hijriYear').value);
-      const m = parseInt(document.getElementById('hijriMonth').value);
-      const d = parseInt(document.getElementById('hijriDay').value);
-      const output = document.getElementById('gregorianOutput');
+      const hy = yearSelect.value;
+      const hm = monthSelect.value.padStart(2, '0');
+      const hd = daySelect.value.padStart(2, '0');
+      const hijri = `${hy}-${hm}-${hd}`;
+      const out = document.getElementById("gregorianOutput");
 
-      const { hijriToGregorian } = window.hijriConverter;
-      const result = hijriToGregorian({ year: y, month: m, day: d });
-
-      output.textContent = `Gregorian: ${result.year}-${String(result.month).padStart(2, '0')}-${String(result.day).padStart(2, '0')}`;
+      const result = Object.entries(lookup).find(([g, h]) => h === hijri);
+      if (result) {
+        out.textContent = `Gregorian: ${result[0]}`;
+      } else {
+        out.textContent = "Date not found in range.";
+      }
     }
   </script>
+
+  <!-- ✅ IN NEXT MESSAGE: I will send you the lookup table to paste inside your script tag. -->
 </body>
 </html>
