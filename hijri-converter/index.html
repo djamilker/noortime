@@ -1,71 +1,88 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-gradient-to-br from-green-50 to-white">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NoorTime – Hijri Converter (Pure JS)</title>
+  <title>NoorTime – Hijri Converter</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Cairo', sans-serif;
+    }
+    .gold {
+      background: linear-gradient(to right, #d4af37, #fceabb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 1.25rem;
     }
   </style>
 </head>
 
-<body class="min-h-screen text-gray-800 flex flex-col items-center">
+<body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
+  <!-- Background -->
+  <img src="../assets/hero-bg.jpg" alt="background" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" />
+
   <!-- HEADER -->
-  <header class="w-full max-w-6xl px-6 py-4 flex justify-between items-center bg-white/70 backdrop-blur sticky top-0 z-20 shadow-sm rounded-b-xl">
-    <div class="flex items-center gap-2 font-bold text-green-700 text-xl">🕌 <span>Noor</span></div>
-    <nav class="hidden md:flex gap-6 text-sm text-gray-700 font-medium">
-      <a href="index.html" class="hover:text-green-600">Prayer Times</a>
-      <a href="hijri-converter.html" class="hover:text-green-600 font-bold underline">Hijri Converter</a>
+  <header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-10">
+    <div class="text-xl font-bold gold">🕌 NoorTime</div>
+    <nav class="flex gap-6 text-sm font-medium text-white/80">
+      <a href="../index.html" class="hover:text-yellow-400">Home</a>
+      <a href="../prayer-times/index.html" class="hover:text-yellow-400">Prayer Times</a>
+      <a href="index.html" class="text-yellow-300 underline font-semibold">Hijri Converter</a>
     </nav>
-    <button class="border border-gray-300 p-2 rounded-lg hover:bg-gray-100">⚙️</button>
   </header>
 
-  <!-- MAIN CONTENT -->
-  <main class="max-w-xl w-full px-6 py-10 mx-auto">
-    <h2 class="text-2xl font-bold text-green-700 mb-4 text-center">📅 Hijri ↔ Gregorian Converter</h2>
+  <!-- MAIN -->
+  <main class="z-10 relative px-4 sm:px-6 py-10 max-w-xl mx-auto space-y-10 text-center">
+    <h1 class="text-3xl sm:text-4xl font-bold gold">📅 Hijri ↔ Gregorian Converter</h1>
 
-    <div class="bg-white border rounded-xl shadow p-6 space-y-6">
-      <!-- Gregorian to Hijri -->
-      <div>
-        <label class="block text-sm font-medium mb-1 text-gray-600">Gregorian to Hijri</label>
-        <input type="date" id="gregorianInput" class="w-full border rounded px-3 py-2 text-sm" />
-        <button onclick="convertToHijri()" class="mt-2 text-sm bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">Convert</button>
-        <p id="hijriOutput" class="text-sm text-green-700 mt-2"></p>
+    <div class="space-y-10">
+      <!-- G to H -->
+      <div class="card p-6">
+        <h2 class="text-yellow-300 text-lg font-semibold mb-2">🗓 Gregorian to Hijri</h2>
+        <input type="date" id="gregorianInput" class="w-full mt-2 px-3 py-2 rounded bg-white/10 text-white border border-white/20" />
+        <button onclick="convertToHijri()" class="mt-3 px-4 py-2 text-sm rounded bg-yellow-500 text-black hover:bg-yellow-400 transition">Convert</button>
+        <p id="hijriOutput" class="text-sm text-yellow-200 mt-2"></p>
       </div>
 
-      <!-- Hijri to Gregorian -->
-      <div class="border-t pt-4">
-        <label class="block text-sm font-medium mb-1 text-gray-600">Hijri to Gregorian</label>
-        <input type="text" id="hijriInput" placeholder="1445-10-01" class="w-full border rounded px-3 py-2 text-sm" />
-        <button onclick="convertToGregorian()" class="mt-2 text-sm bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">Convert</button>
-        <p id="gregorianOutput" class="text-sm text-green-700 mt-2"></p>
+      <!-- H to G -->
+      <div class="card p-6 border-t border-white/10">
+        <h2 class="text-yellow-300 text-lg font-semibold mb-2">🗓 Hijri to Gregorian</h2>
+        <input type="text" id="hijriInput" placeholder="1445-10-01" class="w-full mt-2 px-3 py-2 rounded bg-white/10 text-white border border-white/20" />
+        <button onclick="convertToGregorian()" class="mt-3 px-4 py-2 text-sm rounded bg-yellow-500 text-black hover:bg-yellow-400 transition">Convert</button>
+        <p id="gregorianOutput" class="text-sm text-yellow-200 mt-2"></p>
       </div>
     </div>
   </main>
 
-  <footer class="text-center text-xs text-gray-400 py-6">
-    NoorTime.org · Pure JavaScript · No external APIs or libraries
+  <!-- FOOTER -->
+  <footer class="z-10 text-center text-xs text-white/40 py-6">
+    NoorTime.org · Offline converter · No external APIs used
   </footer>
 
-  <!-- JS Conversion Logic -->
+  <!-- SCRIPT -->
   <script>
     function gregorianToHijri(gDate) {
       const day = gDate.getDate();
       const month = gDate.getMonth();
       const year = gDate.getFullYear();
       const jd = Math.floor((1461 * (year + 4800 + (month - 14) / 12)) / 4)
-                + Math.floor((367 * (month - 2 - 12 * ((month - 14) / 12))) / 12)
-                - Math.floor((3 * Math.floor((year + 4900 + (month - 14) / 12) / 100)) / 4)
-                + day - 32075;
+        + Math.floor((367 * (month - 2 - 12 * ((month - 14) / 12))) / 12)
+        - Math.floor((3 * Math.floor((year + 4900 + (month - 14) / 12) / 100)) / 4)
+        + day - 32075;
       const l = jd - 1948440 + 10632;
       const n = Math.floor((l - 1) / 10631);
       let r = l - 10631 * n + 354;
-      let j = (Math.floor((10985 - r) / 5316)) * Math.floor((50 * r) / 17719) + Math.floor(r / 5670) * Math.floor((43 * r) / 15238);
-      r = r - Math.floor((30 - j) / 15) * Math.floor((17719 * j) / 50) - Math.floor(j / 16) * Math.floor((15238 * j) / 43) + 29;
+      let j = Math.floor((10985 - r) / 5316) * Math.floor((50 * r) / 17719)
+        + Math.floor(r / 5670) * Math.floor((43 * r) / 15238);
+      r = r - Math.floor((30 - j) / 15) * Math.floor((17719 * j) / 50)
+        - Math.floor(j / 16) * Math.floor((15238 * j) / 43) + 29;
       const m = Math.floor((24 * r) / 709);
       const d = r - Math.floor((709 * m) / 24);
       const y = 30 * n + j - 30;
@@ -73,7 +90,8 @@
     }
 
     function hijriToGregorian(hy, hm, hd) {
-      const jd = Math.floor((11 * hy + 3) / 30) + 354 * hy + 30 * hm - Math.floor((hm - 1) / 2) + hd + 1948440 - 385;
+      const jd = Math.floor((11 * hy + 3) / 30) + 354 * hy + 30 * hm
+        - Math.floor((hm - 1) / 2) + hd + 1948440 - 385;
       let l = jd + 68569;
       const n = Math.floor((4 * l) / 146097);
       l = l - Math.floor((146097 * n + 3) / 4);
@@ -94,7 +112,7 @@
       const [year, month, day] = input.split('-').map(Number);
       const gDate = new Date(year, month - 1, day);
       const hijri = gregorianToHijri(gDate);
-      output.textContent = `Hijri: ${hijri.day} / ${hijri.month} / ${hijri.year}`;
+      output.textContent = `Hijri: ${hijri.year}-${String(hijri.month).padStart(2, '0')}-${String(hijri.day).padStart(2, '0')}`;
     }
 
     function convertToGregorian() {
@@ -102,9 +120,9 @@
       const output = document.getElementById('gregorianOutput');
       const match = input.match(/^(\d{4})-(\d{2})-(\d{2})$/);
       if (!match) return output.textContent = 'Format must be YYYY-MM-DD';
-      const [y, m, d] = input.split('-').map(Number);
+      const [_, y, m, d] = input.split('-').map(Number);
       const g = hijriToGregorian(y, m, d);
-      output.textContent = `Gregorian: ${g.day} / ${g.month} / ${g.year}`;
+      output.textContent = `Gregorian: ${g.year}-${String(g.month).padStart(2, '0')}-${String(g.day).padStart(2, '0')}`;
     }
   </script>
 </body>
