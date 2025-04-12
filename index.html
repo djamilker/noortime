@@ -7,8 +7,12 @@
 
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
       body {
@@ -66,12 +70,13 @@
       <div class="bg-white rounded-2xl shadow-lg border border-green-100 p-6">
         <h2 class="text-lg font-semibold flex items-center gap-2 mb-2">🧭 Qibla Finder</h2>
         <p class="text-sm text-gray-500 mb-4">Find the direction to the Kaaba</p>
-        <div class="flex justify-center items-center h-40">
-          <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center">
-            <span class="text-3xl">🕋</span>
+        <div class="flex justify-center items-center h-40 relative">
+          <div class="w-28 h-28 bg-green-50 rounded-full flex items-center justify-center relative">
+            <div id="needle" class="w-1 h-12 bg-green-700 absolute top-2 origin-bottom rounded-full transition-transform duration-300"></div>
+            <span class="absolute bottom-2 text-xs text-gray-400">N</span>
           </div>
         </div>
-        <p class="text-xs mt-4 text-gray-400 text-center">Compass placeholder</p>
+        <p class="text-xs mt-4 text-gray-400 text-center" id="qibla-status">Move phone to detect direction</p>
       </div>
     </main>
 
@@ -98,6 +103,8 @@
           });
           locElem.textContent = `${loc.city}, ${loc.country_name} • ${dateStr}`;
           cityElem.textContent = loc.city;
+          window.userLatitude = loc.latitude;
+          window.userLongitude = loc.longitude;
 
           return fetch(
             `https://api.aladhan.com/v1/timings?latitude=${loc.latitude}&longitude=${loc.longitude}&method=2`
@@ -109,6 +116,37 @@
           suhoorElem.textContent = t.Imsak;
           iftarElem.textContent = t.Maghrib;
         });
+
+      // Qibla Compass
+      if (window.DeviceOrientationEvent) {
+        window.addEventListener('deviceorientationabsolute', handleOrientation, true);
+        window.addEventListener('deviceorientation', handleOrientation, true);
+      } else {
+        document.getElementById('qibla-status').textContent = 'Compass not supported.';
+      }
+
+      function handleOrientation(event) {
+        const needle = document.getElementById('needle');
+        const alpha = event.alpha || 0;
+
+        if (!window.userLatitude || !window.userLongitude) return;
+
+        const qiblaAngle = calculateQiblaDirection(window.userLatitude, window.userLongitude);
+        const rotation = (qiblaAngle - alpha + 360) % 360;
+        needle.style.transform = `rotate(${rotation}deg)`;
+      }
+
+      function calculateQiblaDirection(lat, lon) {
+        const kaabaLat = 21.4225;
+        const kaabaLon = 39.8262;
+        const dLon = (kaabaLon - lon) * (Math.PI / 180);
+        const lat1 = lat * (Math.PI / 180);
+        const lat2 = kaabaLat * (Math.PI / 180);
+        const y = Math.sin(dLon) * Math.cos(lat2);
+        const x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon);
+        const brng = Math.atan2(y, x);
+        return (brng * 180) / Math.PI;
+      }
     </script>
   </body>
 </html>
