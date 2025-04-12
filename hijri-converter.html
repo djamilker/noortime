@@ -64,10 +64,12 @@
           return;
         }
 
-        fetch(`https://api.aladhan.com/v1/gToH?date=${encodeURIComponent(date)}`)
+        const url = `https://api.aladhan.com/v1/gToH?date=${encodeURIComponent(date)}`;
+        fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
           .then(res => res.json())
           .then(data => {
-            const h = data.data.hijri;
+            const parsed = JSON.parse(data.contents);
+            const h = parsed.data.hijri;
             output.textContent = `Hijri: ${h.day} ${h.month.en} ${h.year}`;
           })
           .catch(() => {
@@ -85,10 +87,12 @@
           return;
         }
 
-        fetch(`https://api.aladhan.com/v1/hToG?date=${encodeURIComponent(hijri)}`)
+        const url = `https://api.aladhan.com/v1/hToG?date=${encodeURIComponent(hijri)}`;
+        fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`)
           .then(res => res.json())
           .then(data => {
-            const g = data.data.gregorian;
+            const parsed = JSON.parse(data.contents);
+            const g = parsed.data.gregorian;
             output.textContent = `Gregorian: ${g.day} ${g.month.en} ${g.year}`;
           })
           .catch(() => {
