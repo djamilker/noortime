@@ -68,7 +68,12 @@
             <span class="absolute bottom-2 text-xs text-gray-400">N</span>
           </div>
         </div>
-        <p class="text-xs mt-4 text-gray-400 text-center" id="qibla-status">Waiting for motion access...</p>
+        <div class="text-center mt-4">
+          <button id="enable-compass" class="text-sm text-green-700 underline hover:text-green-900">
+            🧭 Tap to enable compass
+          </button>
+          <p class="text-xs mt-2 text-gray-400" id="qibla-status">Waiting for motion access...</p>
+        </div>
       </div>
     </main>
 
@@ -84,7 +89,9 @@
       const suhoorElem = document.getElementById('suhoor');
       const iftarElem = document.getElementById('iftar');
       const statusElem = document.getElementById('qibla-status');
+      const enableBtn = document.getElementById('enable-compass');
 
+      // Get user location + prayer times
       fetch('https://ipapi.co/json')
         .then(res => res.json())
         .then(loc => {
@@ -140,7 +147,6 @@
         statusElem.textContent = 'Pointing toward Qibla';
       }
 
-      // iOS Safari: ask permission
       function initCompass() {
         if (
           typeof DeviceOrientationEvent !== 'undefined' &&
@@ -150,6 +156,7 @@
             .then((response) => {
               if (response === 'granted') {
                 window.addEventListener('deviceorientation', handleOrientation, true);
+                statusElem.textContent = 'Compass active.';
               } else {
                 statusElem.textContent = 'Permission denied for compass.';
               }
@@ -159,11 +166,14 @@
             });
         } else {
           window.addEventListener('deviceorientation', handleOrientation, true);
+          statusElem.textContent = 'Compass active.';
         }
       }
 
-      // Wait a second before initializing motion
-      setTimeout(initCompass, 1000);
+      enableBtn.addEventListener('click', () => {
+        initCompass();
+        enableBtn.style.display = 'none';
+      });
     </script>
   </body>
 </html>
