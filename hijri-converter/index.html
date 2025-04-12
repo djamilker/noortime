@@ -48,7 +48,7 @@
   </header>
 
   <main class="z-10 relative px-4 sm:px-6 py-10 max-w-xl mx-auto space-y-10 text-center">
-    <h1 class="text-3xl sm:text-4xl font-bold gold">📅 Hijri ↔ Gregorian Converter</h1>
+    <h1 class="text-3xl sm:text-4xl font-bold gold">🗓 Hijri to Gregorian Converter</h1>
     <h2 class="text-xl font-semibold text-yellow-300">Convert Islamic Hijri Dates with Ease</h2>
     <p class="text-sm text-white/80 max-w-md mx-auto">
       This tool uses the official Umm al-Qura calendar to provide accurate conversions between Hijri and Gregorian dates.
@@ -80,6 +80,14 @@
 
   <script src="../scripts/hijri-lookup.js"></script>
   <script>
+  // Build reverseLookup: Hijri → Gregorian
+  const reverseLookup = {};
+  for (const [g, h] of Object.entries(lookup)) {
+    reverseLookup[h] = g;
+  }
+</script>
+
+  <script>
     const hijriMonths = [
       "Muharram", "Safar", "Rabi' al-awwal", "Rabi' al-thani",
       "Jumada al-awwal", "Jumada al-thani", "Rajab", "Sha'ban",
@@ -103,19 +111,20 @@
     }
 
     function convertToGregorian() {
-      const hy = yearSelect.value;
-      const hm = monthSelect.value.padStart(2, '0');
-      const hd = daySelect.value.padStart(2, '0');
-      const hijri = `${hy}-${hm}-${hd}`;
-      const out = document.getElementById("gregorianOutput");
+  const hy = yearSelect.value;
+  const hm = monthSelect.value.padStart(2, '0');
+  const hd = daySelect.value.padStart(2, '0');
+  const hijri = `${hy}-${hm}-${hd}`;
+  const out = document.getElementById("gregorianOutput");
 
-      const result = Object.entries(lookup).find(([g, h]) => h === hijri);
-      if (result) {
-        out.textContent = `Gregorian: ${result[0]}`;
-      } else {
-        out.textContent = "Date not found in range.";
-      }
-    }
+  const gregorian = reverseLookup[hijri];
+  if (gregorian) {
+    out.textContent = `Gregorian: ${gregorian}`;
+  } else {
+    out.textContent = "Date not found in range.";
+  }
+}
+
 
     const menuBtn = document.getElementById("menuBtn");
     const mainNav = document.getElementById("mainNav");
