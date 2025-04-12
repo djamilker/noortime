@@ -3,13 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NoorTime – Islamic Tools</title>
+  <title>NoorTime – Islamic Tools: Quran Verse, Prayer Times, Hijri Converter</title>
+  <meta name="description" content="NoorTime offers a daily Quran verse, prayer times, Hijri-Gregorian converter, Islamic calendar, and more. Accurate, beautiful, and built for Muslims.">
+  <meta name="keywords" content="Quran verse of the day, Prayer times, Hijri converter, Islamic tools, Umm al-Qura, Ramadan">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="NoorTime – Islamic Daily Verse & Tools" />
+  <meta property="og:description" content="Start your day with a meaningful verse from the Quran and access Islamic tools like prayer times, calendar, and more." />
+  <meta property="og:image" content="https://noortime.org/assets/hero-bg.jpg" />
+  <meta property="og:url" content="https://noortime.org/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: 'Cairo', sans-serif;
-    }
+    body { font-family: 'Cairo', sans-serif; }
     .gold {
       background: linear-gradient(to right, #d4af37, #fceabb);
       -webkit-background-clip: text;
@@ -20,50 +28,93 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(12px);
       border-radius: 1.25rem;
-      transition: all 0.3s ease;
     }
-    .card:hover {
-      background: rgba(255, 255, 255, 0.12);
-      transform: translateY(-4px);
+    .fade-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-section.visible {
+      opacity: 1;
+      transform: none;
     }
   </style>
 </head>
+<body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
+  <img src="./assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" alt="background" />
 
-<body class="bg-[#0d1b2a] text-white min-h-screen flex flex-col items-center justify-center relative overflow-x-hidden">
+  <header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-10 fade-section">
+    <div class="text-xl font-bold gold">🕌 NoorTime</div>
+    <nav class="flex gap-6 text-sm font-medium text-white/80">
+      <a href="prayer-times/index.html" class="hover:text-yellow-400">Prayer Times</a>
+      <a href="hijri-converter/index.html" class="hover:text-yellow-400">Hijri Converter</a>
+      <a href="calendar/index.html" class="hover:text-yellow-400">Islamic Calendar</a>
+      <a href="ramadan-countdown/index.html" class="hover:text-yellow-400">Ramadan Countdown</a>
+    </nav>
+  </header>
 
-  <!-- Background -->
-  <img src="assets/hero-bg.jpg" alt="background" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" />
+  <main class="z-10 relative px-4 sm:px-6 py-16 max-w-5xl mx-auto space-y-12 text-center">
+    <h1 class="text-4xl sm:text-5xl font-bold gold fade-section">🕌 NoorTime – Your Ultimate Islamic Toolkit</h1>
+    <p class="text-white/70 text-lg max-w-2xl mx-auto fade-section">Start your day with a powerful verse from the Quran and explore tools like prayer times, Hijri converter, and more.</p>
 
-  <!-- Content Wrapper -->
-  <main class="z-10 w-full max-w-3xl px-6 py-16 text-center">
-    <h1 class="text-5xl font-bold gold mb-2">NoorTime</h1>
-    <p class="text-gray-200 text-lg mb-12">Your all-in-one Islamic Companion</p>
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-left text-white/90 fade-section">
+      <a href="prayer-times/index.html" class="card p-6 hover:shadow-lg transition">
+        <h2 class="text-lg font-bold text-yellow-300">📿 Prayer Times</h2>
+        <p>Get accurate prayer timings based on your city, calculated using the Umm al-Qura method.</p>
+      </a>
+      <a href="hijri-converter/index.html" class="card p-6 hover:shadow-lg transition">
+        <h2 class="text-lg font-bold text-yellow-300">📆 Hijri Converter</h2>
+        <p>Convert between Gregorian and Hijri dates with offline-capable, Umm al-Qura calendar logic.</p>
+      </a>
+      <a href="calendar/index.html" class="card p-6 hover:shadow-lg transition">
+        <h2 class="text-lg font-bold text-yellow-300">🗓 Islamic Calendar</h2>
+        <p>View month-by-month Hijri calendar with major Islamic events highlighted across the year.</p>
+      </a>
+      <a href="ramadan-countdown/index.html" class="card p-6 hover:shadow-lg transition">
+        <h2 class="text-lg font-bold text-yellow-300">🌙 Ramadan Countdown</h2>
+        <p>Track how many days are left until the blessed month of Ramadan begins.</p>
+      </a>
+    </section>
 
-    <!-- Tool Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <a href="prayer-times/" class="card p-6 text-white flex flex-col items-center justify-center">
-        <div class="text-3xl mb-2">🕋</div>
-        <h2 class="text-lg font-semibold">Prayer Times</h2>
-      </a>
-      <a href="hijri-converter/" class="card p-6 text-white flex flex-col items-center justify-center">
-        <div class="text-3xl mb-2">📅</div>
-        <h2 class="text-lg font-semibold">Hijri Converter</h2>
-      </a>
-      <a href="islamic-calendar/" class="card p-6 text-white flex flex-col items-center justify-center">
-        <div class="text-3xl mb-2">🗓️</div>
-        <h2 class="text-lg font-semibold">Islamic Calendar</h2>
-      </a>
-      <a href="countdowns/" class="card p-6 text-white flex flex-col items-center justify-center">
-        <div class="text-3xl mb-2">⏱️</div>
-        <h2 class="text-lg font-semibold">Countdowns</h2>
-      </a>
+    <div class="card p-6 mt-10 fade-section">
+      <h2 class="text-lg font-semibold text-yellow-400 mb-2">📖 Today’s Quran Verse</h2>
+      <blockquote id="quranVerse" class="text-white/80 text-sm italic leading-relaxed">Loading verse...</blockquote>
+    </div>
+
+    <div class="card p-6 mt-10 text-left text-sm text-white/80 fade-section">
+      <h2 class="text-lg text-yellow-400 font-semibold mb-2">Why Use NoorTime?</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>✅ 100% free and accurate – no ads, no bloat</li>
+        <li>📍 Location-based prayer times with global support</li>
+        <li>🗓 Umm al-Qura-based Hijri logic – no guesswork</li>
+        <li>🧠 Simple tools made for real Muslim needs</li>
+        <li>📱 Works on mobile, desktop, and offline tools</li>
+      </ul>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="text-xs text-gray-300 py-6 z-10 text-center">
-    NoorTime.org · Built with ❤️ · Deployed via Vercel
+  <footer class="z-10 text-center text-xs text-white/40 py-6">
+    NoorTime.org · Quran-Powered · For the Ummah
   </footer>
 
+  <script>
+    const verses = [
+      "Indeed, prayer prohibits immorality and wrongdoing. – Qur'an 29:45",
+      "And whoever puts his trust in Allah, then He will suffice him. – Qur'an 65:3",
+      "So remember Me; I will remember you. – Qur'an 2:152",
+      "Indeed, with hardship comes ease. – Qur'an 94:6",
+      "And He found you lost and guided [you]. – Qur'an 93:7"
+    ];
+    const index = new Date().getDate() % verses.length;
+    document.getElementById('quranVerse').textContent = verses[index];
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
