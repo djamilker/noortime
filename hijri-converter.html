@@ -40,7 +40,7 @@
 
         <div class="border-t pt-4">
           <label class="block text-sm font-medium mb-1 text-gray-600">Hijri to Gregorian</label>
-          <input type="text" id="hijriInput" placeholder="e.g. 1445-09-01" class="w-full border rounded px-3 py-2 text-sm" />
+          <input type="text" id="hijriInput" placeholder="Enter Hijri date like 1445-09-01" class="w-full border rounded px-3 py-2 text-sm" />
           <button onclick="convertToGregorian()" class="mt-2 text-sm bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">Convert</button>
           <p id="gregorianOutput" class="text-sm text-green-700 mt-2"></p>
         </div>
@@ -56,26 +56,43 @@
     <script>
       function convertToHijri() {
         const date = document.getElementById('gregorianInput').value;
-        if (!date) return;
+        const output = document.getElementById('hijriOutput');
+        output.textContent = '';
+
+        if (!date) {
+          output.textContent = 'Please select a Gregorian date.';
+          return;
+        }
+
         fetch(`https://api.aladhan.com/v1/gToH?date=${date}`)
           .then(res => res.json())
           .then(data => {
             const h = data.data.hijri;
-            document.getElementById('hijriOutput').textContent = `Hijri: ${h.day} ${h.month.en} ${h.year}`;
+            output.textContent = `Hijri: ${h.day} ${h.month.en} ${h.year}`;
+          })
+          .catch(() => {
+            output.textContent = 'Failed to convert. Try again later.';
           });
       }
 
       function convertToGregorian() {
         const hijri = document.getElementById('hijriInput').value;
+        const output = document.getElementById('gregorianOutput');
+        output.textContent = '';
+
         if (!hijri.match(/^\d{4}-\d{2}-\d{2}$/)) {
-          document.getElementById('gregorianOutput').textContent = 'Format must be YYYY-MM-DD';
+          output.textContent = 'Format must be YYYY-MM-DD (e.g., 1445-09-01)';
           return;
         }
+
         fetch(`https://api.aladhan.com/v1/hToG?date=${hijri}`)
           .then(res => res.json())
           .then(data => {
             const g = data.data.gregorian;
-            document.getElementById('gregorianOutput').textContent = `Gregorian: ${g.day} ${g.month.en} ${g.year}`;
+            output.textContent = `Gregorian: ${g.day} ${g.month.en} ${g.year}`;
+          })
+          .catch(() => {
+            output.textContent = 'Failed to convert. Try again later.';
           });
       }
     </script>
