@@ -8,7 +8,6 @@
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -19,18 +18,14 @@
   <body class="min-h-screen text-gray-800 flex flex-col items-center">
     <!-- NAVBAR -->
     <header class="w-full max-w-6xl px-6 py-4 flex justify-between items-center bg-white/70 backdrop-blur sticky top-0 z-20 shadow-sm rounded-b-xl">
-      <div class="flex items-center gap-2 font-bold text-green-700 text-xl">
-        🕌 <span>Noor</span>
-      </div>
+      <div class="flex items-center gap-2 font-bold text-green-700 text-xl">🕌 <span>Noor</span></div>
       <nav class="hidden md:flex gap-6 text-sm text-gray-700 font-medium">
         <a href="#" class="hover:text-green-600">Dashboard</a>
         <a href="#" class="hover:text-green-600">Calendar</a>
         <a href="#" class="hover:text-green-600">Contact</a>
         <a href="#" class="hover:text-green-600">Privacy</a>
       </nav>
-      <button class="border border-gray-300 p-2 rounded-lg hover:bg-gray-100">
-        ⚙️
-      </button>
+      <button class="border border-gray-300 p-2 rounded-lg hover:bg-gray-100">⚙️</button>
     </header>
 
     <!-- HEADER -->
@@ -61,19 +56,14 @@
       <!-- QIBLA COMPASS -->
       <div class="bg-white rounded-2xl shadow-lg border border-green-100 p-6">
         <h2 class="text-lg font-semibold flex items-center gap-2 mb-2">🧭 Qibla Finder</h2>
-        <p class="text-sm text-gray-500 mb-4">Find the direction to the Kaaba</p>
+        <p class="text-sm text-gray-500 mb-4">Facing the Kaaba based on your location</p>
         <div class="flex justify-center items-center h-40 relative">
           <div class="w-28 h-28 bg-green-50 rounded-full flex items-center justify-center relative">
-            <div id="needle" class="w-1 h-12 bg-green-700 absolute top-2 origin-bottom rounded-full transition-transform duration-300"></div>
+            <div id="qibla-needle" class="w-1 h-12 bg-green-700 absolute top-2 origin-bottom rounded-full transition-transform duration-500 ease-in-out"></div>
             <span class="absolute bottom-2 text-xs text-gray-400">N</span>
           </div>
         </div>
-        <div class="text-center mt-4">
-          <button id="enable-compass" class="text-sm text-green-700 underline hover:text-green-900">
-            🧭 Tap to enable compass
-          </button>
-          <p class="text-xs mt-2 text-gray-400" id="qibla-status">Waiting for motion access...</p>
-        </div>
+        <p class="text-xs mt-4 text-gray-400 text-center" id="qibla-status">Calculating Qibla direction...</p>
       </div>
     </main>
 
@@ -88,10 +78,9 @@
       const cityElem = document.getElementById('city');
       const suhoorElem = document.getElementById('suhoor');
       const iftarElem = document.getElementById('iftar');
-      const statusElem = document.getElementById('qibla-status');
-      const enableBtn = document.getElementById('enable-compass');
+      const qiblaStatus = document.getElementById('qibla-status');
+      const qiblaNeedle = document.getElementById('qibla-needle');
 
-      // Get user location + prayer times
       fetch('https://ipapi.co/json')
         .then(res => res.json())
         .then(loc => {
@@ -103,77 +92,34 @@
           });
           locElem.textContent = `${loc.city}, ${loc.country_name} • ${dateStr}`;
           cityElem.textContent = loc.city;
-          window.userLatitude = loc.latitude;
-          window.userLongitude = loc.longitude;
 
-          return fetch(`https://api.aladhan.com/v1/timings?latitude=${loc.latitude}&longitude=${loc.longitude}&method=2`);
-        })
-        .then(res => res.json())
-        .then(data => {
-          const t = data.data.timings;
-          suhoorElem.textContent = t.Imsak;
-          iftarElem.textContent = t.Maghrib;
-        });
+          const lat = loc.latitude;
+          const lon = loc.longitude;
 
-      function calculateQiblaDirection(lat, lon) {
-        const kaabaLat = 21.4225;
-        const kaabaLon = 39.8262;
-        const dLon = (kaabaLon - lon) * (Math.PI / 180);
-        const lat1 = lat * (Math.PI / 180);
-        const lat2 = kaabaLat * (Math.PI / 180);
-        const y = Math.sin(dLon) * Math.cos(lat2);
-        const x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon);
-        const brng = Math.atan2(y, x);
-        return (brng * 180) / Math.PI;
-      }
+          // Prayer Times
+          fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=2`)
+            .then(res => res.json())
+            .then(data => {
+              const t = data.data.timings;
+              suhoorElem.textContent = t.Imsak;
+              iftarElem.textContent = t.Maghrib;
+            });
 
-      function handleOrientation(event) {
-        const needle = document.getElementById('needle');
-        const alpha = event.alpha ?? null;
-
-        if (alpha === null) {
-          statusElem.textContent = 'Compass not available.';
-          return;
-        }
-
-        if (!window.userLatitude || !window.userLongitude) {
-          statusElem.textContent = 'Waiting for location...';
-          return;
-        }
-
-        const qiblaAngle = calculateQiblaDirection(window.userLatitude, window.userLongitude);
-        const rotation = (qiblaAngle - alpha + 360) % 360;
-        needle.style.transform = `rotate(${rotation}deg)`;
-        statusElem.textContent = 'Pointing toward Qibla';
-      }
-
-      function initCompass() {
-        if (
-          typeof DeviceOrientationEvent !== 'undefined' &&
-          typeof DeviceOrientationEvent.requestPermission === 'function'
-        ) {
-          DeviceOrientationEvent.requestPermission()
-            .then((response) => {
-              if (response === 'granted') {
-                window.addEventListener('deviceorientation', handleOrientation, true);
-                statusElem.textContent = 'Compass active.';
-              } else {
-                statusElem.textContent = 'Permission denied for compass.';
-              }
+          // Qibla Direction
+          fetch(`https://api.aladhan.com/v1/qibla/${lat}/${lon}`)
+            .then(res => res.json())
+            .then(data => {
+              const angle = data.data.direction;
+              qiblaNeedle.style.transform = `rotate(${angle}deg)`;
+              qiblaStatus.textContent = `Qibla direction: ${Math.round(angle)}° from North`;
             })
             .catch(() => {
-              statusElem.textContent = 'Error requesting permission.';
+              qiblaStatus.textContent = "Unable to fetch Qibla direction.";
             });
-        } else {
-          window.addEventListener('deviceorientation', handleOrientation, true);
-          statusElem.textContent = 'Compass active.';
-        }
-      }
-
-      enableBtn.addEventListener('click', () => {
-        initCompass();
-        enableBtn.style.display = 'none';
-      });
+        })
+        .catch(() => {
+          locElem.textContent = "Failed to detect location.";
+        });
     </script>
   </body>
 </html>
