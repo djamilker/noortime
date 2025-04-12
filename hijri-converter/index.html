@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NoorTime – Hijri Converter</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tabby_ai/hijri-converter@1.0.5/dist/hijri-converter.umd.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body { font-family: 'Cairo', sans-serif; }
@@ -63,7 +64,7 @@
             const hijriMonths = [
               'Muharram', 'Safar', "Rabi' al-awwal", "Rabi' al-thani",
               'Jumada al-awwal', 'Jumada al-thani', 'Rajab', "Sha'ban",
-              'Ramadan', 'Shawwal', "Dhu al-Qi\'dah", 'Dhu al-Hijjah'
+              'Ramadan', 'Shawwal', "Dhu al-Qi'dah", 'Dhu al-Hijjah'
             ];
             hijriMonths.forEach((m, i) => {
               document.write(`<option value="${i+1}">${m}</option>`);
@@ -84,69 +85,42 @@
   </main>
 
   <footer class="z-10 text-center text-xs text-white/40 py-6">
-    NoorTime.org · Pure JavaScript · No external APIs used
+    NoorTime.org · Accurate to Umm al-Qura Calendar · No external APIs used
   </footer>
 
+  <!-- SCRIPT -->
   <script>
     const hijriMonthNames = [
       'Muharram', 'Safar', "Rabi' al-awwal", "Rabi' al-thani",
       'Jumada al-awwal', 'Jumada al-thani', 'Rajab', "Sha'ban",
-      'Ramadan', 'Shawwal', "Dhu al-Qi\'dah", 'Dhu al-Hijjah'
+      'Ramadan', 'Shawwal', "Dhu al-Qi'dah", 'Dhu al-Hijjah'
     ];
-
-    function gregorianToHijri(gDate) {
-      const day = gDate.getDate();
-      const month = gDate.getMonth();
-      const year = gDate.getFullYear();
-      const jd = Math.floor((1461 * (year + 4800 + (month - 14) / 12)) / 4)
-        + Math.floor((367 * (month - 2 - 12 * ((month - 14) / 12))) / 12)
-        - Math.floor((3 * Math.floor((year + 4900 + (month - 14) / 12) / 100)) / 4)
-        + day - 32075;
-      const l = jd - 1948440 + 10632;
-      const n = Math.floor((l - 1) / 10631);
-      let r = l - 10631 * n + 354;
-      let j = Math.floor((10985 - r) / 5316) * Math.floor((50 * r) / 17719)
-        + Math.floor(r / 5670) * Math.floor((43 * r) / 15238);
-      r = r - Math.floor((30 - j) / 15) * Math.floor((17719 * j) / 50)
-        - Math.floor(j / 16) * Math.floor((15238 * j) / 43) + 29;
-      const m = Math.floor((24 * r) / 709);
-      const d = r - Math.floor((709 * m) / 24);
-      const y = 30 * n + j - 30;
-      return { day: d, month: m, year: y };
-    }
-
-    function hijriToGregorian(hy, hm, hd) {
-      const jd = Math.floor((11 * hy + 3) / 30) + 354 * hy + 30 * hm
-        - Math.floor((hm - 1) / 2) + hd + 1948440 - 385;
-      let l = jd + 68569;
-      const n = Math.floor((4 * l) / 146097);
-      l = l - Math.floor((146097 * n + 3) / 4);
-      const i = Math.floor((4000 * (l + 1)) / 1461001);
-      l = l - Math.floor((1461 * i) / 4) + 31;
-      const j = Math.floor((80 * l) / 2447);
-      const d = l - Math.floor((2447 * j) / 80);
-      l = Math.floor(j / 11);
-      const m = j + 2 - 12 * l;
-      const y = 100 * (n - 49) + i + l;
-      return { day: d, month: m, year: y };
-    }
 
     function convertToHijri() {
       const input = document.getElementById('gregorianInput').value;
       const output = document.getElementById('hijriOutput');
-      if (!input) return output.textContent = 'Please select a date.';
+      if (!input) {
+        output.textContent = 'Please select a date.';
+        return;
+      }
+
       const [year, month, day] = input.split('-').map(Number);
-      const gDate = new Date(year, month - 1, day);
-      const hijri = gregorianToHijri(gDate);
-      output.textContent = `Hijri: ${hijri.day} ${hijriMonthNames[hijri.month - 1]} ${hijri.year}`;
+      const { gregorianToHijri } = window.hijriConverter;
+      const result = gregorianToHijri({ year, month, day });
+      const monthName = hijriMonthNames[result.month - 1];
+      output.textContent = `Hijri: ${result.day} ${monthName} ${result.year}`;
     }
 
     function convertToGregorian() {
       const y = parseInt(document.getElementById('hijriYear').value);
       const m = parseInt(document.getElementById('hijriMonth').value);
       const d = parseInt(document.getElementById('hijriDay').value);
-      const g = hijriToGregorian(y, m, d);
-      document.getElementById('gregorianOutput').textContent = `Gregorian: ${g.year}-${String(g.month).padStart(2, '0')}-${String(g.day).padStart(2, '0')}`;
+      const output = document.getElementById('gregorianOutput');
+
+      const { hijriToGregorian } = window.hijriConverter;
+      const result = hijriToGregorian({ year: y, month: m, day: d });
+
+      output.textContent = `Gregorian: ${result.year}-${String(result.month).padStart(2, '0')}-${String(result.day).padStart(2, '0')}`;
     }
   </script>
 </body>
