@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-green-50">
+<html lang="en" class="bg-gradient-to-br from-green-50 to-white">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NoorTime</title>
+    <title>NoorTime – Prayer & Qibla</title>
 
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
     <style>
@@ -15,68 +17,70 @@
     </style>
   </head>
 
-  <body class="text-gray-800">
-    <!-- Nav -->
-    <header class="flex justify-between items-center px-6 py-4 bg-white shadow-sm sticky top-0 z-10">
-      <div class="flex items-center gap-2 text-green-700 font-bold text-xl">
-        <span>🕌</span>
-        <span>Noor</span>
+  <body class="min-h-screen text-gray-800 flex flex-col items-center">
+    <!-- NAVBAR -->
+    <header class="w-full max-w-6xl px-6 py-4 flex justify-between items-center bg-white/70 backdrop-blur sticky top-0 z-20 shadow-sm rounded-b-xl">
+      <div class="flex items-center gap-2 font-bold text-green-700 text-xl">
+        🕌 <span>Noor</span>
       </div>
-      <nav class="flex gap-6 text-sm text-gray-700 font-medium">
-        <a href="#" class="flex items-center gap-1 hover:text-green-600">🏠 Dashboard</a>
-        <a href="#" class="flex items-center gap-1 hover:text-green-600">📅 Calendar</a>
-        <a href="#" class="flex items-center gap-1 hover:text-green-600">📨 Contact</a>
-        <a href="#" class="flex items-center gap-1 hover:text-green-600">🔒 Privacy Policy</a>
+      <nav class="hidden md:flex gap-6 text-sm text-gray-700 font-medium">
+        <a href="#" class="hover:text-green-600">Dashboard</a>
+        <a href="#" class="hover:text-green-600">Calendar</a>
+        <a href="#" class="hover:text-green-600">Contact</a>
+        <a href="#" class="hover:text-green-600">Privacy</a>
       </nav>
-      <button class="border border-gray-300 p-2 rounded-lg">
-        <span>⚙️</span>
+      <button class="border border-gray-300 p-2 rounded-lg hover:bg-gray-100">
+        ⚙️
       </button>
     </header>
 
-    <!-- Page Content -->
-    <main class="px-6 py-10 text-center">
-      <h1 class="text-4xl font-bold text-green-700 mb-2">Noor</h1>
-      <p class="text-gray-600 text-sm mb-1">Your Islamic Companion</p>
-      <p class="text-gray-500 text-sm" id="location">Loading...</p>
-    </main>
+    <!-- HEADER -->
+    <section class="mt-10 text-center">
+      <h1 class="text-4xl font-bold text-green-700">Noor</h1>
+      <p class="text-gray-600 mt-1">Your Islamic Companion</p>
+      <p id="location" class="text-sm text-gray-400 mt-1">Loading location...</p>
+    </section>
 
-    <section class="px-6 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-      <!-- Suhoor & Iftar Times -->
-      <div class="bg-green-50 border border-green-100 p-6 rounded-xl">
-        <h2 class="text-xl font-semibold flex items-center gap-2 mb-2">⏰ Suhoor & Iftar Times</h2>
+    <!-- GRID -->
+    <main class="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-10 max-w-6xl w-full">
+      <!-- SUHOOR + IFTAR CARD -->
+      <div class="bg-white rounded-2xl shadow-lg border border-green-100 p-6">
+        <h2 class="text-lg font-semibold flex items-center gap-2 mb-2">⏰ Suhoor & Iftar Times</h2>
         <p class="text-sm text-gray-500 mb-4">Today's timings for <span class="text-green-600" id="city">your city</span></p>
         <div class="grid grid-cols-2 gap-4">
-          <div class="bg-white rounded-lg p-4 shadow text-center">
-            <p class="text-green-600 mb-1">🌙 Suhoor Ends</p>
+          <div class="bg-green-50 p-4 rounded-xl text-center">
+            <p class="text-green-700 mb-1">🌙 Suhoor Ends</p>
             <p class="text-2xl font-bold" id="suhoor">--:--</p>
           </div>
-          <div class="bg-white rounded-lg p-4 shadow text-center">
-            <p class="text-yellow-600 mb-1">☀️ Iftar Begins</p>
+          <div class="bg-yellow-50 p-4 rounded-xl text-center">
+            <p class="text-yellow-700 mb-1">☀️ Iftar Begins</p>
             <p class="text-2xl font-bold" id="iftar">--:--</p>
           </div>
         </div>
         <button class="mt-6 px-4 py-2 border rounded-md bg-white hover:bg-green-100 text-sm flex items-center gap-2 mx-auto">
-          📅 Refresh Times
+          🔄 Refresh
         </button>
       </div>
 
-      <!-- Qibla Finder -->
-      <div class="bg-green-50 border border-green-100 p-6 rounded-xl">
-        <h2 class="text-xl font-semibold flex items-center gap-2 mb-2">🧭 Qibla Finder</h2>
+      <!-- QIBLA CARD -->
+      <div class="bg-white rounded-2xl shadow-lg border border-green-100 p-6">
+        <h2 class="text-lg font-semibold flex items-center gap-2 mb-2">🧭 Qibla Finder</h2>
         <p class="text-sm text-gray-500 mb-4">Find the direction to the Kaaba</p>
         <div class="flex justify-center items-center h-40">
           <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center">
             <span class="text-3xl">🕋</span>
           </div>
         </div>
-        <p class="text-xs mt-4 text-gray-400 text-center">Compass Placeholder</p>
+        <p class="text-xs mt-4 text-gray-400 text-center">Compass placeholder</p>
       </div>
-    </section>
+    </main>
 
-    <footer class="text-center text-xs text-gray-400 py-8">
-      Powered by AlAdhan API · Vercel deployed · NoorTime.org
+    <!-- FOOTER -->
+    <footer class="text-center text-xs text-gray-400 py-6">
+      NoorTime.org · Powered by AlAdhan API · Deployed via Vercel
     </footer>
 
+    <!-- SCRIPT -->
     <script>
       const locElem = document.getElementById('location');
       const cityElem = document.getElementById('city');
@@ -86,8 +90,13 @@
       fetch('https://ipapi.co/json')
         .then((res) => res.json())
         .then((loc) => {
-          const cityText = `${loc.city}, ${loc.country_name} • ${new Date().toDateString()}`;
-          locElem.textContent = cityText;
+          const dateStr = new Date().toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          });
+          locElem.textContent = `${loc.city}, ${loc.country_name} • ${dateStr}`;
           cityElem.textContent = loc.city;
 
           return fetch(
