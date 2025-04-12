@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NoorTime – Prayer & Qibla</title>
+    <title>NoorTime – Prayer Times</title>
 
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -20,10 +20,8 @@
     <header class="w-full max-w-6xl px-6 py-4 flex justify-between items-center bg-white/70 backdrop-blur sticky top-0 z-20 shadow-sm rounded-b-xl">
       <div class="flex items-center gap-2 font-bold text-green-700 text-xl">🕌 <span>Noor</span></div>
       <nav class="hidden md:flex gap-6 text-sm text-gray-700 font-medium">
-        <a href="#" class="hover:text-green-600">Dashboard</a>
-        <a href="#" class="hover:text-green-600">Calendar</a>
-        <a href="#" class="hover:text-green-600">Contact</a>
-        <a href="#" class="hover:text-green-600">Privacy</a>
+        <a href="index.html" class="hover:text-green-600 font-bold underline">Prayer Times</a>
+        <a href="hijri-converter.html" class="hover:text-green-600">Hijri Converter</a>
       </nav>
       <button class="border border-gray-300 p-2 rounded-lg hover:bg-gray-100">⚙️</button>
     </header>
@@ -35,51 +33,36 @@
       <p id="location" class="text-sm text-gray-400 mt-1">Loading location...</p>
     </section>
 
-    <!-- GRID -->
-    <main class="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-10 max-w-6xl w-full">
-      <!-- SUHOOR + IFTAR CARD -->
+    <!-- MAIN -->
+    <main class="max-w-lg w-full px-6 py-10">
       <div class="bg-white rounded-2xl shadow-lg border border-green-100 p-6">
-        <h2 class="text-lg font-semibold flex items-center gap-2 mb-2">⏰ Suhoor & Iftar Times</h2>
-        <p class="text-sm text-gray-500 mb-4">Today's timings for <span class="text-green-600" id="city">your city</span></p>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-green-50 p-4 rounded-xl text-center">
-            <p class="text-green-700 mb-1">🌙 Suhoor Ends</p>
-            <p class="text-2xl font-bold" id="suhoor">--:--</p>
-          </div>
-          <div class="bg-yellow-50 p-4 rounded-xl text-center">
-            <p class="text-yellow-700 mb-1">☀️ Iftar Begins</p>
-            <p class="text-2xl font-bold" id="iftar">--:--</p>
-          </div>
+        <h2 class="text-lg font-semibold text-green-600 mb-4 border-b pb-2">📿 Prayer Times</h2>
+        <div class="grid grid-cols-2 gap-y-4 text-gray-700 text-sm">
+          <span class="font-medium">Fajr</span> <span id="fajr" class="text-right">--:--</span>
+          <span class="font-medium">Dhuhr</span> <span id="dhuhr" class="text-right">--:--</span>
+          <span class="font-medium">Asr</span> <span id="asr" class="text-right">--:--</span>
+          <span class="font-medium">Maghrib</span> <span id="maghrib" class="text-right">--:--</span>
+          <span class="font-medium">Isha</span> <span id="isha" class="text-right">--:--</span>
         </div>
-      </div>
-
-      <!-- QIBLA COMPASS -->
-      <div class="bg-white rounded-2xl shadow-lg border border-green-100 p-6">
-        <h2 class="text-lg font-semibold flex items-center gap-2 mb-2">🧭 Qibla Finder</h2>
-        <p class="text-sm text-gray-500 mb-4">Facing the Kaaba based on your location</p>
-        <div class="flex justify-center items-center h-40 relative">
-          <div class="w-28 h-28 bg-green-50 rounded-full flex items-center justify-center relative">
-            <div id="qibla-needle" class="w-1 h-12 bg-green-700 absolute top-2 origin-bottom rounded-full transition-transform duration-500 ease-in-out"></div>
-            <span class="absolute bottom-2 text-xs text-gray-400">N</span>
-          </div>
-        </div>
-        <p class="text-xs mt-4 text-gray-400 text-center" id="qibla-status">Calculating Qibla direction...</p>
+        <p class="text-xs text-gray-400 text-center mt-6 pt-4 border-t">
+          Powered by AlAdhan API · Accurate to your location
+        </p>
       </div>
     </main>
 
     <!-- FOOTER -->
     <footer class="text-center text-xs text-gray-400 py-6">
-      NoorTime.org · Powered by AlAdhan API · Deployed via Vercel
+      NoorTime.org · Built with ❤️ · Deployed via Vercel
     </footer>
 
     <!-- SCRIPT -->
     <script>
-      const locElem = document.getElementById('location');
-      const cityElem = document.getElementById('city');
-      const suhoorElem = document.getElementById('suhoor');
-      const iftarElem = document.getElementById('iftar');
-      const qiblaStatus = document.getElementById('qibla-status');
-      const qiblaNeedle = document.getElementById('qibla-needle');
+      const locationEl = document.getElementById('location');
+      const fajrEl = document.getElementById('fajr');
+      const dhuhrEl = document.getElementById('dhuhr');
+      const asrEl = document.getElementById('asr');
+      const maghribEl = document.getElementById('maghrib');
+      const ishaEl = document.getElementById('isha');
 
       fetch('https://ipapi.co/json')
         .then(res => res.json())
@@ -90,35 +73,21 @@
             month: 'long',
             day: 'numeric',
           });
-          locElem.textContent = `${loc.city}, ${loc.country_name} • ${dateStr}`;
-          cityElem.textContent = loc.city;
+          locationEl.textContent = `${loc.city}, ${loc.country_name} • ${dateStr}`;
 
-          const lat = loc.latitude;
-          const lon = loc.longitude;
-
-          // Prayer Times
-          fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=2`)
-            .then(res => res.json())
-            .then(data => {
-              const t = data.data.timings;
-              suhoorElem.textContent = t.Imsak;
-              iftarElem.textContent = t.Maghrib;
-            });
-
-          // Qibla Direction
-          fetch(`https://api.aladhan.com/v1/qibla/${lat}/${lon}`)
-            .then(res => res.json())
-            .then(data => {
-              const angle = data.data.direction;
-              qiblaNeedle.style.transform = `rotate(${angle}deg)`;
-              qiblaStatus.textContent = `Qibla direction: ${Math.round(angle)}° from North`;
-            })
-            .catch(() => {
-              qiblaStatus.textContent = "Unable to fetch Qibla direction.";
-            });
+          return fetch(`https://api.aladhan.com/v1/timings?latitude=${loc.latitude}&longitude=${loc.longitude}&method=2`);
+        })
+        .then(res => res.json())
+        .then(data => {
+          const t = data.data.timings;
+          fajrEl.textContent = t.Fajr;
+          dhuhrEl.textContent = t.Dhuhr;
+          asrEl.textContent = t.Asr;
+          maghribEl.textContent = t.Maghrib;
+          ishaEl.textContent = t.Isha;
         })
         .catch(() => {
-          locElem.textContent = "Failed to detect location.";
+          locationEl.textContent = 'Unable to load location.';
         });
     </script>
   </body>
