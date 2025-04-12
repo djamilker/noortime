@@ -58,15 +58,13 @@
   <!-- MAIN -->
   <main class="z-10 relative px-4 sm:px-6 py-10 max-w-xl mx-auto space-y-8 text-center">
     <h1 class="text-3xl sm:text-4xl font-bold gold">🕋 Prayer Times</h1>
-    <p class="text-sm text-white/80 max-w-md mx-auto italic">"Indeed, prayer has been decreed upon the believers a decree of specified times." <br> <span class="text-xs">(Qur'an 4:103)</span></p>
+    <p class="text-sm text-white/80 italic">"Indeed, prayer has been decreed upon the believers a decree of specified times." <br> <span class="text-xs">(Qur'an 4:103)</span></p>
 
-    <!-- Location Info -->
     <div class="card p-6 space-y-2 text-center">
       <p id="location" class="text-white text-sm">📍 Detecting location...</p>
       <p id="date" class="text-white text-sm">📅 Loading date...</p>
     </div>
 
-    <!-- Times -->
     <div class="card p-6 space-y-4">
       <h2 class="text-lg font-semibold text-yellow-300 mb-2">🕰️ Today's Times</h2>
       <div id="prayerTimes" class="grid grid-cols-2 gap-y-3 text-sm text-white/90">
@@ -77,20 +75,6 @@
         <span>Isha</span><span>--:--</span>
       </div>
     </div>
-
-    <!-- SEO Content Section -->
-    <section class="card p-6 text-left space-y-4">
-      <h2 class="text-lg font-semibold text-yellow-300">📚 About NoorTime Prayer Times</h2>
-      <p class="text-sm text-white/80">
-        NoorTime provides precise prayer timings calculated using the trusted Umm al-Qura method.
-      </p>
-      <h3 class="text-md font-semibold text-yellow-300">✨ Explore More Tools</h3>
-      <ul class="list-disc list-inside text-sm text-white/80 space-y-1">
-        <li><a href="../hijri-converter/index.html" class="underline hover:text-yellow-400">Hijri ↔ Gregorian Converter</a></li>
-        <li><a href="../ramadan-countdown/index.html" class="underline hover:text-yellow-400">Ramadan Countdown</a></li>
-        <li><a href="../calendar/index.html" class="underline hover:text-yellow-400">Interactive Islamic Calendar</a></li>
-      </ul>
-    </section>
   </main>
 
   <!-- FOOTER -->
@@ -98,7 +82,22 @@
     NoorTime.org · Powered by AlAdhan API · Deployed via Vercel
   </footer>
 
-  <!-- Existing scripts unchanged -->
+  <!-- SCRIPT -->
   <script src="../scripts/prayer-times.js"></script>
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mainNav = document.getElementById("mainNav");
+    const backdrop = document.getElementById("mobileBackdrop");
+
+    menuBtn.addEventListener("click", () => {
+      mainNav.classList.toggle("hidden");
+      backdrop.classList.toggle("hidden");
+    });
+
+    backdrop.addEventListener("click", () => {
+      mainNav.classList.add("hidden");
+      backdrop.classList.add("hidden");
+    });
+  </script>
 </body>
 </html>
