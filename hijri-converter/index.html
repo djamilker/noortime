@@ -54,7 +54,34 @@
       <!-- H to G -->
       <div class="card p-6 border-t border-white/10">
         <h2 class="text-yellow-300 text-lg font-semibold mb-2">🗓 Hijri to Gregorian</h2>
-        <input type="text" id="hijriInput" placeholder="1445-10-01" class="w-full mt-2 px-3 py-2 rounded bg-white/10 text-white border border-white/20" />
+        <div class="flex gap-2 flex-wrap justify-center">
+          <select id="hijriYear" class="bg-white/10 text-white px-2 py-1 rounded border border-white/20">
+            <script>
+              for (let y = 1440; y <= 1460; y++) {
+                document.write(`<option value="${y}">${y}</option>`);
+              }
+            </script>
+          </select>
+          <select id="hijriMonth" class="bg-white/10 text-white px-2 py-1 rounded border border-white/20">
+            <script>
+              const hijriMonths = [
+                'Muharram', 'Safar', "Rabi' al-awwal", "Rabi' al-thani",
+                'Jumada al-awwal', 'Jumada al-thani', 'Rajab', "Sha'ban",
+                'Ramadan', 'Shawwal', "Dhu al-Qi\'dah", 'Dhu al-Hijjah'
+              ];
+              hijriMonths.forEach((m, i) => {
+                document.write(`<option value="${i+1}">${m}</option>`);
+              });
+            </script>
+          </select>
+          <select id="hijriDay" class="bg-white/10 text-white px-2 py-1 rounded border border-white/20">
+            <script>
+              for (let d = 1; d <= 30; d++) {
+                document.write(`<option value="${d}">${d}</option>`);
+              }
+            </script>
+          </select>
+        </div>
         <button onclick="convertToGregorian()" class="mt-3 px-4 py-2 text-sm rounded bg-yellow-500 text-black hover:bg-yellow-400 transition">Convert</button>
         <p id="gregorianOutput" class="text-sm text-yellow-200 mt-2"></p>
       </div>
@@ -68,6 +95,12 @@
 
   <!-- SCRIPT -->
   <script>
+    const hijriMonths = [
+      'Muharram', 'Safar', "Rabi' al-awwal", "Rabi' al-thani",
+      'Jumada al-awwal', 'Jumada al-thani', 'Rajab', "Sha'ban",
+      'Ramadan', 'Shawwal', "Dhu al-Qi\'dah", 'Dhu al-Hijjah'
+    ];
+
     function gregorianToHijri(gDate) {
       const day = gDate.getDate();
       const month = gDate.getMonth();
@@ -112,17 +145,15 @@
       const [year, month, day] = input.split('-').map(Number);
       const gDate = new Date(year, month - 1, day);
       const hijri = gregorianToHijri(gDate);
-      output.textContent = `Hijri: ${hijri.year}-${String(hijri.month).padStart(2, '0')}-${String(hijri.day).padStart(2, '0')}`;
+      output.textContent = `Hijri: ${hijri.day} ${hijriMonths[hijri.month - 1]} ${hijri.year}`;
     }
 
     function convertToGregorian() {
-      const input = document.getElementById('hijriInput').value;
-      const output = document.getElementById('gregorianOutput');
-      const match = input.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-      if (!match) return output.textContent = 'Format must be YYYY-MM-DD';
-      const [_, y, m, d] = input.split('-').map(Number);
+      const y = parseInt(document.getElementById('hijriYear').value);
+      const m = parseInt(document.getElementById('hijriMonth').value);
+      const d = parseInt(document.getElementById('hijriDay').value);
       const g = hijriToGregorian(y, m, d);
-      output.textContent = `Gregorian: ${g.year}-${String(g.month).padStart(2, '0')}-${String(g.day).padStart(2, '0')}`;
+      document.getElementById('gregorianOutput').textContent = `Gregorian: ${g.year}-${String(g.month).padStart(2, '0')}-${String(g.day).padStart(2, '0')}`;
     }
   </script>
 </body>
