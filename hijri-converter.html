@@ -64,7 +64,7 @@
           return;
         }
 
-        fetch(`https://api.aladhan.com/v1/gToH?date=${date}`)
+        fetch(`https://api.aladhan.com/v1/gToH?date=${encodeURIComponent(date)}`)
           .then(res => res.json())
           .then(data => {
             const h = data.data.hijri;
@@ -85,7 +85,7 @@
           return;
         }
 
-        fetch(`https://api.aladhan.com/v1/hToG?date=${hijri}`)
+        fetch(`https://api.aladhan.com/v1/hToG?date=${encodeURIComponent(hijri)}`)
           .then(res => res.json())
           .then(data => {
             const g = data.data.gregorian;
