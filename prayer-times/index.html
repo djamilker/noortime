@@ -50,21 +50,21 @@
       <a href="../index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🏠 Home</a>
       <a href="index.html" class="block py-2 px-4 rounded hover:bg-white/10 text-yellow-300 underline font-semibold text-lg md:text-sm">📿 Prayer Times</a>
       <a href="../hijri-converter/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📆 Hijri Converter</a>
-      <a href="../calendar/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🗓 Islamic Calendar</a>
-      <a href="../ramadan-countdown/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🌙 Ramadan Countdown</a>
     </nav>
   </header>
 
   <!-- MAIN -->
   <main class="z-10 relative px-4 sm:px-6 py-10 max-w-xl mx-auto space-y-8 text-center">
     <h1 class="text-3xl sm:text-4xl font-bold gold">🕋 Prayer Times</h1>
-    <p class="text-sm text-white/80 italic">"Indeed, prayer has been decreed upon the believers a decree of specified times." <br> <span class="text-xs">(Qur'an 4:103)</span></p>
+    <p class="text-sm text-white/80 max-w-md mx-auto italic">"Indeed, prayer has been decreed upon the believers a decree of specified times." <br> <span class="text-xs">(Qur'an 4:103)</span></p>
 
+    <!-- Location Info -->
     <div class="card p-6 space-y-2 text-center">
       <p id="location" class="text-white text-sm">📍 Detecting location...</p>
       <p id="date" class="text-white text-sm">📅 Loading date...</p>
     </div>
 
+    <!-- Times -->
     <div class="card p-6 space-y-4">
       <h2 class="text-lg font-semibold text-yellow-300 mb-2">🕰️ Today's Times</h2>
       <div id="prayerTimes" class="grid grid-cols-2 gap-y-3 text-sm text-white/90">
@@ -75,6 +75,20 @@
         <span>Isha</span><span>--:--</span>
       </div>
     </div>
+
+    <!-- SEO Content Section -->
+    <section class="card p-6 text-left space-y-4">
+      <h2 class="text-lg font-semibold text-yellow-300">📚 About NoorTime Prayer Times</h2>
+      <p class="text-sm text-white/80">
+        NoorTime provides precise prayer timings calculated using the trusted Umm al-Qura method.
+      </p>
+      <h3 class="text-md font-semibold text-yellow-300">✨ Explore More Tools</h3>
+      <ul class="list-disc list-inside text-sm text-white/80 space-y-1">
+        <li><a href="../hijri-converter/index.html" class="underline hover:text-yellow-400">Hijri ↔ Gregorian Converter</a></li>
+        <li><a href="../ramadan-countdown/index.html" class="underline hover:text-yellow-400">Ramadan Countdown</a></li>
+        <li><a href="../calendar/index.html" class="underline hover:text-yellow-400">Interactive Islamic Calendar</a></li>
+      </ul>
+    </section>
   </main>
 
   <!-- FOOTER -->
@@ -83,8 +97,29 @@
   </footer>
 
   <!-- SCRIPT -->
-  <script src="../scripts/prayer-times.js"></script>
   <script>
+    const today = new Date();
+    document.getElementById('date').textContent = `📅 ${today.toDateString()}`;
+
+    fetch('https://ipapi.co/json')
+      .then(res => res.json())
+      .then(loc => {
+        document.getElementById('location').textContent = `📍 ${loc.city}, ${loc.country_name}`;
+        return fetch(`https://api.aladhan.com/v1/timings?latitude=${loc.latitude}&longitude=${loc.longitude}&method=2`);
+      })
+      .then(res => res.json())
+      .then(data => {
+        const times = data.data.timings;
+        const container = document.getElementById('prayerTimes');
+        container.innerHTML = '';
+        ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'].forEach(name => {
+          container.innerHTML += `<span class="font-medium">${name}</span><span class="text-right">${times[name]}</span>`;
+        });
+      })
+      .catch(err => {
+        document.getElementById('location').textContent = '📍 Location unavailable';
+      });
+
     const menuBtn = document.getElementById("menuBtn");
     const mainNav = document.getElementById("mainNav");
     const backdrop = document.getElementById("mobileBackdrop");
