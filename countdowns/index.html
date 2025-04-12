@@ -1,1 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramadan 2026 Countdown | Ramadan 1447 AH Timer - NoorTime</title>
+  <meta name="description" content="Countdown to Ramadan 2026 / 1447 AH. Track days, hours, and minutes until the holy month begins. Accurate, beautiful, and Umm al-Qura based.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When does Ramadan 2026 start?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ramadan 2026 (1447 AH) is expected to begin on Friday, 20 February 2026, based on the Umm al-Qura calendar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many days until Ramadan 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our live countdown shows the days, hours, and minutes until Ramadan 2026 begins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long is Ramadan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ramadan lasts for 29 or 30 days, depending on the lunar calendar. It ends with Eid al-Fitr."
+      }
+    }
+  ]
+}
+</script>
+  <style>
+    body { font-family: 'Cairo', sans-serif; }
+    .gold {
+      background: linear-gradient(to right, #d4af37, #fceabb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 1.25rem;
+    }
+  </style>
+</head>
+<body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
+  <img src="../assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" alt="bg" />
+
+  <header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-10">
+    <div class="text-xl font-bold gold">🕌 NoorTime</div>
+    <nav class="flex gap-6 text-sm font-medium text-white/80">
+      <a href="../index.html" class="hover:text-yellow-400">Home</a>
+      <a href="../prayer-times/index.html" class="hover:text-yellow-400">Prayer Times</a>
+      <a href="../hijri-converter/index.html" class="hover:text-yellow-400">Hijri Converter</a>
+      <a href="index.html" class="text-yellow-300 underline font-semibold">Ramadan Countdown</a>
+    </nav>
+  </header>
+
+  <main class="z-10 relative px-4 sm:px-6 py-16 max-w-3xl mx-auto space-y-12 text-center">
+    <h1 class="text-4xl sm:text-5xl font-bold gold">🌙 Countdown to Ramadan 1447 AH</h1>
+    <p class="text-sm text-white/70">Expected to begin: <span class="text-white font-semibold">Friday, 20 February 2026</span> · 1 Ramadan 1447 AH</p>
+
+    <div class="card py-10 px-6 text-3xl sm:text-4xl font-bold text-yellow-300" id="countdown">
+      Loading...
+    </div>
+
+    <blockquote class="italic text-white/70 max-w-2xl mx-auto">
+      “The month of Ramadan is that in which the Qur'an was revealed, a guidance for the people and clear proofs of guidance and criterion...”<br/>
+      <span class="text-white/50 text-sm">— Surah Al-Baqarah 2:185</span>
+    </blockquote>
+
+    <div class="card p-6 text-left text-sm space-y-4 text-white/80">
+      <h2 class="text-lg text-yellow-400 font-semibold">What is Ramadan?</h2>
+      <p>Ramadan is the ninth month of the Islamic calendar, a time of fasting, reflection, and community. Muslims around the world abstain from food, drink, and other physical needs from dawn until sunset to grow spiritually and strengthen their connection with Allah.</p>
+      <ul class="list-disc pl-5">
+        <li>🕋 Fasting from Suhoor to Iftar</li>
+        <li>📖 Increased recitation of Qur'an</li>
+        <li>💫 Seeking Laylat al-Qadr (Night of Power)</li>
+        <li>🎉 Culminates in Eid al-Fitr celebration</li>
+      </ul>
+    </div>
+
+    <div class="card p-6 text-left text-sm space-y-4 text-white/80">
+      <h2 class="text-lg text-yellow-400 font-semibold">FAQ</h2>
+      <p><strong>When does Ramadan 2026 start?</strong><br>Friday, 20 February 2026 (1 Ramadan 1447 AH)</p>
+      <p><strong>How many days until Ramadan?</strong><br>See our live countdown timer above!</p>
+      <p><strong>What is the importance of Ramadan?</strong><br>It is a time of deep spirituality, self-discipline, and increased devotion.</p>
+    </div>
+
+    <a href="../prayer-times/index.html" class="inline-block mt-4 px-6 py-3 bg-yellow-500 text-black rounded hover:bg-yellow-400 transition font-medium">
+      🕓 Check Fasting Times
+    </a>
+  </main>
+
+  <footer class="z-10 text-center text-xs text-white/40 py-6">
+    NoorTime.org · Accurate Ramadan Start · Based on Umm al-Qura
+  </footer>
+
+  <script>
+    const targetDate = new Date("2026-02-20T00:00:00").getTime();
+    const countdown = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        countdown.textContent = "Ramadan Mubarak! 🌙";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.textContent = `${days} Days · ${hours} Hours · ${minutes} Minutes · ${seconds} Seconds`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
 
