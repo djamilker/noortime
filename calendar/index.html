@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Islamic Calendar 1446 | NoorTime</title>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQMSGSFF68"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ZQMSGSFF68');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQMSGSFF68"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZQMSGSFF68');
+  </script>
   <meta name="description" content="Explore the full Islamic (Hijri) Calendar for the year 1446 AH. View key Islamic dates, holidays, and Hijri to Gregorian conversion.">
   <meta name="keywords" content="Islamic calendar, Hijri calendar, 1446 AH, Islamic holidays, Ramadan 1446, Eid al-Fitr 1446, Eid al-Adha 1446">
   <meta name="robots" content="index, follow">
@@ -21,6 +20,7 @@
   <meta property="og:url" content="https://noortime.org/calendar" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://noortime.org/calendar" />
+  <link rel="alternate" href="https://www.noortime.org/calendar/index-ar.html" hreflang="ar" />
   <link rel="icon" type="image/png" href="../assets/noortime.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
@@ -63,8 +63,14 @@
   <div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-40 hidden"></div>
 
   <header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-50">
-    <a href="../index.html" class="text-xl font-bold gold">🕌 NoorTime</a>
-    <button class="md:hidden text-white text-2xl" id="menuBtn">☰</button>
+    <div class="flex items-center gap-4">
+      <a href="../index.html" class="text-xl font-bold gold">🕌 NoorTime</a>
+      <a href="index-ar.html" class="block md:hidden text-sm hover:text-yellow-400 transition">العربية</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="index-ar.html" class="hidden md:block text-sm hover:text-yellow-400 transition">العربية</a>
+      <button class="md:hidden text-white text-2xl" id="menuBtn">☰</button>
+    </div>
     <nav id="mainNav" class="hidden md:flex flex-col md:flex-row gap-4 md:gap-6 absolute md:static top-full left-0 w-full md:w-auto bg-[#0d1b2a] md:bg-transparent p-6 md:p-0 z-50 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none">
       <a href="../index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🏠 Home</a>
       <a href="../prayer-times/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📿 Prayer Times</a>
@@ -78,67 +84,54 @@
     <h1 class="text-3xl sm:text-4xl font-bold gold">🗓 Islamic Calendar – 1446 AH</h1>
     <p class="text-sm text-white/70 mb-8">Click on a month to view Hijri ↔ Gregorian mapping with highlighted Islamic dates</p>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-
       <a href="1446-01.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Muharram</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-02.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Safar</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-03.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Rabi al-Awwal</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-04.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Rabi al-Thani</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-05.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Jumada al-Awwal</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-06.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Jumada al-Thani</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-07.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Rajab</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-08.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Sha'ban</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-09.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Ramadan</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-10.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Shawwal</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-11.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Dhu al-Qi'dah</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-12.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Dhu al-Hijjah</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
     </div>
 
     <div class="mt-10 text-sm text-white/70">
@@ -150,15 +143,14 @@
   </main>
 
   <footer class="z-10 text-center text-xs text-white/40 py-6 relative z-50">
-  <p class="mb-2">NoorTime.org · Serving the Ummah with Love</p>
-  <p class="space-x-4">
-    <a href="../about/index.html" class="hover:text-yellow-400 underline">About</a>
-    <a href="../contact/index.html" class="hover:text-yellow-400 underline">Contact</a>
-    <a href="../privacy/index.html" class="hover:text-yellow-400 underline">Privacy</a>
-    <a href="../terms/index.html" class="hover:text-yellow-400 underline">Terms</a>
-  </p>
-</footer>
-
+    <p class="mb-2">NoorTime.org · Serving the Ummah with Love</p>
+    <p class="space-x-4">
+      <a href="../about/index.html" class="hover:text-yellow-400 underline">About</a>
+      <a href="../contact/index.html" class="hover:text-yellow-400 underline">Contact</a>
+      <a href="../privacy/index.html" class="hover:text-yellow-400 underline">Privacy</a>
+      <a href="../terms/index.html" class="hover:text-yellow-400 underline">Terms</a>
+    </p>
+  </footer>
 
   <script>
     const menuBtn = document.getElementById("menuBtn");
