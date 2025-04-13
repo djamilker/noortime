@@ -41,7 +41,7 @@
   </style>
 </head>
 <body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
-  <img src="../assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" alt="crescent background" />
+  <img src="../assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 pointer-events-none z-0" alt="crescent background" />
   <div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-40 hidden"></div>
 
   <!-- HEADER -->
@@ -107,7 +107,12 @@
 
   <!-- FOOTER -->
   <footer class="z-10 text-center text-xs text-white/40 py-6">
-    NoorTime.org · Suhoor and Iftar Times · Powered by AlAdhan API
+    <p class="mb-2">NoorTime.org · Suhoor and Iftar Times · Powered by AlAdhan API</p>
+    <p class="space-x-4">
+      <a href="../about/index.html" class="hover:text-yellow-400 underline">About</a>
+      <a href="../contact/index.html" class="hover:text-yellow-400 underline">Contact</a>
+      <a href="../privacy/index.html" class="hover:text-yellow-400 underline">Privacy</a>
+    </p>
   </footer>
 
   <!-- SCRIPTS -->
