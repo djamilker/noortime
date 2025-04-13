@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hijri to Gregorian Date Converter | Accurate Umm al-Qura Calendar – NoorTime</title>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQMSGSFF68"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ZQMSGSFF68');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQMSGSFF68"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZQMSGSFF68');
+  </script>
   <meta name="description" content="Convert Gregorian to Hijri and Hijri to Gregorian dates using the accurate Umm al-Qura calendar. No API required. Works offline.">
   <meta name="keywords" content="Hijri converter, Gregorian to Hijri, Islamic date converter, Umm al-Qura, Hijri calendar, Islamic calendar 1446, Ramadan date">
   <meta name="robots" content="index, follow">
@@ -20,6 +19,7 @@
   <meta property="og:description" content="Convert Islamic dates accurately and quickly between Hijri and Gregorian calendars using NoorTime." />
   <meta property="og:url" content="https://noortime.org/hijri-converter" />
   <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" href="https://www.noortime.org/hijri-converter/index-ar.html" hreflang="ar" />
   <link rel="icon" type="image/png" href="../assets/noortime.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
@@ -45,8 +45,14 @@
 
   <!-- HEADER -->
   <header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-50">
-    <a href="../index.html" class="text-xl font-bold gold">🕌 NoorTime</a>
-    <button class="md:hidden text-white text-2xl" id="menuBtn">☰</button>
+    <div class="flex items-center gap-4">
+      <a href="../index.html" class="text-xl font-bold gold">🕌 NoorTime</a>
+      <a href="index-ar.html" class="block md:hidden text-sm hover:text-yellow-400 transition">العربية</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="index-ar.html" class="hidden md:block text-sm hover:text-yellow-400 transition">العربية</a>
+      <button class="md:hidden text-white text-2xl" id="menuBtn">☰</button>
+    </div>
     <nav id="mainNav" class="hidden md:flex flex-col md:flex-row gap-4 md:gap-6 absolute md:static top-full left-0 w-full md:w-auto bg-[#0d1b2a] md:bg-transparent p-6 md:p-0 z-50 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none">
       <a href="../index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🏠 Home</a>
       <a href="../prayer-times/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📿 Prayer Times</a>
@@ -84,15 +90,14 @@
   </main>
 
   <footer class="z-10 text-center text-xs text-white/40 py-6 relative z-50">
-  <p class="mb-2">NoorTime.org · Serving the Ummah with Love</p>
-  <p class="space-x-4">
-    <a href="../about/index.html" class="hover:text-yellow-400 underline">About</a>
-    <a href="../contact/index.html" class="hover:text-yellow-400 underline">Contact</a>
-    <a href="../privacy/index.html" class="hover:text-yellow-400 underline">Privacy</a>
-    <a href="../terms/index.html" class="hover:text-yellow-400 underline">Terms</a>
-  </p>
-</footer>
-
+    <p class="mb-2">NoorTime.org · Serving the Ummah with Love</p>
+    <p class="space-x-4">
+      <a href="../about/index.html" class="hover:text-yellow-400 underline">About</a>
+      <a href="../contact/index.html" class="hover:text-yellow-400 underline">Contact</a>
+      <a href="../privacy/index.html" class="hover:text-yellow-400 underline">Privacy</a>
+      <a href="../terms/index.html" class="hover:text-yellow-400 underline">Terms</a>
+    </p>
+  </footer>
 
   <script src="../scripts/hijri-lookup.js"></script>
   <script>
