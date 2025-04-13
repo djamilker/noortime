@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About NoorTime | Free Islamic Tools for Daily Use</title>
+  <meta name="description" content="NoorTime is a free Islamic platform offering beautiful, accurate tools like prayer times, Hijri converters, Ramadan countdowns, and more — built for the Ummah.">
+  <meta name="keywords" content="About NoorTime, Islamic tools, Muslim calendar, daily prayer times, hijri converter, fasting times, Quran verse">
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="About NoorTime | Beautiful Islamic Tools for Muslims" />
+  <meta property="og:description" content="Learn more about NoorTime, our mission, and how we aim to help Muslims around the world stay connected to their deen." />
+  <meta property="og:url" content="https://www.noortime.org/about" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="../assets/noortime.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Cairo', sans-serif; }
+    .gold {
+      background: linear-gradient(to right, #d4af37, #fceabb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 1.25rem;
+    }
+  </style>
+</head>
+
+<body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
+  <img src="../assets/hero-bg.jpg" alt="background" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" />
+  <div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-40 hidden"></div>
+
+  <!-- HEADER -->
+  <header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-50">
+    <a href="../index.html" class="text-xl font-bold gold">🕌 NoorTime</a>
+    <button class="md:hidden text-white text-2xl" id="menuBtn">☰</button>
+    <nav id="mainNav" class="hidden md:flex flex-col md:flex-row gap-4 md:gap-6 absolute md:static top-full left-0 w-full md:w-auto bg-[#0d1b2a] md:bg-transparent p-6 md:p-0 z-50 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none">
+      <a href="../index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🏠 Home</a>
+      <a href="../prayer-times/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📿 Prayer Times</a>
+      <a href="../hijri-converter/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📆 Hijri Converter</a>
+      <a href="../calendar/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🗓 Islamic Calendar</a>
+      <a href="../ramadan-countdown/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🌙 Ramadan Countdown</a>
+      <a href="../contact/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📩 Contact</a>
+      <a href="index.html" class="block py-2 px-4 rounded hover:bg-white/10 text-yellow-300 underline font-semibold text-lg md:text-sm">📖 About</a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main class="relative z-10 max-w-2xl mx-auto px-6 py-16 space-y-10 text-white/80 text-sm fade-in" id="mainContent">
+    <h1 class="text-4xl sm:text-5xl font-bold gold text-center">📖 About NoorTime</h1>
+
+    <p>NoorTime is a simple project with a powerful goal: to help Muslims around the world stay spiritually connected through tools that are beautiful, accurate, and accessible. We believe that simplicity can be powerful — and faith can be supported by modern design.</p>
+
+    <div class="card p-6 space-y-3">
+      <h2 class="text-yellow-300 text-lg font-semibold">🧰 What We Offer</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>📿 Location-based <strong>Prayer Times</strong> (AlAdhan API powered)</li>
+        <li>📆 Accurate <strong>Hijri–Gregorian Converter</strong> using Umm al-Qura</li>
+        <li>🗓 Full <strong>Islamic Calendar</strong> for 1446 AH with major dates</li>
+        <li>🌙 Real-time <strong>Ramadan Countdown</strong> and Fasting Times</li>
+        <li>🧠 All pages designed to be fast, clean, and mobile-friendly</li>
+      </ul>
+    </div>
+
+    <div class="card p-6 space-y-3">
+      <h2 class="text-yellow-300 text-lg font-semibold">💡 Why We Built NoorTime</h2>
+      <p>As Muslims, we often need quick access to basic tools like prayer times or Hijri dates — but most websites are either cluttered or full of ads. NoorTime was made to fix that: smooth UI, focused tools, and no distractions.</p>
+    </div>
+
+    <div class="card p-6 space-y-3">
+      <h2 class="text-yellow-300 text-lg font-semibold">🌍 For the Ummah, By the Ummah</h2>
+      <p>NoorTime is 100% free and always will be. This project was built as a sadaqah jariyah — a continuous charity. You can support us by sharing the site with others, and making du‘a for its success, insha’Allah.</p>
+    </div>
+
+    <div class="text-center">
+      <a href="../index.html" class="inline-block mt-6 px-6 py-3 bg-yellow-500 text-black rounded hover:bg-yellow-400 transition font-medium">
+        ← Back to Home
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="z-10 text-center text-xs text-white/40 py-6">
+    NoorTime.org · Free Islamic Tools · Built with Love for the Ummah
+  </footer>
+
+  <!-- Animation Script -->
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    observer.observe(document.getElementById('mainContent'));
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mainNav = document.getElementById("mainNav");
+    const backdrop = document.getElementById("mobileBackdrop");
+
+    menuBtn.addEventListener("click", () => {
+      mainNav.classList.toggle("hidden");
+      backdrop.classList.toggle("hidden");
+    });
+    backdrop.addEventListener("click", () => {
+      mainNav.classList.add("hidden");
+      backdrop.classList.add("hidden");
+    });
+  </script>
+</body>
+</html>
 
