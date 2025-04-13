@@ -31,7 +31,7 @@
 </head>
 
 <body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
-  <img src="../assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" alt="Islamic background with crescent and stars" />
+  <img src="../assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none" alt="Islamic background with crescent and stars" />
   <div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-40 hidden"></div>
 
   <!-- HEADER -->
@@ -75,19 +75,21 @@
   </main>
 
   <footer class="z-10 text-center text-xs text-white/40 py-6">
-    NoorTime.org · Accurate to Umm al-Qura Calendar · Offline Powered
+    <p class="mb-2">NoorTime.org · Accurate to Umm al-Qura Calendar</p>
+    <p class="space-x-4 text-white/60 text-xs">
+      <a href="../about/index.html" class="hover:text-yellow-400 underline">About</a>
+      <a href="../contact/index.html" class="hover:text-yellow-400 underline">Contact</a>
+      <a href="../privacy/index.html" class="hover:text-yellow-400 underline">Privacy</a>
+    </p>
   </footer>
 
   <script src="../scripts/hijri-lookup.js"></script>
   <script>
-  // Build reverseLookup: Hijri → Gregorian
-  const reverseLookup = {};
-  for (const [g, h] of Object.entries(lookup)) {
-    reverseLookup[h] = g;
-  }
-</script>
+    const reverseLookup = {};
+    for (const [g, h] of Object.entries(lookup)) {
+      reverseLookup[h] = g;
+    }
 
-  <script>
     const hijriMonths = [
       "Muharram", "Safar", "Rabi' al-awwal", "Rabi' al-thani",
       "Jumada al-awwal", "Jumada al-thani", "Rajab", "Sha'ban",
@@ -111,20 +113,18 @@
     }
 
     function convertToGregorian() {
-  const hy = yearSelect.value;
-  const hm = monthSelect.value.padStart(2, '0');
-  const hd = daySelect.value.padStart(2, '0');
-  const hijri = `${hy}-${hm}-${hd}`;
-  const out = document.getElementById("gregorianOutput");
-
-  const gregorian = reverseLookup[hijri];
-  if (gregorian) {
-    out.textContent = `Gregorian: ${gregorian}`;
-  } else {
-    out.textContent = "Date not found in range.";
-  }
-}
-
+      const hy = yearSelect.value;
+      const hm = monthSelect.value.padStart(2, '0');
+      const hd = daySelect.value.padStart(2, '0');
+      const hijri = `${hy}-${hm}-${hd}`;
+      const out = document.getElementById("gregorianOutput");
+      const gregorian = reverseLookup[hijri];
+      if (gregorian) {
+        out.textContent = `Gregorian: ${gregorian}`;
+      } else {
+        out.textContent = "Date not found in range.";
+      }
+    }
 
     const menuBtn = document.getElementById("menuBtn");
     const mainNav = document.getElementById("mainNav");
