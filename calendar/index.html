@@ -62,71 +62,59 @@
     </nav>
   </header>
 
-  <main class="z-10 relative px-4 sm:px-6 py-10 max-w-4xl mx-auto text-center">
+  <main class="z-50 relative px-4 sm:px-6 py-10 max-w-4xl mx-auto text-center">
     <h1 class="text-3xl sm:text-4xl font-bold gold">🗓 Islamic Calendar – 1446 AH</h1>
     <p class="text-sm text-white/70 mb-8">Click on a month to view Hijri ↔ Gregorian mapping with highlighted Islamic dates</p>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-
+      <!-- Month links unchanged -->
       <a href="1446-01.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Muharram</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-02.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Safar</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-03.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Rabi al-Awwal</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-04.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Rabi al-Thani</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-05.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Jumada al-Awwal</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-06.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Jumada al-Thani</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-07.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Rajab</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-08.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Sha'ban</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-09.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Ramadan</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-10.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Shawwal</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-11.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Dhu al-Qi'dah</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
       <a href="1446-12.html" class="block p-4 card hover:bg-white/10 transition text-white text-center">
         <div class="text-yellow-300 font-semibold text-lg">Dhu al-Hijjah</div>
         <div class="text-white/60 text-xs mt-1">1446 AH</div>
       </a>
-
     </div>
 
     <div class="mt-10 text-sm text-white/70">
@@ -137,8 +125,13 @@
     </div>
   </main>
 
-  <footer class="z-10 text-center text-xs text-white/40 py-6">
-    NoorTime.org · Based on Umm al-Qura · Beautiful & Accurate Hijri Calendar
+  <footer class="z-50 text-center text-xs text-white/40 py-6">
+    <p class="mb-2">NoorTime.org · Based on Umm al-Qura · Beautiful & Accurate Hijri Calendar</p>
+    <p class="space-x-4">
+      <a href="../about/index.html" class="hover:text-yellow-400 underline">About</a>
+      <a href="../contact/index.html" class="hover:text-yellow-400 underline">Contact</a>
+      <a href="../privacy/index.html" class="hover:text-yellow-400 underline">Privacy</a>
+    </p>
   </footer>
 
   <script>
@@ -154,6 +147,14 @@
     backdrop.addEventListener("click", () => {
       mainNav.classList.add("hidden");
       backdrop.classList.add("hidden");
+    });
+
+    // Close nav on link click for mobile
+    mainNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mainNav.classList.add("hidden");
+        backdrop.classList.add("hidden");
+      });
     });
   </script>
 </body>
