@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NoorTime – Islamic Tools: Prayer Times, Hijri Converter, Ramadan Countdown</title>
-  
-  <!-- Google tag (gtag.js) -->
+
+  <!-- Google tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQMSGSFF68"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,11 +14,10 @@
     gtag('config', 'G-ZQMSGSFF68');
   </script>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/noortime.png" />
   <meta property="og:image" content="https://www.noortime.org/assets/noortime.png" />
 
-  <!-- Hreflang for Arabic version -->
+  <!-- hreflang for Arabic version -->
   <link rel="alternate" href="https://www.noortime.org/index-ar.html" hreflang="ar" />
 
   <meta name="description" content="NoorTime offers Islamic tools including a daily Quran verse, prayer times, Hijri-Gregorian converter, Islamic calendar, and more. Accurate, beautiful, and built for Muslims.">
@@ -47,19 +46,16 @@
       transition: all 0.3s ease-in-out;
       transform: translateY(0);
     }
-
     .card:hover {
       background: rgba(255, 255, 255, 0.07);
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(255, 255, 255, 0.08);
     }
-
     .fade-section {
       opacity: 0;
       transform: translateY(40px);
       transition: opacity 1s ease-out, transform 1s ease-out;
     }
-
     .fade-section.visible {
       opacity: 1;
       transform: none;
@@ -77,11 +73,8 @@
   <header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-50 fade-section">
     <div class="text-xl font-bold gold">🕌 NoorTime</div>
 
-    <!-- Language Switcher -->
+    <!-- Language Switcher (top right only) -->
     <div class="flex gap-4 text-sm absolute top-4 right-6 z-50">
-  <a href="/index-ar.html" class="hover:text-yellow-400 transition">العربية</a>
-</div>
-
       <a href="/index-ar.html" class="hover:text-yellow-400 transition">العربية</a>
     </div>
 
@@ -156,7 +149,6 @@
     const index = new Date().getDate() % verses.length;
     document.getElementById('quranVerse').textContent = verses[index];
 
-    // Fade-in observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -164,7 +156,6 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
 
-    // Mobile menu logic
     const menuBtn = document.getElementById("menuBtn");
     const mainNav = document.getElementById("mainNav");
     const backdrop = document.getElementById("mobileBackdrop");
