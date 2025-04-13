@@ -36,7 +36,7 @@
 
 <body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
   <!-- Background -->
-  <img src="../assets/hero-bg.jpg" alt="background" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0" />
+  <img src="../assets/hero-bg.jpg" alt="background" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none" />
 
   <!-- Mobile Menu Backdrop -->
   <div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-40 hidden"></div>
@@ -50,6 +50,8 @@
       <a href="../index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🏠 Home</a>
       <a href="index.html" class="block py-2 px-4 rounded hover:bg-white/10 text-yellow-300 underline font-semibold text-lg md:text-sm">📿 Prayer Times</a>
       <a href="../hijri-converter/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📆 Hijri Converter</a>
+      <a href="../calendar/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🗓 Islamic Calendar</a>
+      <a href="../ramadan-countdown/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🌙 Ramadan Countdown</a>
     </nav>
   </header>
 
@@ -93,7 +95,12 @@
 
   <!-- FOOTER -->
   <footer class="z-10 text-center text-xs text-white/40 py-6">
-    NoorTime.org · Powered by AlAdhan API · Deployed via Vercel
+    <p class="mb-2">NoorTime.org · Powered by AlAdhan API</p>
+    <p class="space-x-4 text-white/60 text-xs">
+      <a href="../about/index.html" class="hover:text-yellow-400 underline">About</a>
+      <a href="../contact/index.html" class="hover:text-yellow-400 underline">Contact</a>
+      <a href="../privacy/index.html" class="hover:text-yellow-400 underline">Privacy</a>
+    </p>
   </footer>
 
   <!-- SCRIPT -->
@@ -116,7 +123,7 @@
           container.innerHTML += `<span class="font-medium">${name}</span><span class="text-right">${times[name]}</span>`;
         });
       })
-      .catch(err => {
+      .catch(() => {
         document.getElementById('location').textContent = '📍 Location unavailable';
       });
 
