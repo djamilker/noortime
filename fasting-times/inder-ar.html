@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مواقيت الصيام – السحور والإفطار في رمضان | NoorTime</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQMSGSFF68"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZQMSGSFF68');
+  </script>
+  <meta name="description" content="تعرف على مواقيت السحور والإفطار الدقيقة خلال شهر رمضان. نكشف موقعك تلقائيًا ونعرض مواعد الفجر والمغرب." />
+  <meta name="keywords" content="مواقيت الصيام, رمضان, وقت السحور, وقت الإفطار, مواقيت الصلاة, NoorTime, مغرب, فجر">
+  <meta property="og:title" content="مواقيت الصيام – السحور والإفطار | NoorTime">
+  <meta property="og:description" content="متى تبدأ وتنهي صومك في رمضان؟ نعرض مواعيد السحور (الفجر) والإفطار (المغرب) بشكل موثوق ومحين.">
+  <meta property="og:url" content="https://www.noortime.org/fasting-times/index-ar.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://www.noortime.org/fasting-times/index-ar.html" />
+  <link rel="alternate" href="https://www.noortime.org/fasting-times" hreflang="en" />
+  <link rel="icon" type="image/png" href="../assets/noortime.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Cairo', sans-serif; }
+    .gold {
+      background: linear-gradient(to right, #d4af37, #fceabb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 1.25rem;
+    }
+    .fade-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-section.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
+  <img src="../assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 pointer-events-none z-0" alt="خلفية الهلال" />
+  <div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-40 hidden"></div>
+
+  <!-- HEADER -->
+  <header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-50">
+    <div class="flex items-center gap-4">
+      <a href="../index-ar.html" class="text-xl font-bold gold">🕌 نور تايم</a>
+      <a href="index.html" class="block md:hidden text-sm hover:text-yellow-400 transition">English</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="index.html" class="hidden md:block text-sm hover:text-yellow-400 transition">English</a>
+      <button class="md:hidden text-white text-2xl" id="menuBtn">☰</button>
+    </div>
+    <nav id="mainNav" class="hidden md:flex flex-col md:flex-row gap-4 md:gap-6 absolute md:static top-full right-0 w-full md:w-auto bg-[#0d1b2a] md:bg-transparent p-6 md:p-0 z-50 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none">
+      <a href="../index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🏠 الرئيسية</a>
+      <a href="../prayer-times/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📿 مواقيت الصلاة</a>
+      <a href="../hijri-converter/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📆 محول التاريخ</a>
+      <a href="../calendar/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🗓 التقويم الهجري</a>
+      <a href="../ramadan-countdown/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🌙 العد التنازلي لرمضان</a>
+    </nav>
+  </header>
+
+  <main class="z-10 relative px-4 sm:px-6 py-16 max-w-2xl mx-auto text-center space-y-12">
+    <h1 class="text-4xl sm:text-5xl font-bold gold fade-section">🕓 مواقيت الصيام (السحور والإفطار)</h1>
+    <p class="text-white/70 text-sm max-w-md mx-auto fade-section">اعرف مواعيد السحور (الفجر) والإفطار (المغرب) اليوم حسب موقعك الجغرافي. دقيقة وموثوقة لروتينك الرمضاني.</p>
+
+    <div class="card p-6 space-y-4 text-white/80 text-lg font-medium max-w-md mx-auto fade-section">
+      <p id="location" class="text-white text-sm">📍 جاري تحديد الموقع...</p>
+      <div class="grid grid-cols-2 gap-4 mt-4">
+        <div class="bg-white/10 p-4 rounded">
+          <h2 class="text-yellow-400 text-xl">السحور (الفجر)</h2>
+          <p id="fajrTime" class="text-white text-lg mt-2">--:--</p>
+        </div>
+        <div class="bg-white/10 p-4 rounded">
+          <h2 class="text-yellow-400 text-xl">الإفطار (المغرب)</h2>
+          <p id="maghribTime" class="text-white text-lg mt-2">--:--</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="card p-6 mt-8 text-right text-sm text-white/80 fade-section">
+      <h2 class="text-lg text-yellow-400 font-semibold">🗓 الجدول الحي للصيام (5 أيام قادمة)</h2>
+      <p class="mb-2 text-white/60">المواعيد حسب موقعك الحالي وباستخدام واجهة AlAdhan API</p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-right text-sm border-collapse">
+          <thead class="text-yellow-300 border-b border-white/10">
+            <tr>
+              <th class="py-2 px-4">التاريخ</th>
+              <th class="py-2 px-4">السحور (الفجر)</th>
+              <th class="py-2 px-4">الإفطار (المغرب)</th>
+            </tr>
+          </thead>
+          <tbody id="fastingTableBody">
+            <tr><td class="py-2 px-4">جارٍ التحميل...</td><td class="py-2 px-4">--:--</td><td class="py-2 px-4">--:--</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card p-6 text-right text-sm space-y-4 text-white/80 mt-8 fade-section">
+      <h2 class="text-lg text-yellow-400 font-semibold">✨ أدوات رمضان إضافية</h2>
+      <ul class="list-disc list-inside">
+        <li><a href="../ramadan-countdown/index-ar.html" class="underline hover:text-yellow-400">🌙 العد التنازلي لرمضان</a></li>
+        <li><a href="../prayer-times/index-ar.html" class="underline hover:text-yellow-400">📿 مواقيت الصلاة الكاملة</a></li>
+        <li><a href="../hijri-converter/index-ar.html" class="underline hover:text-yellow-400">📆 محول التاريخ الهجري</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="z-10 text-center text-xs text-white/40 py-6 relative z-50">
+    <p class="mb-2">NoorTime.org · نخدم الأمة بمحبة</p>
+    <p class="space-x-4 rtl:space-x-reverse">
+      <a href="../about/index-ar.html" class="hover:text-yellow-400 underline">من نحن</a>
+      <a href="../contact/index-ar.html" class="hover:text-yellow-400 underline">اتصل بنا</a>
+      <a href="../privacy/index-ar.html" class="hover:text-yellow-400 underline">الخصوصية</a>
+      <a href="../terms/index-ar.html" class="hover:text-yellow-400 underline">الشروط</a>
+    </p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mainNav = document.getElementById("mainNav");
+    const backdrop = document.getElementById("mobileBackdrop");
+
+    menuBtn.addEventListener("click", () => {
+      mainNav.classList.toggle("hidden");
+      backdrop.classList.toggle("hidden");
+    });
+    backdrop.addEventListener("click", () => {
+      mainNav.classList.add("hidden");
+      backdrop.classList.add("hidden");
+    });
+
+    const today = new Date();
+    const table = document.getElementById("fastingTableBody");
+    table.innerHTML = "";
+
+    fetch("https://ipapi.co/json")
+      .then(res => res.json())
+      .then(loc => {
+        document.getElementById("location").textContent = `📍 ${loc.city}, ${loc.country_name}`;
+        const lat = loc.latitude;
+        const lon = loc.longitude;
+        const method = 2;
+
+        fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=${method}`)
+          .then(res => res.json())
+          .then(data => {
+            document.getElementById('fajrTime').textContent = data.data.timings.Fajr;
+            document.getElementById('maghribTime').textContent = data.data.timings.Maghrib;
+          });
+
+        for (let i = 0; i < 5; i++) {
+          const dateObj = new Date();
+          dateObj.setDate(today.getDate() + i);
+          const timestamp = Math.floor(dateObj.getTime() / 1000);
+
+          fetch(`https://api.aladhan.com/v1/timings/${timestamp}?latitude=${lat}&longitude=${lon}&method=${method}`)
+            .then(res => res.json())
+            .then(data => {
+              const timings = data.data.timings;
+              const readable = data.data.date.readable;
+              const row = document.createElement("tr");
+              row.innerHTML = `
+                <td class="py-2 px-4">${readable}</td>
+                <td class="py-2 px-4">${timings.Fajr}</td>
+                <td class="py-2 px-4">${timings.Maghrib}</td>
+              `;
+              table.appendChild(row);
+            });
+        }
+      })
+      .catch(() => {
+        document.getElementById("location").textContent = "📍 تعذر الحصول على الموقع";
+      });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".fade-section").forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
