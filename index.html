@@ -73,26 +73,27 @@
 
   <!-- HEADER -->
   <header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-50 fade-section">
-    <div class="flex items-center gap-4">
+  <!-- LEFT SIDE: Logo + Arabic on mobile -->
   <div class="flex items-center gap-4">
-  <div class="text-xl font-bold gold">🕌 NoorTime</div>
-  <!-- Language switch on mobile (next to logo) -->
-  <a href="/index-ar.html" class="block md:hidden text-sm hover:text-yellow-400 transition">العربية</a>
-</div>
+    <div class="text-xl font-bold gold">🕌 NoorTime</div>
+    <a href="/index-ar.html" class="block md:hidden text-sm hover:text-yellow-400 transition">العربية</a>
+  </div>
 
-<!-- Language switch on desktop (top right) -->
-<a href="/index-ar.html" class="hidden md:block text-sm hover:text-yellow-400 transition">العربية</a>
-
-
+  <!-- RIGHT SIDE: Arabic on desktop + Burger -->
+  <div class="flex items-center gap-4">
+    <a href="/index-ar.html" class="hidden md:block text-sm hover:text-yellow-400 transition">العربية</a>
     <button class="md:hidden text-white text-2xl" id="menuBtn">☰</button>
-    
-    <nav id="mainNav" class="hidden md:flex flex-col md:flex-row gap-4 md:gap-6 absolute md:static top-full left-0 w-full md:w-auto bg-[#0d1b2a] md:bg-transparent p-6 md:p-0 z-50 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none">
-      <a href="prayer-times/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📿 Prayer Times</a>
-      <a href="hijri-converter/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📆 Hijri Converter</a>
-      <a href="calendar/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🗓 Islamic Calendar</a>
-      <a href="ramadan-countdown/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🌙 Ramadan Countdown</a>
-    </nav>
-  </header>
+  </div>
+
+  <!-- Navigation (burger menu content) -->
+  <nav id="mainNav" class="hidden md:flex flex-col md:flex-row gap-4 md:gap-6 absolute md:static top-full left-0 w-full md:w-auto bg-[#0d1b2a] md:bg-transparent p-6 md:p-0 z-50 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none">
+    <a href="prayer-times/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📿 Prayer Times</a>
+    <a href="hijri-converter/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📆 Hijri Converter</a>
+    <a href="calendar/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🗓 Islamic Calendar</a>
+    <a href="ramadan-countdown/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🌙 Ramadan Countdown</a>
+  </nav>
+</header>
+
 
   <main class="z-10 relative px-4 sm:px-6 py-16 max-w-5xl mx-auto space-y-12 text-center">
     <h1 class="text-4xl sm:text-5xl font-bold gold fade-section">🕌 NoorTime – Your Ultimate Deen Toolkit</h1>
