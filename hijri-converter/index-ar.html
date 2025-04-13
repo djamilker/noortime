@@ -66,9 +66,7 @@
   <main class="z-10 relative px-4 sm:px-6 py-10 max-w-xl mx-auto space-y-10 text-center">
     <h1 class="text-3xl sm:text-4xl font-bold gold">📆 محول التاريخ الهجري والميلادي</h1>
     <h2 class="text-xl font-semibold text-yellow-300">حوّل التواريخ بسهولة ودقة</h2>
-    <p class="text-sm text-white/80 max-w-md mx-auto">
-      هذه الأداة تعتمد على تقويم أم القرى الرسمي لتوفير تحويلات دقيقة بين التواريخ الهجرية والميلادية، وتشمل تواريخ رمضان، وعيد الفطر، والحج، والمزيد.
-    </p>
+    <p class="text-sm text-white/80 max-w-md mx-auto">هذه الأداة تعتمد على تقويم أم القرى الرسمي لتوفير تحويلات دقيقة بين التواريخ الهجرية والميلادية، وتشمل تواريخ رمضان، وعيد الفطر، والحج، والمزيد.</p>
 
     <div class="card p-6 space-y-3">
       <h2 class="text-yellow-300 text-lg font-semibold">📅 من الميلادي إلى الهجري</h2>
@@ -87,6 +85,11 @@
       <button onclick="convertToGregorian()" class="mt-3 px-4 py-2 text-sm rounded bg-yellow-500 text-black hover:bg-yellow-400 transition">تحويل</button>
       <p id="gregorianOutput" class="text-sm text-yellow-200 mt-2"></p>
     </div>
+
+    <div class="card p-6 text-sm text-white/90" id="todayHijriCard">
+      <h2 class="text-lg font-semibold text-yellow-300 mb-2">📆 التاريخ الهجري اليوم</h2>
+      <p id="todayHijriSentence">جاري تحميل التاريخ...</p>
+    </div>
   </main>
 
   <footer class="z-10 text-center text-xs text-white/40 py-6 relative z-50">
@@ -102,15 +105,9 @@
   <script src="../scripts/hijri-lookup.js"></script>
   <script>
     const reverseLookup = {};
-    for (const [g, h] of Object.entries(lookup)) {
-      reverseLookup[h] = g;
-    }
+    for (const [g, h] of Object.entries(lookup)) reverseLookup[h] = g;
 
-    const hijriMonths = [
-      "محرم", "صفر", "ربيع الأول", "ربيع الآخر",
-      "جمادى الأولى", "جمادى الآخرة", "رجب", "شعبان",
-      "رمضان", "شوال", "ذو القعدة", "ذو الحجة"
-    ];
+    const hijriMonths = ["محرم", "صفر", "ربيع الأول", "ربيع الآخر", "جمادى الأولى", "جمادى الآخرة", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة"];
     const yearSelect = document.getElementById("hijriYear");
     const monthSelect = document.getElementById("hijriMonth");
     const daySelect = document.getElementById("hijriDay");
@@ -140,6 +137,23 @@
       } else {
         out.textContent = "لم يتم العثور على هذا التاريخ ضمن النطاق.";
       }
+    }
+
+    // Hijri today sentence
+    const sentenceEl = document.getElementById("todayHijriSentence");
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const todayKey = `${yyyy}-${mm}-${dd}`;
+    const gDateFormatted = today.toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' });
+
+    if (lookup[todayKey]) {
+      const [hyy, hmm, hdd] = lookup[todayKey].split("-");
+      const hFormatted = `${parseInt(hdd)} ${hijriMonths[parseInt(hmm) - 1]} ${hyy}`;
+      sentenceEl.textContent = `تاريخ اليوم بالهجري هو ${hFormatted}. ويوافق ${gDateFormatted} بالتقويم الميلادي.`;
+    } else {
+      sentenceEl.textContent = "لم نتمكن من جلب التاريخ الهجري لليوم.";
     }
 
     const menuBtn = document.getElementById("menuBtn");
