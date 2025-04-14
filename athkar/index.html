@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morning & Evening Athkar – NoorTime</title>
+
+  <!-- Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQMSGSFF68"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZQMSGSFF68');
+  </script>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Read daily Morning and Evening Athkar with Arabic, transliteration, and English translation. Designed for reflection and remembrance." />
+  <meta name="keywords" content="Morning Athkar, Evening Athkar, Islamic Remembrance, Dhikr, NoorTime, Athkar with translation" />
+  <meta property="og:title" content="Morning & Evening Athkar – NoorTime" />
+  <meta property="og:description" content="Your daily source for spiritual dhikr. Arabic, transliteration, and translation included." />
+  <meta property="og:image" content="https://www.noortime.org/assets/noortime.png" />
+  <meta property="og:url" content="https://www.noortime.org/athkar/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="/assets/noortime.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body { font-family: 'Cairo', sans-serif; }
+    .gold {
+      background: linear-gradient(to right, #d4af37, #fceabb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .fade-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-section.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 1rem;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      background: rgba(255, 255, 255, 0.07);
+      transform: translateY(-5px);
+    }
+    .active-tab {
+      background-color: #facc15;
+      color: #000;
+    }
+  </style>
+</head>
+
+<body class="bg-[#0d1b2a] text-white relative overflow-x-hidden">
+  <div class="absolute inset-0 bg-[#0d1b2a]/80 z-[-1]"></div>
+  <img src="/assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-[-1]" alt="background" />
+
+  <!-- HEADER -->
+  <!-- HEADER -->
+<div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-40 hidden"></div>
+
+<header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-50 fade-section">
+  <!-- Logo + Mobile Language Switch -->
+  <div class="flex items-center gap-4">
+    <a href="/" class="text-xl font-bold gold">🕌 NoorTime</a>
+    <a href="/athkar/index-ar.html" class="block md:hidden text-sm hover:text-yellow-400 transition">العربية</a>
+  </div>
+
+  <!-- Desktop Language Switch + Burger -->
+  <div class="flex items-center gap-4">
+    <a href="/athkar/index-ar.html" class="hidden md:block text-sm hover:text-yellow-400 transition">العربية</a>
+    <button id="menuBtn" class="md:hidden text-white text-2xl focus:outline-none">☰</button>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="mainNav" class="hidden md:flex flex-col md:flex-row gap-4 md:gap-6 absolute md:static top-full left-0 w-full md:w-auto bg-[#0d1b2a] md:bg-transparent p-6 md:p-0 z-50 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none">
+    <a href="/" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🏠 Home</a>
+    <a href="/tools/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🛠 Tools</a>
+    <a href="/blog/" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📝 Blog</a>
+    <a href="/about/index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📖 About</a>
+  </nav>
+</header>
+
+
+  <!-- MAIN -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 relative z-10 space-y-12">
+    <section class="text-center fade-section">
+      <h1 class="text-4xl font-bold gold">🕊 Morning & Evening Athkār</h1>
+      <p class="text-white/70 mt-2 max-w-2xl mx-auto">Start and end your day with remembrance. These Athkār are drawn from authentic sources and designed to bring peace, focus, and connection to Allah ﷻ.</p>
+    </section>
+
+    <!-- TAB SWITCHER -->
+    <div class="flex justify-center space-x-4 mb-6 fade-section">
+      <button id="morningTab" class="tab-btn px-5 py-2 rounded-full border border-yellow-400 text-yellow-300 hover:bg-yellow-300 hover:text-black transition">🌅 Morning</button>
+      <button id="eveningTab" class="tab-btn px-5 py-2 rounded-full border border-yellow-400 text-yellow-300 hover:bg-yellow-300 hover:text-black transition">🌙 Evening</button>
+    </div>
+
+    <!-- ATHKAR CONTENT -->
+    <div id="athkarContent" class="space-y-8 fade-section">
+      <template id="morningTemplate">
+      <!-- 1. Ayat al-Kursi -->
+<div class="card p-6 space-y-3">
+  <h2 class="text-yellow-300 font-semibold text-lg">1. Ayat al-Kursi</h2>
+  <p>
+    اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ
+    مَنْ ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ
+    بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ
+    وَهُوَ الْعَلِيُّ الْعَظِيمُ
+  </p>
+  <p class="text-white/70 text-sm italic">
+    Allāhu lā ilāha illā huwa al-ḥayyul-qayyūm...
+  </p>
+  <p class="text-white/80 text-sm">
+    Allah – there is no deity except Him, the Ever-Living, the Sustainer of [all] existence… (Al-Baqarah: 255)
+  </p>
+</div>
+
+<!-- 2. Sayyid al-Istighfar -->
+<div class="card p-6 space-y-3">
+  <h2 class="text-yellow-300 font-semibold text-lg">2. Sayyid al-Istighfar</h2>
+  <p>
+    اللَّهُمَّ أَنْتَ رَبِّي، لَا إِلَٰهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَىٰ عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ،
+    أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ بِذَنْبِي، فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ
+    الذُّنُوبَ إِلَّا أَنْتَ.
+  </p>
+  <p class="text-white/70 text-sm italic">
+    Allāhumma anta rabbī, lā ilāha illā anta, khalaqtanī wa anā ʿabduka...
+  </p>
+  <p class="text-white/80 text-sm">
+    O Allah, You are my Lord. There is no god but You. You created me and I am Your servant. I uphold Your covenant as best I can...
+  </p>
+</div>
+
+<!-- 3. Duʿā of Prophet Yunus -->
+<div class="card p-6 space-y-3">
+  <h2 class="text-yellow-300 font-semibold text-lg">3. Duʿā of Prophet Yunus</h2>
+  <p>لَا إِلَٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ</p>
+  <p class="text-white/70 text-sm italic">Lā ilāha illā anta subḥānaka innī kuntu minaẓ-ẓālimīn</p>
+  <p class="text-white/80 text-sm">There is no deity but You. Glory be to You. I was indeed among the wrongdoers.</p>
+</div>
+
+<!-- 4. Protection from Harm -->
+<div class="card p-6 space-y-3">
+  <h2 class="text-yellow-300 font-semibold text-lg">4. Protection from Harm</h2>
+  <p>بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</p>
+  <p class="text-white/70 text-sm italic">Bismillāhilladhī lā yaḍurru maʿasmihi shay’un fī al-arḍi wa lā fī as-samāʾ wa huwa as-samīʿul-ʿalīm</p>
+  <p class="text-white/80 text-sm">In the Name of Allah, with whose Name nothing can harm on earth or in the heavens. He is the All-Hearing, All-Knowing.</p>
+</div>
+
+<!-- 5. Morning Gratitude -->
+<div class="card p-6 space-y-3">
+  <h2 class="text-yellow-300 font-semibold text-lg">5. Morning Gratitude</h2>
+  <p>أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَٰهَ إِلَّا اللَّهُ، وَحْدَهُ لَا شَرِيكَ لَهُ...</p>
+  <p class="text-white/70 text-sm italic">Aṣbaḥnā wa aṣbaḥa al-mulku lillāh, wa al-ḥamdu lillāh, lā ilāha illā Allāh, waḥdahu lā sharīka lah...</p>
+  <p class="text-white/80 text-sm">We have entered a new morning and so has the entire kingdom, all belongs to Allah...</p>
+</div>
+
+<!-- 6. Asking for Well-being -->
+<div class="card p-6 space-y-3">
+  <h2 class="text-yellow-300 font-semibold text-lg">6. Asking for Well-being</h2>
+  <p>اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ</p>
+  <p class="text-white/70 text-sm italic">Allāhumma innī asʾalukal-ʿafwa wal-ʿāfiyata fī al-dunyā wal-ākhirah</p>
+  <p class="text-white/80 text-sm">O Allah, I ask You for forgiveness and well-being in this world and in the Hereafter.</p>
+</div>
+
+<!-- 7. Asking for Guidance -->
+<div class="card p-6 space-y-3">
+  <h2 class="text-yellow-300 font-semibold text-lg">7. Asking for Guidance</h2>
+  <p>اللَّهُمَّ اهْدِنِي، وَسَدِّدْنِي، وَقَوِّنِي</p>
+  <p class="text-white/70 text-sm italic">Allāhumma ihdinī, wa saddidnī, wa qawwinī</p>
+  <p class="text-white/80 text-sm">O Allah, guide me, make me firm, and strengthen me.</p>
+</div>
+
+<!-- 8. Hasbiyallāh -->
+<div class="card p-6 space-y-3">
+  <h2 class="text-yellow-300 font-semibold text-lg">8. Hasbiyallāh</h2>
+  <p>حَسْبِيَ اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ، عَلَيْهِ تَوَكَّلْتُ، وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</p>
+  <p class="text-white/70 text-sm italic">Ḥasbiyallāhu lā ilāha illā huwa, ʿalayhi tawakkaltu wa huwa rabbul-ʿarshil-ʿaẓīm</p>
+  <p class="text-white/80 text-sm">Allah is sufficient for me, there is no god but Him. I trust in Him and He is the Lord of the Mighty Throne.</p>
+</div>
+
+<!-- 9. Duʿā for Light -->
+<div class="card p-6 space-y-3">
+  <h2 class="text-yellow-300 font-semibold text-lg">9. Duʿā for Light</h2>
+  <p>اللَّهُمَّ اجْعَلْ فِي قَلْبِي نُورًا، وَفِي لِسَانِي نُورًا، وَفِي سَمْعِي نُورًا، وَفِي بَصَرِي نُورًا...</p>
+  <p class="text-white/70 text-sm italic">Allāhumma ijʿal fī qalbī nūran, wa fī lisānī nūran, wa fī samʿī nūran, wa fī baṣarī nūran...</p>
+  <p class="text-white/80 text-sm">O Allah, place light in my heart, in my tongue, in my hearing, and in my sight...</p>
+</div>
+
+<!-- 10. Declaration of Faith -->
+<div class="card p-6 space-y-3">
+  <h2 class="text-yellow-300 font-semibold text-lg">10. Declaration of Faith</h2>
+  <p>رَضِيتُ بِاللَّهِ رَبًّا، وَبِالإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا</p>
+  <p class="text-white/70 text-sm italic">Raḍītu billāhi rabbā, wabil-islāmi dīnā, wabimuḥammadin ṣallallāhu ʿalayhi wa sallama nabiyyā</p>
+  <p class="text-white/80 text-sm">I am pleased with Allah as my Lord, with Islam as my religion, and with Muhammad ﷺ as my Prophet.</p>
+</div>
+
+    </template>
+
+    <template id="eveningTemplate">
+      <div class="space-y-6">
+        <div class="card p-6 space-y-3">
+          <h2 class="text-yellow-300 font-semibold text-lg">1. Say 3x: “A‘ūdhu bi-kalimāti-llāhi at-tāmmāti...”</h2>
+          <p class="text-lg">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p>
+          <p class="text-white/70 text-sm italic">A‘ūdhu bi-kalimāti-llāhi at-tāmmāti min sharri mā khalaq</p>
+          <p class="text-white/80 text-sm">I seek refuge in the perfect words of Allah from the evil of what He has created. (3x)</p>
+          <button onclick="copyToClipboard(this)" class="text-xs text-yellow-300 hover:text-yellow-200 mt-2">📋 Copy</button>
+        </div>
+
+        <div class="card p-6 space-y-3">
+          <h2 class="text-yellow-300 font-semibold text-lg">2. Last 2 verses of Surah Al-Baqarah</h2>
+          <p class="text-lg">آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ... – البقرة: 285-286</p>
+          <p class="text-white/70 text-sm italic">Āmana-r-rasūlu bimā unzila ilayhi...</p>
+          <p class="text-white/80 text-sm">The Messenger has believed in what was revealed to him… (Surah Al-Baqarah 2:285–286)</p>
+          <button onclick="copyToClipboard(this)" class="text-xs text-yellow-300 hover:text-yellow-200 mt-2">📋 Copy</button>
+        </div>
+      </div>
+    </template>
+ </main>
+  <!-- FOOTER -->
+<footer class="mt-20 text-center text-xs text-white/40 py-6 fade-section">
+  <p class="mb-2">NoorTime.org · Serving the Ummah with Love</p>
+  <p class="space-x-4">
+    <a href="/about/index.html" class="hover:text-yellow-400 underline">About</a>
+    <a href="/contact/index.html" class="hover:text-yellow-400 underline">Contact</a>
+    <a href="/privacy/index.html" class="hover:text-yellow-400 underline">Privacy</a>
+    <a href="/terms/index.html" class="hover:text-yellow-400 underline">Terms</a>
+  </p>
+</footer>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const content = document.getElementById('athkarContent');
+    const morning = document.getElementById('morningTemplate').content.cloneNode(true);
+    const evening = document.getElementById('eveningTemplate').content.cloneNode(true);
+
+    function switchTab(tabName) {
+      content.innerHTML = '';
+      if (tabName === 'morning') {
+        content.appendChild(morning.cloneNode(true));
+      } else {
+        content.appendChild(evening.cloneNode(true));
+      }
+      tabs.forEach(btn => btn.classList.remove('active-tab'));
+      document.getElementById(tabName + 'Tab').classList.add('active-tab');
+    }
+
+    document.getElementById('morningTab').addEventListener('click', () => switchTab('morning'));
+    document.getElementById('eveningTab').addEventListener('click', () => switchTab('evening'));
+    switchTab('morning');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-section').forEach(el => observer.observe(el));
+
+    function copyToClipboard(btn) {
+      const text = btn.previousElementSibling.previousElementSibling.previousElementSibling.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = "✅ Copied";
+        setTimeout(() => btn.textContent = "📋 Copy", 1500);
+      });
+    }
+  </script>
+
+<!-- Burger Menu Script -->
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const mainNav = document.getElementById("mainNav");
+  const backdrop = document.getElementById("mobileBackdrop");
+
+  menuBtn.addEventListener("click", () => {
+    mainNav.classList.toggle("hidden");
+    backdrop.classList.toggle("hidden");
+  });
+
+  backdrop.addEventListener("click", () => {
+    mainNav.classList.add("hidden");
+    backdrop.classList.add("hidden");
+  });
+
+  mainNav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mainNav.classList.add("hidden");
+      backdrop.classList.add("hidden");
+    });
+  });
+</script>
+</body>
+</html>
+
