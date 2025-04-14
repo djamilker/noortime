@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Islamic Blog – NoorTime</title>
-  
-    <!-- Google tag (gtag.js) -->
+
+   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQMSGSFF68"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -42,6 +42,18 @@
       opacity: 1;
       transform: none;
     }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 1rem;
+      transition: all 0.3s ease;
+    }
+    .glass-card:hover {
+      background: rgba(255, 255, 255, 0.07);
+      transform: translateY(-5px);
+    }
   </style>
 </head>
 <body class="bg-[#0d1b2a] text-white relative overflow-x-hidden">
@@ -75,21 +87,21 @@
     </section>
 
     <div class="space-y-10 fade-section">
-      <article class="bg-white/5 border border-white/10 p-6 rounded-xl hover:bg-white/10 transition">
+      <article class="glass-card p-6">
         <a href="/blog/morning-routine.html">
           <h2 class="text-2xl text-yellow-300 font-semibold">How to Start Your Day with a Spiritually Grounded Morning Routine ☀️</h2>
           <p class="mt-2 text-white/70">A practical guide to integrating dhikr, prayer, and intention into your mornings for a more focused and barakah-filled day.</p>
         </a>
       </article>
 
-      <article class="bg-white/5 border border-white/10 p-6 rounded-xl hover:bg-white/10 transition">
+      <article class="glass-card p-6">
         <a href="/blog/best-dhikr-daily.html">
           <h2 class="text-2xl text-yellow-300 font-semibold">10 Most Powerful Daily Dhikr Every Muslim Should Know 🔁</h2>
           <p class="mt-2 text-white/70">From morning to night, explore the most authentic and spiritually uplifting dhikr to keep your heart connected to Allah throughout your day.</p>
         </a>
       </article>
 
-      <article class="bg-white/5 border border-white/10 p-6 rounded-xl hover:bg-white/10 transition">
+      <article class="glass-card p-6">
         <a href="/blog/hijri-difference.html">
           <h2 class="text-2xl text-yellow-300 font-semibold">Hijri vs Umm al-Qura Calendar – What’s the Difference? 📅</h2>
           <p class="mt-2 text-white/70">A simple explanation of the two main Islamic calendars, their uses, accuracy, and how to know which one to follow.</p>
