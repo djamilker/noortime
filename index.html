@@ -16,10 +16,7 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/noortime.png" />
-  <!-- Social Media Preview Icon -->
   <meta property="og:image" content="https://www.noortime.org/assets/noortime.png" />
-
-  <!-- Arabic SEO alternate -->
   <link rel="alternate" href="https://www.noortime.org/index-ar.html" hreflang="ar" />
 
   <meta name="description" content="NoorTime offers Islamic tools including a daily Quran verse, prayer times, Hijri-Gregorian converter, Islamic calendar, and more. Accurate, beautiful, and built for Muslims.">
@@ -66,8 +63,6 @@
 </head>
 <body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
   <img src="./assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none" alt="background" />
-
-  <!-- Mobile Menu Backdrop -->
   <div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-40 hidden"></div>
 
   <!-- HEADER -->
@@ -88,14 +83,14 @@
     </nav>
   </header>
 
-  <main class="z-10 relative px-4 sm:px-6 py-16 max-w-5xl mx-auto space-y-12 text-center">
+  <main class="z-10 relative px-4 sm:px-6 pt-8 pb-16 max-w-5xl mx-auto space-y-12 text-center">
+    <h1 class="text-4xl sm:text-5xl font-bold gold fade-section">🕌 NoorTime – Your Ultimate Deen Toolkit</h1>
+    <p class="text-white/70 text-lg max-w-2xl mx-auto fade-section">Start your day with a powerful verse from the Quran and explore essential Islamic tools made for everyday Muslim life.</p>
+
     <div class="card p-6 fade-section">
       <h2 class="text-lg font-semibold text-yellow-400 mb-2">📖 Today’s Quran Verse</h2>
       <blockquote id="quranVerse" class="text-white/80 text-sm italic leading-relaxed">Loading verse...</blockquote>
     </div>
-
-    <h1 class="text-4xl sm:text-5xl font-bold gold fade-section">🕌 NoorTime – Your Ultimate Deen Toolkit</h1>
-    <p class="text-white/70 text-lg max-w-2xl mx-auto fade-section">Explore essential Islamic tools like prayer times, Hijri converter, and more — beautifully designed for your daily use.</p>
 
     <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-left text-white/90 fade-section">
       <a href="prayer-times/index.html" class="card p-6 hover:shadow-lg transition">
@@ -112,8 +107,10 @@
       </a>
     </section>
 
-    <a href="tools/index.html" class="inline-block mt-6 text-yellow-300 hover:underline text-sm">🔗 View all tools →</a>
-    <a href="athkar/index.html" class="block mt-2 text-white/60 hover:text-yellow-200 text-xs">🕊 New: Morning & Evening Athkār</a>
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 fade-section">
+      <a href="tools/index.html" class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition">🔗 View All Tools</a>
+      <a href="athkar/index.html" class="bg-white/10 text-yellow-300 px-6 py-2 rounded-full font-medium border border-yellow-300 hover:bg-yellow-300 hover:text-black transition">🕊 New: Morning & Evening Athkār</a>
+    </div>
 
     <div class="card p-6 mt-10 text-left text-sm text-white/80 fade-section">
       <h2 class="text-lg text-yellow-400 font-semibold mb-2">Why Use NoorTime?</h2>
