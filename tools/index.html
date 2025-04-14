@@ -45,7 +45,11 @@
 </head>
 
 <body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
-  <img src="/assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none" alt="background" />
+  <!-- ✅ Overlay to prevent transparency issue -->
+  <div class="absolute inset-0 bg-[#0d1b2a]/80 z-0"></div>
+
+  <!-- ✅ Background image pushed behind overlay -->
+  <img src="/assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-[-1] pointer-events-none" alt="background" />
   <div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-40 hidden"></div>
 
   <!-- HEADER -->
@@ -64,7 +68,7 @@
     </nav>
   </header>
 
-  <main class="max-w-6xl mx-auto pt-16 pb-24 px-4 sm:px-6 space-y-20">
+  <main class="max-w-6xl mx-auto pt-16 pb-24 px-4 sm:px-6 space-y-20 relative z-10">
     <section class="text-center space-y-3">
       <h1 class="text-4xl sm:text-5xl font-bold text-yellow-300">🛠 NoorTime Tools</h1>
       <p class="text-white/70 text-lg max-w-xl mx-auto">All the essential Islamic tools you need — free, accurate, and beautifully designed for Muslims around the world.</p>
