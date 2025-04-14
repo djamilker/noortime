@@ -46,17 +46,19 @@
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(255, 255, 255, 0.08);
     }
-    .fade-section {
-  visibility: hidden;
+   .fade-section {
   transform: translateY(40px);
-  transition: transform 0.9s ease-out, visibility 0s linear 0.9s;
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.9s ease-out, opacity 0.9s ease-out;
 }
 
 .fade-section.visible {
-  visibility: visible;
   transform: none;
-  transition-delay: 0s;
+  opacity: 1;
+  visibility: visible;
 }
+
   </style>
 </head>
 
