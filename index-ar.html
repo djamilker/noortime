@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>نور تايم – أدوات إسلامية: مواقيت الصلاة، محول التاريخ الهجري، تقويم رمضان</title>
-  
+
   <!-- Google tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQMSGSFF68"></script>
   <script>
@@ -18,7 +18,6 @@
   <meta property="og:image" content="https://www.noortime.org/assets/noortime.png" />
   <link rel="alternate" href="https://www.noortime.org/index.html" hreflang="en" />
 
-  
   <meta name="description" content="نور تايم يقدم أدوات إسلامية تشمل مواقيت الصلاة، محول التاريخ الهجري، التقويم الإسلامي، وعدّ تنازلي لرمضان. بسيطة ودقيقة ومجانية للمسلمين.">
   <meta name="keywords" content="مواقيت الصلاة, محول هجري ميلادي, التقويم الإسلامي, عد تنازلي رمضان, آية قرآنية, أدوات إسلامية">
   <meta name="robots" content="index, follow">
@@ -29,6 +28,7 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+
   <style>
     body { font-family: 'Cairo', sans-serif; }
     .gold {
@@ -63,38 +63,35 @@
 
 <body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
   <img src="./assets/hero-bg.jpg" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none" alt="background" />
-
   <div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-40 hidden"></div>
 
   <!-- HEADER -->
   <header class="w-full max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-50 fade-section">
-  <!-- Right side: logo + English switcher (on mobile) -->
-  <div class="flex items-center gap-4">
-    <div class="text-xl font-bold gold">🕌 نور تايم</div>
-    <a href="/index.html" class="block md:hidden text-sm hover:text-yellow-400 transition">English</a>
-  </div>
+    <div class="flex items-center gap-4">
+      <div class="text-xl font-bold gold">🕌 نور تايم</div>
+      <a href="/index.html" class="block md:hidden text-sm hover:text-yellow-400 transition">English</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="/index.html" class="hidden md:block text-sm hover:text-yellow-400 transition">English</a>
+      <button class="md:hidden text-white text-2xl" id="menuBtn">☰</button>
+    </div>
+    <nav id="mainNav" class="hidden md:flex flex-col md:flex-row gap-4 md:gap-6 absolute md:static top-full right-0 w-full md:w-auto bg-[#0d1b2a] md:bg-transparent p-6 md:p-0 z-50 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none">
+      <a href="prayer-times/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📿 مواقيت الصلاة</a>
+      <a href="hijri-converter/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📆 محول التاريخ الهجري</a>
+      <a href="ramadan-countdown/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🌙 عدّ تنازلي لرمضان</a>
+      <a href="tools/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🛠 جميع الأدوات</a>
+    </nav>
+  </header>
 
-  <!-- Left side: English switcher (desktop) + burger -->
-  <div class="flex items-center gap-4">
-    <a href="/index.html" class="hidden md:block text-sm hover:text-yellow-400 transition">English</a>
-    <button class="md:hidden text-white text-2xl" id="menuBtn">☰</button>
-  </div>
-
-  <!-- Navigation menu -->
-  <nav id="mainNav" class="hidden md:flex flex-col md:flex-row gap-4 md:gap-6 absolute md:static top-full right-0 w-full md:w-auto bg-[#0d1b2a] md:bg-transparent p-6 md:p-0 z-50 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none">
-    <a href="prayer-times/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📿 مواقيت الصلاة</a>
-    <a href="hijri-converter/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📆 محول التاريخ الهجري</a>
-    <a href="calendar/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🗓 التقويم الإسلامي</a>
-    <a href="ramadan-countdown/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🌙 عدّ تنازلي لرمضان</a>
-  </nav>
-</header>
-
-
-  <main class="z-10 relative px-4 sm:px-6 py-16 max-w-5xl mx-auto space-y-12 text-center">
+  <main class="z-10 relative px-4 sm:px-6 pt-8 pb-16 max-w-5xl mx-auto space-y-12 text-center">
     <h1 class="text-4xl sm:text-5xl font-bold gold fade-section">🕌 نور تايم – أدوات دينك اليومية</h1>
     <p class="text-white/70 text-lg max-w-2xl mx-auto fade-section">ابدأ يومك بآية من القرآن الكريم، واستفد من أدوات إسلامية مثل مواقيت الصلاة، محول التاريخ الهجري، والمزيد.</p>
 
-    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-right text-white/90 fade-section">
+    <div class="card p-6 fade-section">
+      <h2 class="text-lg font-semibold text-yellow-400 mb-2">📖 آية اليوم</h2>
+      <blockquote id="quranVerse" class="text-white/80 text-sm italic leading-relaxed">جارٍ التحميل...</blockquote>
+    </div>
+        <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-right text-white/90 fade-section">
       <a href="prayer-times/index-ar.html" class="card p-6 hover:shadow-lg transition">
         <h2 class="text-lg font-bold text-yellow-300">📿 مواقيت الصلاة</h2>
         <p>اكتشف مواقيت الصلاة حسب مدينتك، معتمدة على تقويم أم القرى الدقيق.</p>
@@ -103,23 +100,15 @@
         <h2 class="text-lg font-bold text-yellow-300">📆 محول هجري ميلادي</h2>
         <p>حوّل التواريخ بين الهجري والميلادي باستخدام تقويم أم القرى بدون اتصال.</p>
       </a>
-      <a href="calendar/index-ar.html" class="card p-6 hover:shadow-lg transition">
-        <h2 class="text-lg font-bold text-yellow-300">🗓 التقويم الإسلامي</h2>
-        <p>اعرض تقويماً شهرياً هجرياً مع أبرز المناسبات الإسلامية خلال العام.</p>
-      </a>
       <a href="ramadan-countdown/index-ar.html" class="card p-6 hover:shadow-lg transition">
         <h2 class="text-lg font-bold text-yellow-300">🌙 عدّ تنازلي لرمضان</h2>
         <p>تابع كم يتبقى من الأيام حتى بداية شهر رمضان المبارك.</p>
       </a>
-      <a href="fasting-times/index-ar.html" class="card p-6 hover:shadow-lg transition">
-    <h2 class="text-lg font-bold text-yellow-300">🕓 أوقات الصيام</h2>
-    <p>اكتشف مواعيد السحور والإفطار لليوم حسب موقعك. دقيق وحديث باستخدام تقويم أم القرى.</p>
-  </a>
     </section>
 
-    <div class="card p-6 mt-10 fade-section">
-      <h2 class="text-lg font-semibold text-yellow-400 mb-2">📖 آية اليوم</h2>
-      <blockquote id="quranVerse" class="text-white/80 text-sm italic leading-relaxed">جارٍ التحميل...</blockquote>
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 fade-section">
+      <a href="tools/index-ar.html" class="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition">🛠 عرض كل الأدوات</a>
+      <a href="athkar/index-ar.html" class="bg-white/10 text-yellow-300 px-6 py-2 rounded-full font-medium border border-yellow-300 hover:bg-yellow-300 hover:text-black transition">🕊 جديد: أذكار الصباح والمساء</a>
     </div>
 
     <div class="card p-6 mt-10 text-right text-sm text-white/80 fade-section">
@@ -133,8 +122,7 @@
       </ul>
     </div>
   </main>
-
-  <footer class="z-10 text-center text-xs text-white/40 py-6 relative z-50">
+    <footer class="z-10 text-center text-xs text-white/40 py-6 relative z-50">
     <p class="mb-2">NoorTime.org · نخدم الأمة بمحبة</p>
     <p class="space-x-4">
       <a href="about/index-ar.html" class="hover:text-yellow-400 underline">من نحن</a>
@@ -150,7 +138,16 @@
       "وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ – الطلاق: 3",
       "فَاذْكُرُونِي أَذْكُرْكُمْ – البقرة: 152",
       "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا – الشرح: 6",
-      "وَوَجَدَكَ ضَالًّا فَهَدَىٰ – الضحى: 7"
+      "وَوَجَدَكَ ضَالًّا فَهَدَىٰ – الضحى: 7",
+      "اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ – النور: 35",
+      "وَقُل رَّبِّ زِدْنِي عِلْمًا – طه: 114",
+      "وَعَسَىٰ أَن تَكْرَهُوا شَيْئًا وَهُوَ خَيْرٌ لَّكُمْ – البقرة: 216",
+      "رَّبِّ اشْرَحْ لِي صَدْرِي – طه: 25",
+      "إِنَّ مَعَ الْعُسْرِ يُسْرًا – الشرح: 6",
+      "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ – البقرة: 153",
+      "وَرَحْمَتِي وَسِعَتْ كُلَّ شَيْءٍ – الأعراف: 156",
+      "إِنَّهُ كَانَ بِكُمْ رَحِيمًا – الحديد: 9",
+      "ادْعُونِي أَسْتَجِبْ لَكُمْ – غافر: 60"
     ];
     const index = new Date().getDate() % verses.length;
     document.getElementById('quranVerse').textContent = verses[index];
@@ -185,3 +182,5 @@
   </script>
 </body>
 </html>
+
+
