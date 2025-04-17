@@ -1,17 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
   <url>
     <loc>https://www.noortime.org/</loc>
   </url>
+
+  <!-- Tools & Pages (English) -->
   <url>
-    <loc>https://www.noortime.org/prayer-times/</loc>
+    <loc>https://www.noortime.org/about/</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/athkar/</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/blog/</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/calendar/</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/contact/</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/fasting-times/</loc>
   </url>
   <url>
     <loc>https://www.noortime.org/hijri-converter/</loc>
   </url>
   <url>
-    <loc>https://www.noortime.org/calendar/</loc>
+    <loc>https://www.noortime.org/islamic-calendar/</loc>
   </url>
+  <url>
+    <loc>https://www.noortime.org/prayer-times/</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/ramadan-countdown/</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/ramadan-times/</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/scripts/</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/terms/</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/tools/</loc>
+  </url>
+
+  <!-- Tools & Pages (Arabic) -->
+  <url>
+    <loc>https://www.noortime.org/about/index-ar.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/athkar/index-ar.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/blog/index-ar.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/calendar/index-ar.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/contact/index-ar.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/fasting-times/index-ar.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/hijri-converter/index-ar.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/islamic-calendar/index-ar.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/prayer-times/index-ar.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/ramadan-countdown/index-ar.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/ramadan-times/index-ar.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/scripts/index-ar.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/terms/index-ar.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/tools/index-ar.html</loc>
+  </url>
+
+  <!-- Blog Posts (English) -->
+  <url>
+    <loc>https://www.noortime.org/blog/best-dhikr-daily.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/blog/hijri-difference.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/blog/morning-routine.html</loc>
+  </url>
+
+  <!-- Blog Posts (Arabic) -->
+  <url>
+    <loc>https://www.noortime.org/blog/best-dhikr-daily-ar.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/blog/hijri-difference-ar.html</loc>
+  </url>
+  <url>
+    <loc>https://www.noortime.org/blog/morning-routine-ar.html</loc>
+  </url>
+
+  <!-- Islamic Calendar: Monthly Pages (1446 AH) -->
   <url>
     <loc>https://www.noortime.org/calendar/1446-01.html</loc>
   </url>
@@ -48,52 +153,5 @@
   <url>
     <loc>https://www.noortime.org/calendar/1446-12.html</loc>
   </url>
-  <url>
-    <loc>https://www.noortime.org/ramadan-countdown/</loc>
-  </url>
-  <url>
-    <loc>https://www.noortime.org/fasting-times/</loc>
-  </url>
-  <url>
-    <loc>https://www.noortime.org/about/</loc>
-  </url>
-  <url>
-    <loc>https://www.noortime.org/contact/</loc>
-  </url>
-  <url>
-    <loc>https://www.noortime.org/privacy/</loc>
-  </url>
-  <url>
-    <loc>https://www.noortime.org/terms/</loc>
-  </url>
-    <url>
-    <loc>https://www.noortime.org/index-ar.html</loc>
-  </url>
-  <url>
-    <loc>https://www.noortime.org/prayer-times/index-ar.html</loc>
-  </url>
-  <url>
-    <loc>https://www.noortime.org/hijri-converter/index-ar.html</loc>
-  </url>
-  <url>
-    <loc>https://www.noortime.org/calendar/index-ar.html</loc>
-  </url>
-  <url>
-    <loc>https://www.noortime.org/ramadan-countdown/index-ar.html</loc>
-  </url>
-  <url>
-    <loc>https://www.noortime.org/fasting-times/index-ar.html</loc>
-  </url>
-  <url>
-    <loc>https://www.noortime.org/about/index-ar.html</loc>
-  </url>
-  <url>
-    <loc>https://www.noortime.org/contact/index-ar.html</loc>
-  </url>
-  <url>
-    <loc>https://www.noortime.org/privacy/index-ar.html</loc>
-  </url>
-  <url>
-    <loc>https://www.noortime.org/terms/index-ar.html</loc>
-  </url>
+
 </urlset>
