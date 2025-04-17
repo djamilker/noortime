@@ -15,8 +15,6 @@
   </script>
 
   <link rel="canonical" href="https://www.noortime.org/prayer-times/" />
-
-  <!-- SEO and Social Media Meta Tags -->
   <meta name="description" content="Check accurate daily prayer times based on your location. NoorTime provides precise timings using Umm al-Qura calculations.">
   <meta name="keywords" content="Prayer times, Salah timings, daily prayers, Islamic prayer times">
   <meta property="og:title" content="NoorTime – Accurate Daily Prayer Times" />
@@ -47,10 +45,7 @@
 </head>
 
 <body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
-  <!-- Background -->
   <img src="../assets/hero-bg.jpg" alt="background" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none" />
-
-  <!-- Mobile Menu Backdrop -->
   <div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-40 hidden"></div>
 
   <!-- HEADER -->
@@ -63,7 +58,6 @@
       <a href="index-ar.html" class="hidden md:block text-sm hover:text-yellow-400 transition">العربية</a>
       <button class="md:hidden text-white text-2xl" id="menuBtn">☰</button>
     </div>
-
     <nav id="mainNav" class="hidden md:flex flex-col md:flex-row gap-4 md:gap-6 absolute md:static top-full left-0 w-full md:w-auto bg-[#0d1b2a] md:bg-transparent p-6 md:p-0 z-50 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none">
       <a href="../index.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🏠 Home</a>
       <a href="index.html" class="block py-2 px-4 rounded hover:bg-white/10 text-yellow-300 underline font-semibold text-lg md:text-sm">📿 Prayer Times</a>
@@ -79,8 +73,108 @@
     <p class="text-sm text-white/80 max-w-md mx-auto italic">"Indeed, prayer has been decreed upon the believers a decree of specified times." <br> <span class="text-xs">(Qur'an 4:103)</span></p>
 
     <!-- Location Info -->
-    <div class="card p-6 space-y-2 text-center">
+    <div class="card p-6 space-y-4 text-center">
       <p id="location" class="text-white text-sm">📍 Detecting location...</p>
+      <input id="cityInput" type="text" placeholder="Enter City" list="cityList" class="bg-white/10 text-white text-sm px-4 py-2 rounded w-full" />
+<datalist id="cityList">
+  <option value="Doha">
+  <option value="Riyadh">
+  <option value="Makkah">
+  <option value="Medina">
+  <option value="Jeddah">
+  <option value="Cairo">
+  <option value="Alexandria">
+  <option value="Casablanca">
+  <option value="Algiers">
+  <option value="Tunis">
+  <option value="Khartoum">
+  <option value="Tripoli">
+  <option value="Amman">
+  <option value="Beirut">
+  <option value="Baghdad">
+  <option value="Damascus">
+  <option value="Istanbul">
+  <option value="Ankara">
+  <option value="Tehran">
+  <option value="Isfahan">
+  <option value="Kuwait City">
+  <option value="Manama">
+  <option value="Muscat">
+  <option value="Doha">
+  <option value="Abu Dhabi">
+  <option value="Dubai">
+  <option value="Sharjah">
+  <option value="Kabul">
+  <option value="Islamabad">
+  <option value="Lahore">
+  <option value="Karachi">
+  <option value="Peshawar">
+  <option value="Dhaka">
+  <option value="Chittagong">
+  <option value="Mumbai">
+  <option value="Delhi">
+  <option value="Hyderabad">
+  <option value="Kolkata">
+  <option value="Bangalore">
+  <option value="Jakarta">
+  <option value="Surabaya">
+  <option value="Bandung">
+  <option value="Kuala Lumpur">
+  <option value="Putrajaya">
+  <option value="Singapore">
+  <option value="Bangkok">
+  <option value="Phnom Penh">
+  <option value="Hanoi">
+  <option value="Ho Chi Minh City">
+  <option value="Beijing">
+  <option value="Shanghai">
+  <option value="Guangzhou">
+  <option value="Tokyo">
+  <option value="Osaka">
+  <option value="Seoul">
+  <option value="Pyongyang">
+  <option value="Moscow">
+  <option value="London">
+  <option value="Paris">
+  <option value="Berlin">
+  <option value="Madrid">
+  <option value="Rome">
+  <option value="Athens">
+  <option value="Amsterdam">
+  <option value="Brussels">
+  <option value="Vienna">
+  <option value="Zurich">
+  <option value="New York">
+  <option value="Los Angeles">
+  <option value="Chicago">
+  <option value="Houston">
+  <option value="Miami">
+  <option value="San Francisco">
+  <option value="Toronto">
+  <option value="Vancouver">
+  <option value="Montreal">
+  <option value="Buenos Aires">
+  <option value="Sao Paulo">
+  <option value="Rio de Janeiro">
+  <option value="Lima">
+  <option value="Bogota">
+  <option value="Caracas">
+  <option value="Mexico City">
+  <option value="Guatemala City">
+  <option value="Havana">
+  <option value="Cape Town">
+  <option value="Johannesburg">
+  <option value="Nairobi">
+  <option value="Lagos">
+  <option value="Accra">
+  <option value="Kampala">
+  <option value="Addis Ababa">
+  <option value="Harare">
+  <option value="Dar es Salaam">
+  <option value="Mogadishu">
+</datalist>
+      <input id="countryInput" type="text" placeholder="Enter Country" class="bg-white/10 text-white text-sm px-4 py-2 rounded w-full" />
+      <button id="searchBtn" class="bg-yellow-400 text-black font-semibold px-4 py-2 rounded hover:bg-yellow-300 transition w-full">🔍 Get Times</button>
       <p id="date" class="text-white text-sm">📅 Loading date...</p>
     </div>
 
@@ -96,12 +190,10 @@
       </div>
     </div>
 
-    <!-- SEO Content Section -->
+    <!-- About Section -->
     <section class="card p-6 text-left space-y-4">
       <h2 class="text-lg font-semibold text-yellow-300">📚 About NoorTime Prayer Times</h2>
-      <p class="text-sm text-white/80">
-        NoorTime provides precise prayer timings calculated using the trusted Umm al-Qura method.
-      </p>
+      <p class="text-sm text-white/80">NoorTime provides precise prayer timings calculated using the trusted Umm al-Qura method.</p>
       <h3 class="text-md font-semibold text-yellow-300">✨ Explore More Tools</h3>
       <ul class="list-disc list-inside text-sm text-white/80 space-y-1">
         <li><a href="../hijri-converter/index.html" class="underline hover:text-yellow-400">Hijri ↔ Gregorian Converter</a></li>
@@ -127,25 +219,58 @@
     const today = new Date();
     document.getElementById('date').textContent = `📅 ${today.toDateString()}`;
 
-    fetch('https://ipapi.co/json')
-      .then(res => res.json())
-      .then(loc => {
-        document.getElementById('location').textContent = `📍 ${loc.city}, ${loc.country_name}`;
-        return fetch(`https://api.aladhan.com/v1/timings?latitude=${loc.latitude}&longitude=${loc.longitude}&method=2`);
-      })
-      .then(res => res.json())
-      .then(data => {
-        const times = data.data.timings;
-        const container = document.getElementById('prayerTimes');
-        container.innerHTML = '';
-        ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'].forEach(name => {
-          container.innerHTML += `<span class="font-medium">${name}</span><span class="text-right">${times[name]}</span>`;
-        });
-      })
-      .catch(() => {
-        document.getElementById('location').textContent = '📍 Location unavailable';
-      });
+    const locationText = document.getElementById('location');
+    const prayerContainer = document.getElementById('prayerTimes');
+    const cityInput = document.getElementById('cityInput');
+    const countryInput = document.getElementById('countryInput');
+    const searchBtn = document.getElementById('searchBtn');
 
+    function fetchByCity(city, country) {
+      locationText.textContent = `📍 ${city}, ${country}`;
+      fetch(`https://api.aladhan.com/v1/timingsByCity?city=${city}&country=${country}&method=2`)
+        .then(res => res.json())
+        .then(data => {
+          const times = data.data.timings;
+          prayerContainer.innerHTML = '';
+          ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'].forEach(name => {
+            prayerContainer.innerHTML += `<span class="font-medium">${name}</span><span class="text-right">${times[name]}</span>`;
+          });
+        });
+    }
+
+    searchBtn.addEventListener('click', () => {
+      const city = cityInput.value.trim();
+      const country = countryInput.value.trim();
+      if (!city || !country) {
+        alert('Please enter both city and country');
+        return;
+      }
+      fetchByCity(city, country);
+      localStorage.setItem('noortimeCity', city);
+      localStorage.setItem('noortimeCountry', country);
+    });
+
+    // Load saved or auto-detect
+    const savedCity = localStorage.getItem('noortimeCity');
+    const savedCountry = localStorage.getItem('noortimeCountry');
+    if (savedCity && savedCountry) {
+      cityInput.value = savedCity;
+      countryInput.value = savedCountry;
+      fetchByCity(savedCity, savedCountry);
+    } else {
+      fetch('https://ipapi.co/json')
+        .then(res => res.json())
+        .then(loc => {
+          cityInput.value = loc.city;
+          countryInput.value = loc.country_name;
+          fetchByCity(loc.city, loc.country_name);
+        })
+        .catch(() => {
+          locationText.textContent = '📍 Location unavailable';
+        });
+    }
+
+    // Mobile nav
     const menuBtn = document.getElementById("menuBtn");
     const mainNav = document.getElementById("mainNav");
     const backdrop = document.getElementById("mobileBackdrop");
