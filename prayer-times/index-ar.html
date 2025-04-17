@@ -3,27 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>نور تايم – مواقيت الصلاة</title>
+  <title>نور تايم – أوقات الصلاة</title>
 
-  <!-- Google tag -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQMSGSFF68"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-ZQMSGSFF68');
-  </script>
-
-  <!-- SEO and Social Media Meta Tags -->
-  <meta name="description" content="اكتشف مواقيت الصلاة بدقة حسب موقعك الجغرافي. نور تايم يوفر حسابات دقيقة باستخدام طريقة أم القرى.">
-  <meta name="keywords" content="مواقيت الصلاة، أوقات الصلاة، صلاة الفجر، صلاة العصر، مواقيت إسلامية">
-  <meta property="og:title" content="نور تايم – مواقيت الصلاة اليومية بدقة" />
-  <meta property="og:description" content="تعرف على أوقات الصلاة اليومية بسرعة وسهولة حسب موقعك الحالي." />
+  <link rel="canonical" href="https://www.noortime.org/prayer-times/index-ar.html" />
+  <meta name="description" content="تحقق من أوقات الصلاة اليومية الدقيقة حسب موقعك. يوفر نور تايم توقيتات دقيقة باستخدام حسابات أم القرى.">
+  <meta name="keywords" content="أوقات الصلاة، مواقيت الصلاة، صلوات، إسلام، صلاة اليوم">
+  <meta property="og:title" content="نور تايم – أوقات الصلاة الدقيقة" />
+  <meta property="og:description" content="اعرف أوقات الصلاة لهذا اليوم بسهولة ودقة حسب موقعك الحالي." />
   <meta property="og:url" content="https://www.noortime.org/prayer-times/index-ar.html" />
   <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Language Switcher -->
   <link rel="alternate" href="https://www.noortime.org/prayer-times/index.html" hreflang="en" />
+
   <link rel="icon" type="image/png" href="../assets/noortime.png" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
@@ -46,7 +36,7 @@
 </head>
 
 <body class="bg-[#0d1b2a] text-white min-h-screen relative overflow-x-hidden">
-  <img src="../assets/hero-bg.jpg" alt="background" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none" />
+  <img src="../assets/hero-bg.jpg" alt="خلفية" class="absolute inset-0 w-full h-full object-cover opacity-60 z-0 pointer-events-none" />
   <div id="mobileBackdrop" class="fixed inset-0 bg-black/80 z-40 hidden"></div>
 
   <!-- HEADER -->
@@ -60,24 +50,29 @@
       <button class="md:hidden text-white text-2xl" id="menuBtn">☰</button>
     </div>
     <nav id="mainNav" class="hidden md:flex flex-col md:flex-row gap-4 md:gap-6 absolute md:static top-full right-0 w-full md:w-auto bg-[#0d1b2a] md:bg-transparent p-6 md:p-0 z-50 rounded-b-2xl md:rounded-none shadow-xl md:shadow-none">
-      <a href="../index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🏠 الرئيسية</a>
-      <a href="index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 text-yellow-300 underline font-semibold text-lg md:text-sm">📿 مواقيت الصلاة</a>
-      <a href="../hijri-converter/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📆 محول هجري ميلادي</a>
+      <a href="../index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🏠 الصفحة الرئيسية</a>
+      <a href="index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 text-yellow-300 underline font-semibold text-lg md:text-sm">📿 أوقات الصلاة</a>
+      <a href="../hijri-converter/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">📆 محول التاريخ الهجري</a>
       <a href="../calendar/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🗓 التقويم الإسلامي</a>
-      <a href="../ramadan-countdown/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🌙 عدّ تنازلي لرمضان</a>
+      <a href="../ramadan-countdown/index-ar.html" class="block py-2 px-4 rounded hover:bg-white/10 hover:text-yellow-400 text-lg md:text-sm">🌙 عداد رمضان</a>
     </nav>
   </header>
 
   <!-- MAIN -->
   <main class="z-10 relative px-4 sm:px-6 py-10 max-w-xl mx-auto space-y-8 text-center">
-    <h1 class="text-3xl sm:text-4xl font-bold gold">🕋 مواقيت الصلاة</h1>
-    <p class="text-sm text-white/80 max-w-md mx-auto italic">"إِنَّ ٱلصَّلَوٰةَ كَانَتْ عَلَى ٱلْمُؤْمِنِينَ كِتَٰبًۭا مَّوْقُوتًۭا" <br> <span class="text-xs">(النساء: 103)</span></p>
+    <h1 class="text-3xl sm:text-4xl font-bold gold">🕋 أوقات الصلاة</h1>
+    <p class="text-sm text-white/80 max-w-md mx-auto italic">"إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا" <br> <span class="text-xs">(النساء: 103)</span></p>
 
-    <div class="card p-6 space-y-2 text-center">
-      <p id="location" class="text-white text-sm">📍 جاري تحديد الموقع...</p>
-      <p id="date" class="text-white text-sm">📅 جارٍ تحميل التاريخ...</p>
+    <!-- Location Info -->
+    <div class="card p-6 space-y-4 text-center">
+      <p id="location" class="text-white text-sm">📍 يتم تحديد الموقع...</p>
+      <input id="cityInput" type="text" placeholder="أدخل المدينة" class="bg-white/10 text-white text-sm px-4 py-2 rounded w-full" />
+      <input id="countryInput" type="text" placeholder="أدخل الدولة" class="bg-white/10 text-white text-sm px-4 py-2 rounded w-full" />
+      <button id="searchBtn" class="bg-yellow-400 text-black font-semibold px-4 py-2 rounded hover:bg-yellow-300 transition w-full">🔍 عرض الأوقات</button>
+      <p id="date" class="text-white text-sm">📅 يتم تحميل التاريخ...</p>
     </div>
 
+    <!-- Times -->
     <div class="card p-6 space-y-4">
       <h2 class="text-lg font-semibold text-yellow-300 mb-2">🕰️ أوقات اليوم</h2>
       <div id="prayerTimes" class="grid grid-cols-2 gap-y-3 text-sm text-white/90">
@@ -89,15 +84,14 @@
       </div>
     </div>
 
+    <!-- About Section -->
     <section class="card p-6 text-right space-y-4">
-      <h2 class="text-lg font-semibold text-yellow-300">📚 حول مواقيت نور تايم</h2>
-      <p class="text-sm text-white/80">
-        نعتمد في نور تايم على تقويم أم القرى لتوفير أدق مواقيت الصلاة يوميًا حسب موقعك الجغرافي.
-      </p>
-      <h3 class="text-md font-semibold text-yellow-300">✨ أدوات إسلامية أخرى</h3>
-      <ul class="list-disc pr-5 text-sm text-white/80 space-y-1">
-        <li><a href="../hijri-converter/index-ar.html" class="underline hover:text-yellow-400">محول التاريخ الهجري والميلادي</a></li>
-        <li><a href="../ramadan-countdown/index-ar.html" class="underline hover:text-yellow-400">العد التنازلي لرمضان</a></li>
+      <h2 class="text-lg font-semibold text-yellow-300">📚 عن أوقات الصلاة</h2>
+      <p class="text-sm text-white/80">يعتمد NoorTime على طريقة حساب أم القرى لتوفير مواقيت صلاة دقيقة وموثوقة للمسلمين حول العالم.</p>
+      <h3 class="text-md font-semibold text-yellow-300">✨ أدوات أخرى</h3>
+      <ul class="list-disc list-inside text-sm text-white/80 space-y-1">
+        <li><a href="../hijri-converter/index-ar.html" class="underline hover:text-yellow-400">محول التاريخ الهجري ↔ الميلادي</a></li>
+        <li><a href="../ramadan-countdown/index-ar.html" class="underline hover:text-yellow-400">عداد تنازلي لرمضان</a></li>
         <li><a href="../calendar/index-ar.html" class="underline hover:text-yellow-400">التقويم الإسلامي التفاعلي</a></li>
       </ul>
     </section>
@@ -105,8 +99,8 @@
 
   <!-- FOOTER -->
   <footer class="z-10 text-center text-xs text-white/40 py-6 relative z-50">
-    <p class="mb-2">NoorTime.org · نخدم الأمة بمحبة</p>
-    <p class="space-x-4">
+    <p class="mb-2">NoorTime.org · في خدمة الأمة بحُب</p>
+    <p class="space-x-4 space-x-reverse">
       <a href="../about/index-ar.html" class="hover:text-yellow-400 underline">من نحن</a>
       <a href="../contact/index-ar.html" class="hover:text-yellow-400 underline">اتصل بنا</a>
       <a href="../privacy/index-ar.html" class="hover:text-yellow-400 underline">الخصوصية</a>
@@ -117,27 +111,98 @@
   <!-- SCRIPT -->
   <script>
     const today = new Date();
-    document.getElementById('date').textContent = `📅 ${today.toLocaleDateString('ar-EG')}`;
+    document.getElementById('date').textContent = `📅 ${today.toLocaleDateString('ar-EG', {
+      weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+    })}`;
 
-    fetch('https://ipapi.co/json')
-      .then(res => res.json())
-      .then(loc => {
-        document.getElementById('location').textContent = `📍 ${loc.city}, ${loc.country_name}`;
-        return fetch(`https://api.aladhan.com/v1/timings?latitude=${loc.latitude}&longitude=${loc.longitude}&method=2`);
-      })
-      .then(res => res.json())
-      .then(data => {
-        const times = data.data.timings;
-        const container = document.getElementById('prayerTimes');
-        container.innerHTML = '';
-        const map = { Fajr: 'الفجر', Dhuhr: 'الظهر', Asr: 'العصر', Maghrib: 'المغرب', Isha: 'العشاء' };
-        Object.entries(map).forEach(([en, ar]) => {
-          container.innerHTML += `<span class="font-medium">${ar}</span><span class="text-left">${times[en]}</span>`;
+    const cityMap = {
+      "الدوحة": "Doha",
+      "مكة": "Makkah",
+      "المدينة": "Medina",
+      "الرياض": "Riyadh",
+      "جدة": "Jeddah",
+      "القاهرة": "Cairo",
+      "الجزائر": "Algiers",
+      "تونس": "Tunis",
+      "دبي": "Dubai",
+      "إسطنبول": "Istanbul",
+      "بيروت": "Beirut",
+      "بغداد": "Baghdad",
+      "دمشق": "Damascus",
+      "أبو ظبي": "Abu Dhabi",
+      "كوالالمبور": "Kuala Lumpur"
+    };
+
+    const countryMap = {
+      "قطر": "Qatar",
+      "السعودية": "Saudi Arabia",
+      "مصر": "Egypt",
+      "الجزائر": "Algeria",
+      "تونس": "Tunisia",
+      "الإمارات": "United Arab Emirates",
+      "تركيا": "Turkey",
+      "العراق": "Iraq",
+      "سوريا": "Syria",
+      "لبنان": "Lebanon",
+      "ماليزيا": "Malaysia"
+    };
+
+    const locationText = document.getElementById('location');
+    const prayerContainer = document.getElementById('prayerTimes');
+    const cityInput = document.getElementById('cityInput');
+    const countryInput = document.getElementById('countryInput');
+    const searchBtn = document.getElementById('searchBtn');
+
+    function fetchByCity(city, country) {
+      const apiCity = cityMap[city] || city;
+      const apiCountry = countryMap[country] || country;
+      locationText.textContent = `📍 ${city}, ${country}`;
+
+      fetch(`https://api.aladhan.com/v1/timingsByCity?city=${apiCity}&country=${apiCountry}&method=2`)
+        .then(res => res.json())
+        .then(data => {
+          const times = data.data.timings;
+          const labels = { Fajr: "الفجر", Dhuhr: "الظهر", Asr: "العصر", Maghrib: "المغرب", Isha: "العشاء" };
+          prayerContainer.innerHTML = '';
+          for (const key in labels) {
+            prayerContainer.innerHTML += `<span class="font-medium">${labels[key]}</span><span class="text-right">${times[key]}</span>`;
+          }
+        })
+        .catch(() => {
+          locationText.textContent = "❌ تعذر جلب أوقات الصلاة.";
         });
-      })
-      .catch(() => {
-        document.getElementById('location').textContent = '📍 تعذر تحديد الموقع';
-      });
+    }
+
+    searchBtn.addEventListener('click', () => {
+      const city = cityInput.value.trim();
+      const country = countryInput.value.trim();
+      if (!city || !country) {
+        alert('يرجى إدخال اسم المدينة والدولة');
+        return;
+      }
+      fetchByCity(city, country);
+      localStorage.setItem('noortimeCity', city);
+      localStorage.setItem('noortimeCountry', country);
+    });
+
+    const savedCity = localStorage.getItem('noortimeCity');
+    const savedCountry = localStorage.getItem('noortimeCountry');
+    if (savedCity && savedCountry) {
+      cityInput.value = savedCity;
+      countryInput.value = savedCountry;
+      fetchByCity(savedCity, savedCountry);
+    } else {
+      fetch('https://ipapi.co/json')
+        .then(res => res.json())
+        .then(loc => {
+          cityInput.value = loc.city;
+          countryInput.value = loc.country_name;
+          fetchByCity(loc.city, loc.country_name);
+        })
+        .catch(() => {
+          locationText.textContent = '📍 تعذر تحديد الموقع';
+        });
+    }
 
     const menuBtn = document.getElementById("menuBtn");
     const mainNav = document.getElementById("mainNav");
@@ -155,4 +220,3 @@
   </script>
 </body>
 </html>
-
